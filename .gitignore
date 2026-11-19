@@ -1,0 +1,41 @@
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+backend/target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Salida compilada del frontend
+backend/src/main/resources/static/
+
+# Node / TypeScript
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Oracle
+*.dmp
+*.trc
+*.log
+
+# LaTeX (auxiliares)
+docs/latex/*.aux
+docs/latex/*.toc
+docs/latex/*.lof
+docs/latex/*.lot
+docs/latex/*.out
+docs/latex/*.fls
+docs/latex/*.fdb_latexmk
+docs/latex/*.synctex.gz
+
+# Editores y sistema operativo
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

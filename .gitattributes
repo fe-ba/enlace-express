@@ -1,0 +1,19 @@
+# Texto con LF en el repositorio (los scripts corren en contenedores Linux)
+* text=auto eol=lf
+
+# Scripts propios de Windows
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binarios
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.pdf  binary
+*.jar  binary
+*.zip  binary
+*.dmp  binary
+
+# No contar la documentación en las estadísticas de GitHub
+docs/** linguist-documentation
