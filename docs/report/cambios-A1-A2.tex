@@ -1,0 +1,148 @@
+%======================================================================
+%  Cambios al documento por las decisiones A1 y A2, y ajustes de
+%  coherencia con el prototipo construido.
+%
+%  Cada bloque trae, en comentarios, el capítulo y la sección donde va,
+%  el párrafo que reemplaza y el motivo. Se copia el texto que sigue al
+%  comentario en el lugar indicado del proyecto LaTeX.
+%======================================================================
+
+
+%----------------------------------------------------------------------
+%  CAMBIO 1 (decisión A1)
+%  Capítulo 3, sección "Alcances Proyecto de BD".
+%  Reemplaza el párrafo completo que empieza "El proyecto comprende el
+%  análisis de toda la empresa...".
+%  Motivo: el párrafo original dice que no se desarrollan las
+%  aplicaciones de los usuarios. El prototipo incluye una aplicación web
+%  mínima que demuestra los casos de uso del módulo; solo las
+%  aplicaciones completas (por ejemplo, la móvil con funcionamiento sin
+%  conexión) quedan fuera del alcance.
+%----------------------------------------------------------------------
+
+El proyecto comprende el análisis de toda la empresa, su diseño
+conceptual global y, para el módulo priorizado, el diseño lógico, el
+diseño físico y un prototipo funcional con tablas, restricciones,
+consultas e informes, acompañado de una aplicación web mínima. Los demás
+módulos conservan su análisis y su diseño conceptual
+(anexos~\ref{anx:analisis} y~\ref{anx:global}) para implementarse
+después. La aplicación web demuestra los casos de uso del módulo sobre la
+base de datos: es una sola aplicación, con una sección para cada grupo de
+usuarios (mesa de servicio, centro de distribución, mensajeros,
+gerencia y clientes) y un portal público de rastreo por número de guía, y
+se conecta a la base de datos mediante JDBC. Con ella el proyecto
+integra la base de datos a una aplicación y diseña una aplicación
+soportada en un motor relacional, dos propósitos del programa del curso.
+Las aplicaciones completas, como la aplicación móvil del mensajero con
+funcionamiento sin conexión, quedan fuera del alcance.
+
+
+%----------------------------------------------------------------------
+%  CAMBIO 2 (decisión A2)
+%  Capítulo 5, sección "Conversión del Diseño Lógico al Diseño Físico",
+%  subsección "Modelo Relacional al Modelo Computacional (DBMS)".
+%  Reemplaza el párrafo completo "Usuarios, roles y permisos" (empieza
+%  "\textbf{Usuarios, roles y permisos.} Cada grupo de usuarios del
+%  módulo tiene un rol...").
+%  Motivo: el párrafo original dice que los usuarios internos tienen una
+%  cuenta propia en la base de datos. Ahora el servidor de aplicaciones
+%  se conecta con una cuenta de servicio por rol y fija en cada conexión
+%  el usuario real como identificador de cliente de la sesión de Oracle.
+%  Se conserva lo demás: roles y permisos, RN16, esquema propietario y
+%  tareas del administrador.
+%----------------------------------------------------------------------
+
+\textbf{Usuarios, roles y permisos.} Cada grupo de usuarios del módulo
+tiene un rol con los permisos de la tabla~\ref{tab:permisos} traducidos a
+privilegios: crear es insertar, actualizar es modificar y leer es
+consultar. Ningún rol tiene permiso de borrar (RN16). Las tablas
+pertenecen a un esquema propietario, BD\_ENLACE\_EXPRESS, con el que no
+trabaja ningún usuario. El administrador de la base de datos crea los objetos,
+carga los catálogos y, mientras se integran los módulos M2 a M4,
+registra y actualiza los datos de referencia (clientes, sedes,
+vehículos y empleados) a solicitud de las áreas dueñas
+(tabla~\ref{tab:interfaces}). Los usuarios no tienen una cuenta propia
+en la base de datos. El servidor de aplicaciones se conecta con una
+cuenta de servicio por rol (cinco cuentas, como svc\_mesa y svc\_centro,
+cada una con solo su rol) y elige la cuenta según el rol del usuario que
+inició sesión en la aplicación; las consultas públicas del portal, que se
+hacen antes de iniciar sesión, usan la cuenta de menor privilegio, la del
+rol cliente. En cada conexión, el servidor fija además el identificador
+de cliente de la sesión de Oracle con el usuario real, de modo que la
+base de datos sabe quién hizo cada operación y puede auditarla. Así no
+hay que crear ni administrar en la base de datos una cuenta por cada
+empleado y cliente: el control por usuario lo hace la aplicación (por
+ejemplo, el mensajero solo ve sus despachos y el cliente solo sus
+envíos), y Oracle sigue limitando, mediante la cuenta de servicio, lo que
+cada rol puede hacer.
+
+
+%======================================================================
+%  AJUSTES DE COHERENCIA CON EL PROTOTIPO CONSTRUIDO
+%======================================================================
+
+%----------------------------------------------------------------------
+%  CAMBIO 3
+%  Capítulo 6, introducción (antes de la sección "Algebra relacional de
+%  consultas MySQL").
+%  Reemplaza el párrafo que empieza "Este capítulo define cómo se usará
+%  la base de datos del módulo...".
+%  Motivo: dice que del prototipo solo se define la arquitectura y que su
+%  construcción se desarrollará en la siguiente entrega. Ahora el
+%  capítulo incluye la construcción del prototipo, la creación de la base
+%  de datos y los resultados.
+%----------------------------------------------------------------------
+
+Este capítulo define cómo se usará la base de datos del módulo de
+operación de envíos: expresa en álgebra relacional y en SQL las
+consultas que necesitan sus usuarios, y especifica las tablas,
+relaciones, transacciones e informes. Luego presenta el prototipo
+funcional (sección~\ref{sec:prototipo}): su arquitectura, la creación de
+la base de datos del módulo en el gestor, los datos de prueba, los
+resultados de las consultas, las transacciones y los informes, y la
+aplicación web que demuestra los casos de uso.
+
+
+%----------------------------------------------------------------------
+%  CAMBIO 4
+%  Capítulo 6, sección "Prototipo funcional de la Base de Datos",
+%  subsección "Arquitectura del prototipo" (último párrafo de la
+%  subsección, después de la mención de ORDS).
+%  Reemplaza el párrafo que empieza "El resto del prototipo se
+%  desarrollará en la siguiente entrega...".
+%  Motivo: la construcción ya no queda para otra entrega; el párrafo
+%  pasa a ser el puente hacia las subsecciones siguientes del prototipo
+%  (si la sección 6.3 nueva ya abre con su propia introducción, este
+%  párrafo puede eliminarse).
+%----------------------------------------------------------------------
+
+Las subsecciones siguientes construyen el prototipo con esta
+arquitectura: se crea la base de datos del módulo en el gestor, con los
+objetos físicos del capítulo~5; se cargan datos de prueba; y se ejecutan
+las consultas de la sección~\ref{sec:algebra}, las transacciones de la
+tabla~\ref{tab:transacciones} y los informes de la
+tabla~\ref{tab:informes}, y se muestran sus resultados.
+
+
+%----------------------------------------------------------------------
+%  CAMBIO 5 (opcional)
+%  Capítulo 5, subsección "Recursos Hardware, Software, Aplicaciones y
+%  BD, Comunicaciones, Ingeniería Web", párrafo "Aplicaciones y base de
+%  datos".
+%  Reemplaza la última oración del párrafo: "Las aplicaciones completas
+%  no forman parte del alcance del proyecto (sección~\ref{sec:modulo});
+%  el prototipo funcional (sección~\ref{sec:prototipo}) implementa sus
+%  funciones principales sobre la base de datos del módulo."
+%  Motivo: la tabla lista cuatro aplicaciones, y el prototipo las
+%  demuestra en una sola aplicación web con secciones por grupo de
+%  usuarios (decisión A1). La oración original no se contradice, pero
+%  con este ajuste queda explícito. El resto del párrafo ("se conecta con
+%  el rol de ese grupo") sigue siendo cierto con las cuentas de servicio
+%  de A2.
+%----------------------------------------------------------------------
+
+Las aplicaciones completas no forman parte del alcance del proyecto
+(sección~\ref{sec:modulo}); el prototipo funcional
+(sección~\ref{sec:prototipo}) demuestra sus funciones principales sobre
+la base de datos del módulo en una sola aplicación web, con una sección
+para cada grupo de usuarios y el portal público de rastreo.

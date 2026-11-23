@@ -1,0 +1,103 @@
+% Documento mínimo para comprobar que los archivos de docs/report/ compilan.
+% Reproduce las construcciones del documento (paquetes, columnas L{ancho},
+% estilo sqlpro y macros \pk y \fk). Las referencias a etiquetas de otros
+% capítulos salen como ?? porque aquí no existen.
+%
+% Compilar:  cd docs/report/preview && latexmk -pdf prueba.tex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{../}}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{adjustbox}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[hidelinks]{hyperref}
+
+% Columna de párrafo alineado a la izquierda, de ancho fijo
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Clave primaria subrayada y clave foránea en cursiva
+\newcommand{\pk}[1]{\underline{#1}}
+\newcommand{\fk}[1]{\textit{#1}}
+
+% Estilo de los listados SQL: letra monoespaciada pequeña, palabras clave en
+% negrita, marco simple y tildes en UTF-8
+\lstdefinestyle{sqlpro}{
+  language=SQL,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\bfseries,
+  commentstyle=\itshape\color{gray},
+  stringstyle=\ttfamily,
+  frame=single,
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+           {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+           {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {ü}{{\"u}}1,
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\onehalfspacing
+
+\begin{document}
+
+\section{Prueba de construcciones}
+
+Párrafo con referencias a otros capítulos: sección~\ref{sec:modulo},
+tabla~\ref{tab:roles} y figura~\ref{fig:ejemplo}. Una relación se escribe
+CLIENTE(\pk{id\_cliente}, \fk{id\_zona}, nombre). Fórmula en línea:
+$\sigma_{x = 1}(R)$.
+
+{\singlespacing\small
+\begin{longtable}{L{3cm} L{2cm} L{7cm}}
+\caption{Tabla de prueba.}
+\label{tab:prueba}\\
+\toprule
+\textbf{Rol} & \textbf{Usu.} & \textbf{Descripción} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Rol} & \textbf{Usu.} & \textbf{Descripción} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+rol\_mesa & U3 & Registra solicitudes y envíos con tildes: señal, camión, niño. \\
+rol\_cliente & U9 & Consulta el seguimiento de los envíos. \\
+\end{longtable}
+\par}
+
+\begin{enumerate}[itemsep=2pt]
+  \item Primer elemento.
+  \item Segundo elemento.
+\end{enumerate}
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}E \leftarrow \sigma_{\text{numero\_guia} = \text{'EE0000000000003'}}(\text{ENVIO})\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT numero_guia, fecha_compromiso
+FROM   envio
+WHERE  numero_guia = 'EE0000000000003' -- año y señal
+\end{lstlisting}
+
+\section{Sección 6.3 (parte 1)}
+\input{../06-3-prototipo}
+
+\section{Párrafos de cambios-A1-A2.tex}
+\input{../cambios-A1-A2}
+
+\end{document}
