@@ -1,0 +1,19 @@
+{
+  "name": "enlace-express-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Aplicacion web unica de Enlace Express (menu por rol), Vite + TypeScript + Pico CSS",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "@picocss/pico": "2.1.1",
+    "chart.js": "4.6.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vite": "7.3.8"
+  }
+}

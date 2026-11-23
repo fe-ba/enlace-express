@@ -1,0 +1,58 @@
+/* Estilos propios minimos sobre Pico CSS. */
+:root { --color-ok: #1a7f4b; --color-error: #b3261e; --color-aviso: #8a5a00; }
+
+.barra { align-items: center; flex-wrap: wrap; gap: .5rem; }
+.barra ul { flex-wrap: wrap; }
+.marca { text-decoration: none; }
+.usuario small { white-space: nowrap; }
+main { padding-top: 1rem; padding-bottom: 2rem; }
+main:focus { outline: none; }
+.pie { padding-bottom: 2rem; color: var(--pico-muted-color); }
+
+.aviso { padding: .75rem 1rem; margin: 1rem 0; border-left: .35rem solid; }
+.aviso-ok { border-color: var(--color-ok); }
+.aviso-error { border-color: var(--color-error); }
+.vacio { color: var(--pico-muted-color); }
+
+.tabla-ancha { overflow-x: auto; }
+.tabla-ancha:focus-visible { outline: 2px solid var(--pico-primary); }
+td.numero, th.numero { text-align: right; white-space: nowrap; }
+
+.insignia { display: inline-block; padding: .1rem .55rem; border-radius: 1rem; font-size: .8rem; background: var(--pico-muted-border-color); white-space: nowrap; }
+.insignia.ok { background: #d6f0e0; color: #0d4d2b; }
+.insignia.alerta { background: #fde7c4; color: #6b4300; }
+.insignia.peligro { background: #f9d3d0; color: #7a1610; }
+@media (prefers-color-scheme: dark) {
+  .insignia.ok { background: #1c4a31; color: #cdeedd; }
+  .insignia.alerta { background: #5c4010; color: #fbe3b6; }
+  .insignia.peligro { background: #5e1f1b; color: #f8d4d1; }
+}
+
+.linea-tiempo { list-style: none; padding-left: 0; margin: 1rem 0; border-left: 3px solid var(--pico-primary); }
+.linea-tiempo li { display: flex; flex-wrap: wrap; gap: .25rem 1rem; padding: .35rem 0 .35rem 1rem; position: relative; }
+.linea-tiempo li::before { content: ''; position: absolute; left: -.55rem; top: .8rem; width: .75rem; height: .75rem; border-radius: 50%; background: var(--pico-primary); }
+.linea-tiempo .fecha { color: var(--pico-muted-color); }
+.linea-tiempo small { flex-basis: 100%; color: var(--pico-muted-color); }
+
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0 1rem; }
+.acciones { display: flex; flex-wrap: wrap; gap: .5rem; }
+.grafico { position: relative; height: 18rem; max-width: 100%; }
+dl.datos { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; }
+dl.datos dt { font-weight: 600; }
+dl.datos dd { margin: 0; }
+.guia { font-family: ui-monospace, monospace; font-weight: 600; }
+.reglas { color: var(--pico-muted-color); font-size: .9rem; }
+
+/* Mensajero: una columna y botones grandes, pensado para el telefono */
+.movil { max-width: 36rem; margin-inline: auto; }
+.movil button, .movil [role='button'] { width: 100%; padding-block: .9rem; font-size: 1.05rem; }
+.tarjeta-visita { margin-block: 1rem; }
+.tarjeta-visita header { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.tarjeta-visita.especial { border-left: .35rem solid var(--color-aviso); }
+.tarjeta-visita .telefono { display: inline-block; padding-block: .4rem; font-weight: 600; }
+@media (max-width: 36rem) {
+  .barra ul { gap: .25rem; }
+  h1 { font-size: 1.6rem; }
+}
+:focus-visible { outline: 3px solid var(--pico-primary); outline-offset: 2px; }
+.nota-especial { padding: .5rem .75rem; border-left: .35rem solid var(--color-aviso); font-weight: 600; }
