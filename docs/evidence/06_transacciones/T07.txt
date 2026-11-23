@@ -1,0 +1,33 @@
+Transaccion: T07 (T07_registrar_novedad.sql)
+Cuenta:      svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U4
+Reglas:      RN07, RN08, RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T07 | valido | novedad del envio C: DESTINATARIO_AUSENTE, resultado NOVEDAD y evento
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: NOVEDAD / 1>2>3>4>5>7
+RESULTADO|T07|valido|novedad del envio C: DESTINATARIO_AUSENTE, resultado NOVEDAD y evento|COMMIT; medida +3|COMMIT; medida +3|OK
+===== T07 | rechazado | segunda novedad para el mismo intento
+  Antes:   NOVEDAD / 1>2>3>4>5>7
+  Despues: NOVEDAD / 1>2>3>4>5>7
+  Error:   ORA-00001: unique constraint (BD_ENLACE_EXPRESS.NOVEDAD_ASIGNACION_UK) violated on table BD_ENLACE_EXPRESS.NOVEDAD columns (ID_ASIGNACION)
+ORA-03301: (ORA-00001 details) row with column values (ID_ASIGNACION:30) already exists
+RESULTADO|T07|rechazado|segunda novedad para el mismo intento|ORA-00001 (RN08, UNIQUE NOVEDAD_ASIGNACION_UK); ROLLBACK, medida sin cambio|ORA-00001; medida 49 -> 49|OK
+===== T07 | rechazado | resultado NOVEDAD sin la novedad registrada
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: PENDIENTE / 1>2>3>4>5
+  Error:   ORA-20008: RN08: la asignación 27 no puede quedar en NOVEDAD sin la novedad registrada
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO", line 34
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO'
+RESULTADO|T07|rechazado|resultado NOVEDAD sin la novedad registrada|ORA-20008 (RN08); ROLLBACK, medida sin cambio|ORA-20008; medida 49 -> 49|OK
+===== T07 | rechazado | evento CON_NOVEDAD sobre un envio ya ENTREGADO (novedad y resultado ya registrados)
+  Antes:   ENTREGADO / 1>2>3>4>5>6
+  Despues: ENTREGADO / 1>2>3>4>5>6
+  Error:   ORA-20012: RN12: la guía EE0000000000020 ya está en un estado final (ENTREGADO) y no admite el evento CON_NOVEDAD
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 58
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 58
+OR
+RESULTADO|T07|rechazado|evento CON_NOVEDAD sobre un envio ya ENTREGADO (novedad y resultado ya registrados)|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 21 -> 21|OK

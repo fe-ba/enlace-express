@@ -1,0 +1,15 @@
+Transaccion: T09 (T09_cerrar_despacho.sql)
+Cuenta:      svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U2
+Reglas:      --
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T09 | valido | cerrar el despacho del envio A (todos sus envios con resultado)
+  Antes:   EN_RUTA
+  Despues: CERRADO
+RESULTADO|T09|valido|cerrar el despacho del envio A (todos sus envios con resultado)|COMMIT; medida +1|COMMIT; medida +1|OK
+===== T09 | rechazado | hora de cierre anterior a la de salida (el estado CERRADO ya se habia actualizado)
+  Antes:   EN_RUTA
+  Despues: EN_RUTA
+  Error:   ORA-02290: check constraint (BD_ENLACE_EXPRESS.DESPACHO_HORAS_CK) violated
+RESULTADO|T09|rechazado|hora de cierre anterior a la de salida (el estado CERRADO ya se habia actualizado)|ORA-02290 (CHECK DESPACHO_HORAS_CK); ROLLBACK, medida sin cambio|ORA-02290; medida 25 -> 25|OK

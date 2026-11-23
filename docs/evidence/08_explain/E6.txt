@@ -1,0 +1,28 @@
+Consulta: v_reclamaciones_pendientes (reclamaciones con estado ABIERTA)
+Indice esperado: RECLAMACION_ESTADO_IX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:33 -05
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 2202299075
+
+----------------------------------------------------------------------------------------------------------------
+| Id  | Operation			       | Name		       | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT		       |		       |    69 |  5382 |     9	(23)| 00:00:01 |
+|   1 |  SORT ORDER BY			       |		       |    69 |  5382 |     9	(23)| 00:00:01 |
+|   2 |   MERGE JOIN			       |		       |    69 |  5382 |     8	(13)| 00:00:01 |
+|   3 |    TABLE ACCESS BY INDEX ROWID	       | CLIENTE	       |    34 |   884 |     2	 (0)| 00:00:01 |
+|   4 |     INDEX FULL SCAN		       | CLIENTE_PK	       |    34 |       |     1	 (0)| 00:00:01 |
+|*  5 |    SORT JOIN			       |		       |    69 |  3588 |     6	(17)| 00:00:01 |
+|   6 |     TABLE ACCESS BY INDEX ROWID BATCHED| RECLAMACION	       |    69 |  3588 |     5	 (0)| 00:00:01 |
+|*  7 |      INDEX RANGE SCAN		       | RECLAMACION_ESTADO_IX |    69 |       |     1	 (0)| 00:00:01 |
+----------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   5 - access("C"."ID_CLIENTE"="R"."ID_CLIENTE")
+       filter("C"."ID_CLIENTE"="R"."ID_CLIENTE")
+   7 - access("R"."ESTADO"='ABIERTA')

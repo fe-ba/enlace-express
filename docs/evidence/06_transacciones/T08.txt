@@ -1,0 +1,26 @@
+Transaccion: T08 (T08_registrar_devolucion.sql)
+Cuenta:      svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U4
+Reglas:      RN05, RN07, RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T08 | rechazado | DEVUELTO sin prueba de entrega en el tercer intento
+  Antes:   PENDIENTE / 1>2>3>4>5>7>5>7>5
+  Despues: PENDIENTE / 1>2>3>4>5>7>5>7>5
+  Error:   ORA-20005: RN05: la asignación 35 no puede quedar DEVUELTO sin prueba de entrega
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO", line 23
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO'
+RESULTADO|T08|rechazado|DEVUELTO sin prueba de entrega en el tercer intento|ORA-20005 (RN05); ROLLBACK, medida sin cambio|ORA-20005; medida 52 -> 52|OK
+===== T08 | rechazado | devolucion en el intento 1 (solo el tercer intento puede ser devolucion)
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: PENDIENTE / 1>2>3>4>5
+  Error:   ORA-20007: RN07: DEVUELTO solo es posible en el intento 3 (esta asignación es el intento 1)
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO", line 10
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTA
+RESULTADO|T08|rechazado|devolucion en el intento 1 (solo el tercer intento puede ser devolucion)|ORA-20007 (RN07); ROLLBACK, medida sin cambio|ORA-20007; medida 23 -> 23|OK
+===== T08 | valido | devolucion del envio C en el tercer intento (tras dos novedades)
+  Antes:   PENDIENTE / 1>2>3>4>5>7>5>7>5
+  Despues: DEVUELTO / 1>2>3>4>5>7>5>7>5>8
+RESULTADO|T08|valido|devolucion del envio C en el tercer intento (tras dos novedades)|COMMIT; medida +3|COMMIT; medida +3|OK

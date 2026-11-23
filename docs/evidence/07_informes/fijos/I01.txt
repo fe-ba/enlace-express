@@ -1,0 +1,19 @@
+Informe: I01 (I01_planilla_ruta.sql)  Modo: fijos
+Cuenta:  svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 15
+Fecha:   2026-11-21 16:59:25 -05
+Filas:   5
+
+I01. Planilla de ruta del despacho 15
+
+ORDEN NUMERO_GUIA      DESTINATARIO		TELEFONO     DIRECCION_DESTINO	      ZONA	  FRAGIL ALTO_VALOR RESULTADO
+----- ---------------- ------------------------ ------------ ------------------------ ----------- ------ ---------- ----------
+    1 EE0000000000020  Clínica Santa Teresa S.A 6015552006   Calle 70 # 25-40         Norte       N      N          ENTREGADO
+		       .
+
+    2 EE0000000000021  Daniela Martínez         3153334407   Calle 73 # 26-41         Occidente   N      N          ENTREGADO
+    3 EE0000000000022  Beatriz Elena Cruz	3153334408   Calle 76 # 27-42	      Sur	  N	 N	    NOVEDAD
+    4 EE0000000000023  Santiago Vargas		3153334409   Calle 79 # 28-43	      Centro	  N	 N	    PENDIENTE
+    5 EE0000000000024  Emily Johnson		3153334410   Calle 82 # 29-44	      Suroriente  N	 N	    PENDIENTE
+
+5 rows selected.

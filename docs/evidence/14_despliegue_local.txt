@@ -1,0 +1,74 @@
+Prueba local del despliegue (compose de produccion con Caddy, DOMINIO=localhost)
+Fecha: 2026-11-22 02:31:50 -05
+Puertos de Caddy en el equipo: HTTPS 18443, HTTP 18081
+
+--- 1. Construccion de la imagen de la aplicacion (despliegue/Dockerfile)
+OK     docker compose build app (2 s)
+imagen: sha256:cb9ac7252a675e6dec87cdeae6e0d4ad0f4eb84beda98ca896c0f29732603f05 arquitectura=amd64 tamano=361250595 bytes usuario=enlace
+Plataformas disponibles en buildx:  \_ default \_ default running v0.0.0+unknown linux/amd64 (+4)
+
+--- 2. Oracle (sin puerto publicado) y esquema (despliegue/instalar_esquema.sh)
+ Container enlace-prod-oracle Created 
+ Container enlace-prod-oracle Starting 
+ Container enlace-prod-oracle Started 
+OK     Oracle de produccion healthy
+OK     Oracle no publica ningun puerto hacia afuera (docker port: 'ninguno')
+Cifras con FALLA: 0
+Esquema instalado y cifras del documento verificadas en enlace-prod-oracle.
+OK     esquema instalado con las cifras del documento en modo estricto
+OK     una segunda ejecucion no reinstala (el esquema se instala una sola vez, G2)
+
+--- 3. Aplicacion y Caddy
+ Container enlace-prod-app Started 
+ Container enlace-prod-app Waiting 
+ Container enlace-prod-app Healthy 
+ Container enlace-prod-caddy Starting 
+ Container enlace-prod-caddy Started 
+OK     https://localhost:18443/api/salud responde 200 a traves de Caddy
+Respuesta: {"estado":"OK","baseDeDatos":"FREEPDB1","horaBase":"2026-11-22T02:32:37.368445","esquema":"BD_ENLACE_EXPRESS"}
+SERVICE   STATUS                    PORTS
+app       Up 7 seconds (healthy)    8080/tcp
+caddy     Up 2 seconds              443/udp, 2019/tcp, 0.0.0.0:18081->80/tcp, [::]:18081->80/tcp, 0.0.0.0:18443->443/tcp, [::]:18443->443/tcp
+oracle    Up 44 seconds (healthy)   
+Usuario del proceso de la aplicacion: uid=100(enlace) gid=101(enlace) groups=101(enlace)
+OK     la aplicacion corre sin privilegios (no es root)
+Hora y zona en la aplicacion: 2026-11-22 02:32:37 -05
+OK     zona horaria America/Bogota (-0500) en la aplicacion
+OK     la aplicacion no es alcanzable directamente en el puerto 8080 del equipo (solo por Caddy)
+
+--- 4. HTTPS, rastreo publico y rutas protegidas (curl -k por el certificado interno de Caddy)
+HTTP/1.1 308 Permanent Redirect
+Connection: close
+Location: https://localhost/api/salud
+Server: Caddy
+OK     HTTP en el puerto 18081 redirige a HTTPS
+strict-transport-security: max-age=31536000
+OK     Caddy agrega Strict-Transport-Security
+Rastreo publico de EE0000000000003: {"guia":"EE0000000000003","estadoActual":"ENTREGADO","eventos":[{"fechaHora":"2026-11-03T08:33:00","estado":"REGISTRADO","zona":"Sur"},{"fechaHora":"2026-11-03T...
+OK     rastreo publico de EE0000000000003 sin sesion: trae el estado ENTREGADO
+GET /api/mesa/clientes sin sesion -> 401
+OK     /api/mesa/clientes sin sesion da 401
+OK     la aplicacion web (index.html) se sirve por HTTPS: 200
+
+--- 5. Cookies Secure (CSRF y sesion)
+set-cookie: XSRF-TOKEN=<valor>; Path=/; Secure; SameSite=Lax
+OK     la cookie XSRF-TOKEN sale con Secure
+Registro con codigo de activacion -> 201
+HTTP/2 200 
+set-cookie: JSESSIONID=<valor>; Path=/; Secure; HttpOnly; SameSite=Lax
+set-cookie: XSRF-TOKEN=<valor>; Path=/; Secure; SameSite=Lax
+OK     la cookie de sesion JSESSIONID sale con Secure
+OK     la cookie de sesion sale con HttpOnly
+GET /api/mesa/clientes con la sesion de mesa -> 200
+OK     con la sesion de mesa, /api/mesa/clientes da 200 (el flujo completo funciona a traves del proxy)
+
+--- 6. Limite de consultas por IP: cuenta la IP real del cliente, no la de Caddy
+Esperando 61 s a que las consultas anteriores salgan de la ventana de un minuto...
+32 consultas seguidas desde el equipo (el limite es 30 por minuto): 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 200 429 429
+OK     las primeras 30 consultas dan 200 y la 31 y la 32 dan 429
+Con un X-Forwarded-For falso (203.0.113.77) la misma IP sigue limitada -> 429
+OK     un X-Forwarded-For falso no evade el limite (Caddy lo reemplaza por la IP real)
+Otro cliente (otro contenedor de la red, otra IP) mientras el primero esta limitado -> 200
+OK     otro cliente con otra IP no queda limitado (el limite no se comparte por la IP de Caddy)
+
+Resultado: 21 de 21 comprobaciones OK, 0 FALLA.

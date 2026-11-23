@@ -1,0 +1,10 @@
+Consulta: C01 (C01_datos_envio.sql)
+Cuenta:   svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:00 -05
+Filas:    1
+
+NUMERO_GUIA	 FECHA_REGISTRO     FECHA_COMPROMISO   PESO_REAL FRAGI ALTO_VALOR
+---------------- ------------------ ------------------ --------- ----- ----------
+EE0000000000003  03-NOV-26	    05-NOV-26		    3.10 N     N
+
+1 row selected.

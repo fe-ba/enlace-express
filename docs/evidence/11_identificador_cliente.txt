@@ -1,0 +1,20 @@
+Evidencia de la decision A2: identificador de cliente de la sesion de Oracle
+Fecha: 2026-11-21 16:55:31 (America/Bogota)
+
+Operacion hecha por la aplicacion (API real, con sesion y CSRF) como el usuario demo_mesa:
+  - solicitud de recoleccion 15 (POST /api/mesa/solicitudes)
+  - envio EE0000000000032 (POST /api/mesa/envios)
+
+Observacion: auditoria unificada de Oracle. Politica temporal pol_demo_identificador creada por SYSTEM:
+  AUDIT POLICY ... ACTIONS INSERT ON solicitud_recoleccion, EXECUTE ON pr_registrar_envio, BY svc_mesa
+(la politica se elimina al terminar este script).
+
+Lectura de UNIFIED_AUDIT_TRAIL (DBUSERNAME es la cuenta de servicio con la que se conecta la
+aplicacion; CLIENT_IDENTIFIER es el usuario real que fijo DBMS_SESSION.SET_IDENTIFIER):
+
+
+INSTANTE            DBUSERNAME   CLIENT_IDENTIFIER  ACTION_NAME OBJECT_NAME
+------------------- ------------ ------------------ ----------- ----------------------
+2026-11-21 16:55:31 SVC_MESA     demo_mesa          INSERT      SOLICITUD_RECOLECCION
+2026-11-21 16:55:31 SVC_MESA     demo_mesa          EXECUTE     PR_REGISTRAR_ENVIO
+RESULTADO: OK, Oracle registro demo_mesa como identificador de cliente de operaciones hechas con svc_mesa.

@@ -1,0 +1,58 @@
+Prueba de permisos de las cuentas de servicio (RN16 y tabla de roles)
+Fecha: 2026-11-21 16:59:23 -05
+Comando: db/09_verificacion/probar_permisos.sh
+
+--- SVC_GERENCIA ---
+OK   SVC_GERENCIA SELECT v_seguimiento_envio pasa -> sin error
+OK   SVC_GERENCIA SELECT v_estado_actual_envio pasa -> sin error
+OK   SVC_GERENCIA SELECT v_planilla_despacho pasa -> sin error
+OK   SVC_GERENCIA SELECT v_envios_por_despachar pasa -> sin error
+OK   SVC_GERENCIA SELECT v_novedades_abiertas pasa -> sin error
+OK   SVC_GERENCIA SELECT v_reclamaciones_pendientes pasa -> sin error
+OK   SVC_GERENCIA SELECT v_cumplimiento_entregas pasa -> sin error
+OK   SVC_GERENCIA SELECT envio pasa -> sin error
+OK   SVC_GERENCIA INSERT zona se rechaza -> ORA-41900
+OK   SVC_GERENCIA INSERT envio se rechaza -> ORA-41900
+OK   SVC_GERENCIA UPDATE cliente se rechaza -> ORA-41900
+OK   SVC_GERENCIA DELETE envio (RN16) se rechaza -> ORA-41900
+SVC_GERENCIA: 12 OK, 0 FALLA
+--- SVC_CENTRO ---
+OK   SVC_CENTRO SELECT v_planilla_despacho pasa -> sin error
+OK   SVC_CENTRO SELECT v_envios_por_despachar pasa -> sin error
+OK   SVC_CENTRO SELECT v_estado_actual_envio pasa -> sin error
+OK   SVC_CENTRO INSERT despacho valido pasa -> sin error
+OK   SVC_CENTRO SELECT ... FOR UPDATE sobre envio pasa -> sin error
+OK   SVC_CENTRO DELETE despacho (RN16) se rechaza -> ORA-41900
+OK   SVC_CENTRO INSERT reclamacion se rechaza -> ORA-00942
+OK   SVC_CENTRO SELECT v_seguimiento_envio se rechaza -> ORA-00942
+SVC_CENTRO: 8 OK, 0 FALLA
+--- SVC_MESA ---
+OK   SVC_MESA SELECT v_seguimiento_envio pasa -> sin error
+OK   SVC_MESA SELECT v_novedades_abiertas pasa -> sin error
+OK   SVC_MESA SELECT v_reclamaciones_pendientes pasa -> sin error
+OK   SVC_MESA SELECT v_estado_actual_envio pasa -> sin error
+OK   SVC_MESA EXECUTE pr_registrar_envio pasa -> sin error
+OK   SVC_MESA UPDATE novedad pasa -> sin error
+OK   SVC_MESA DELETE envio (RN16) se rechaza -> ORA-41900
+OK   SVC_MESA INSERT despacho se rechaza -> ORA-00942
+OK   SVC_MESA SELECT v_cumplimiento_entregas se rechaza -> ORA-00942
+SVC_MESA: 9 OK, 0 FALLA
+--- SVC_MENSAJERO ---
+OK   SVC_MENSAJERO SELECT v_planilla_despacho pasa -> sin error
+OK   SVC_MENSAJERO SELECT despacho pasa -> sin error
+OK   SVC_MENSAJERO UPDATE asignacion_despacho pasa -> sin error
+OK   SVC_MENSAJERO INSERT reclamacion se rechaza -> ORA-00942
+OK   SVC_MENSAJERO DELETE novedad (RN16) se rechaza -> ORA-41900
+OK   SVC_MENSAJERO SELECT cliente se rechaza -> ORA-00942
+OK   SVC_MENSAJERO SELECT destinatario (la planilla se lee por la vista) se rechaza -> ORA-00942
+SVC_MENSAJERO: 7 OK, 0 FALLA
+--- SVC_CLIENTE ---
+OK   SVC_CLIENTE SELECT v_seguimiento_envio pasa -> sin error
+OK   SVC_CLIENTE SELECT v_rastreo_publico pasa -> sin error
+OK   SVC_CLIENTE SELECT envio se rechaza -> ORA-00942
+OK   SVC_CLIENTE SELECT zona se rechaza -> ORA-00942
+OK   SVC_CLIENTE SELECT v_estado_actual_envio se rechaza -> ORA-00942
+OK   SVC_CLIENTE UPDATE envio se rechaza -> ORA-00942
+OK   SVC_CLIENTE DELETE envio (RN16) se rechaza -> ORA-00942
+SVC_CLIENTE: 7 OK, 0 FALLA
+Total: 43 OK, 0 FALLA

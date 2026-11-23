@@ -1,0 +1,31 @@
+Transaccion: T02 (T02_registrar_envio.sql)
+Cuenta:      svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U3
+Reglas:      RN01 a RN04, RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T02 | valido | registro del envio A (destinatario nuevo)
+  guia registrada: EE0000000000030
+  Antes:   envios=29, eventos=160, destinatarios=14
+  Despues: envios=30, eventos=161, destinatarios=15
+RESULTADO|T02|valido|registro del envio A (destinatario nuevo)|COMMIT; medida +3|COMMIT; medida +3|OK
+===== T02 | valido | registro del envio B, fragil (destinatario nuevo)
+  guia registrada: EE0000000000031
+  Antes:   envios=30, eventos=161, destinatarios=15
+  Despues: envios=31, eventos=162, destinatarios=16
+RESULTADO|T02|valido|registro del envio B, fragil (destinatario nuevo)|COMMIT; medida +3|COMMIT; medida +3|OK
+===== T02 | valido | registro del envio C (destinatario reutilizado, RN04)
+  guia registrada: EE0000000000032
+  Antes:   envios=31, eventos=162, destinatarios=16
+  Despues: envios=32, eventos=163, destinatarios=16
+RESULTADO|T02|valido|registro del envio C (destinatario reutilizado, RN04)|COMMIT; medida +2|COMMIT; medida +2|OK
+===== T02 | rechazado | fecha de compromiso anterior a la de registro tras crear el destinatario
+  Antes:   211
+  Despues: 211
+  Error:   ORA-02290: check constraint (BD_ENLACE_EXPRESS.ENVIO_COMPROMISO_CK) violated
+RESULTADO|T02|rechazado|fecha de compromiso anterior a la de registro tras crear el destinatario|ORA-02290 (RN03, CHECK ENVIO_COMPROMISO_CK); ROLLBACK, medida sin cambio|ORA-02290; medida 211 -> 211|OK
+===== T02 | rechazado | registro sin peso (dato obligatorio)
+  Antes:   211
+  Despues: 211
+  Error:   ORA-20002: RN02: el envio exige el peso (dato obligatorio ausente)
+RESULTADO|T02|rechazado|registro sin peso (dato obligatorio)|ORA-20002 (RN02); ROLLBACK, medida sin cambio|ORA-20002; medida 211 -> 211|OK

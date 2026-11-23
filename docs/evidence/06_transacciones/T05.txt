@@ -1,0 +1,52 @@
+Transaccion: T05 (T05_armar_despacho.sql)
+Cuenta:      svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U2
+Reglas:      RN07, RN09 a RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T05 | valido | armar el despacho de entrega con los 3 envios clasificados
+  despacho creado: 27
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO > EN_RUTA
+RESULTADO|T05|valido|armar el despacho de entrega con los 3 envios clasificados|COMMIT; medida +7|COMMIT; medida +7|OK
+===== T05 | rechazado | vehiculo EN_MANTENIMIENTO
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Error:   ORA-20010: RN10: el vehículo 3 está EN_MANTENIMIENTO; debe estar DISPONIBLE
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO", line 19
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO
+RESULTADO|T05|rechazado|vehiculo EN_MANTENIMIENTO|ORA-20010 (RN10); ROLLBACK, medida sin cambio|ORA-20010; medida 87 -> 87|OK
+===== T05 | rechazado | mensajero RETIRADO
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Error:   ORA-20010: RN10: el mensajero 12 está RETIRADO; debe estar ACTIVO
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO", line 24
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO'
+RESULTADO|T05|rechazado|mensajero RETIRADO|ORA-20010 (RN10); ROLLBACK, medida sin cambio|ORA-20010; medida 87 -> 87|OK
+===== T05 | rechazado | vehiculo de otro tipo que el del mensajero (furgoneta con motociclista)
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Error:   ORA-20011: RN11: el vehículo 6 no es del tipo que conduce el mensajero 7
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO", line 29
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_DESPACHO_VEHICULO_MENSAJERO'
+RESULTADO|T05|rechazado|vehiculo de otro tipo que el del mensajero (furgoneta con motociclista)|ORA-20011 (RN11); ROLLBACK, medida sin cambio|ORA-20011; medida 87 -> 87|OK
+===== T05 | rechazado | intento 2 de un envio cuyo intento 1 sigue PENDIENTE, tras armar el despacho
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+  Error:   ORA-20007: RN07: el intento 2 de la guía EE0000000000023 solo se crea si los 1 anteriores terminaron en NOVEDAD
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_ASIGNACION_INTENTO", line 58
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_
+RESULTADO|T05|rechazado|intento 2 de un envio cuyo intento 1 sigue PENDIENTE, tras armar el despacho|ORA-20007 (RN07); ROLLBACK, medida sin cambio|ORA-20007; medida 87 -> 87|OK
+===== T05 | rechazado | EN_RUTA sobre un envio REGISTRADO (no clasificado), tras crear despacho y asignacion
+  Antes:   REGISTRADO
+  Despues: REGISTRADO
+  Error:   ORA-20012: RN12: transición no permitida de REGISTRADO a EN_RUTA en la guía EE0000000000029
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-04088: error during
+RESULTADO|T05|rechazado|EN_RUTA sobre un envio REGISTRADO (no clasificado), tras crear despacho y asignacion|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 87 -> 87|OK

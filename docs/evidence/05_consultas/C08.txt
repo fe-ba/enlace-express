@@ -1,0 +1,10 @@
+Consulta: C08 (C08_clientes_todas_modalidades.sql)
+Cuenta:   svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:01 -05
+Filas:    1
+
+RAZON_SOCIAL
+----------------------------------------
+TiendaOnline Colombia S.A.S.
+
+1 row selected.

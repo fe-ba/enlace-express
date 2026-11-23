@@ -1,0 +1,24 @@
+Transaccion: T04 (T04_recibir_clasificar.sql)
+Cuenta:      svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U2
+Reglas:      RN03, RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T04 | valido | recibir y clasificar los 3 envios: EN_CENTRO, CLASIFICADO, peso real y flete
+  Antes:   REGISTRADO > RECOLECTADO
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO
+RESULTADO|T04|valido|recibir y clasificar los 3 envios: EN_CENTRO, CLASIFICADO, peso real y flete|COMMIT; medida +6|COMMIT; medida +6|OK
+===== T04 | rechazado | peso real negativo tras registrar EN_CENTRO y CLASIFICADO
+  Antes:   REGISTRADO > RECOLECTADO
+  Despues: REGISTRADO > RECOLECTADO
+  Error:   ORA-02290: check constraint (BD_ENLACE_EXPRESS.ENVIO_PESOS_CK) violated
+RESULTADO|T04|rechazado|peso real negativo tras registrar EN_CENTRO y CLASIFICADO|ORA-02290 (RN03, CHECK ENVIO_PESOS_CK); ROLLBACK, medida sin cambio|ORA-02290; medida 57 -> 57|OK
+===== T04 | rechazado | EN_CENTRO sobre un envio aun REGISTRADO
+  Antes:   REGISTRADO
+  Despues: REGISTRADO
+  Error:   ORA-20012: RN12: transición no permitida de REGISTRADO a EN_CENTRO en la guía EE0000000000029
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-04088: error durin
+RESULTADO|T04|rechazado|EN_CENTRO sobre un envio aun REGISTRADO|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 57 -> 57|OK

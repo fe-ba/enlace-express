@@ -1,0 +1,39 @@
+Prueba de punta a punta de la demostracion (Playwright, Chromium sin cabeza)
+Fecha: 21/11/2026, 9:47:17 p. m. (America/Bogota)
+Aplicacion: http://localhost:8080/
+
+OK     01 rastreo publico de una guia de los datos fijos (sin cuenta)  [01_rastreo_publico.png]
+OK     02 pantalla de ingreso con el usuario demo_mesa  [02_ingreso.png]
+OK     03 la mesa ingresa y registra la solicitud de recoleccion del cliente 3  [03_mesa_solicitud.png]
+OK     04 la mesa registra el envio fragil (la guia y la fecha de compromiso salen en pantalla)  [04_mesa_registro_envio.png]
+OK     04b la mesa registra el segundo envio
+OK     05 el mensajero ve la recoleccion pendiente y la recolecta  [05_mensajero_recolecciones_movil.png]
+OK     06 el centro recibe los dos envios con su peso real y su flete  [06_centro_recepcion.png]
+OK     07 el centro arma el despacho 1 con mensajero y vehiculo disponible  [07_centro_despacho_armado.png]
+OK     08 planilla del despacho 1 en el centro  [08_centro_planilla.png]
+OK     09 el mensajero ve su planilla con el envio fragil resaltado  [09_mensajero_planilla_movil.png]
+OK     10 rechazo RN06: entrega del fragil con el documento de otra persona  [10_rechazo_rn06_movil.png]
+OK     11 entrega del fragil con el documento del destinatario y novedad en el otro envio  [11_mensajero_entrega_y_novedad_movil.png]
+OK     12 rastreo publico del envio entregado  [12_rastreo_publico_entregado.png]
+OK     13 rastreo publico del envio con novedad  [13_rastreo_publico_novedad.png]
+OK     14 el cliente ve la lista de sus envios  [14_cliente_mis_envios.png]
+OK     15 el cliente ve el recorrido del envio entregado  [15_cliente_recorrido.png]
+OK     16 la gerencia ve el tablero (cumplimiento, estados y reclamaciones)  [16_tablero.png]
+OK     17 el centro cierra el despacho 1; el envio con novedad vuelve a estar por despachar (1 intento previo)  [17_centro_reenvio_por_despachar.png]
+OK     18 segundo intento: nuevo despacho y segunda novedad
+OK     19 tercer intento: solo se puede devolver (no hay boton de entrega)  [18_mensajero_tercer_intento_movil.png]
+OK     20 devolucion registrada en el intento 3  [19_devolucion_registrada_movil.png]
+OK     21 el cliente ve el recorrido completo del envio devuelto  [20_cliente_recorrido_devuelto.png]
+OK     22 rechazo RN12: la mesa intenta anular un envio ya entregado  [21_rechazo_rn12_anular_entregado.png]
+OK     23 la mesa gestiona y cierra la novedad del envio devuelto (CU21)  [22_mesa_novedad_gestionada.png]
+OK     24 la mesa radica una reclamacion con guia propia, la responde y ve la meta de 4 horas (CU22 y CU23)  [23_mesa_reclamacion_respondida.png]
+OK     25 rechazo: la mesa intenta radicar una reclamacion con la guia de otro cliente  [24_rechazo_reclamacion_guia_ajena.png]
+OK     26 el centro crea un centro y una zona, y luego inactiva el centro sin borrarlo (CU13)  [25_centro_centros_y_zonas.png]
+
+Solicitud de recoleccion: 14
+Envio fragil (entregado con el documento del destinatario): EE0000000000030
+Envio con novedad, segunda novedad y devolucion en el intento 3: EE0000000000031
+Despachos: 27, 28, 29
+Capturas guardadas: 25
+
+Pasos: 27. OK: 27. FALLA: 0.

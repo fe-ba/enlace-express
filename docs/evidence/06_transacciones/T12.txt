@@ -1,0 +1,29 @@
+Transaccion: T12 (T12_anular_envio.sql)
+Cuenta:      svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U3
+Reglas:      RN12, RN16
+Fecha:       2026-11-21 16:59:34 -05
+
+===== T12 | valido | anular el envio 29 (REGISTRADO, antes de salir a ruta)
+  Antes:   REGISTRADO
+  Despues: REGISTRADO > ANULADO
+RESULTADO|T12|valido|anular el envio 29 (REGISTRADO, antes de salir a ruta)|COMMIT; medida +1|COMMIT; medida +1|OK
+===== T12 | rechazado | anular un envio que ya esta EN_RUTA
+  Antes:   REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO > EN_RUTA
+  Despues: REGISTRADO > RECOLECTADO > EN_CENTRO > CLASIFICADO > EN_RUTA
+  Error:   ORA-20012: RN12: transición no permitida de EN_RUTA a ANULADO en la guía EE0000000000023
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-04088: error during exe
+RESULTADO|T12|rechazado|anular un envio que ya esta EN_RUTA|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 34 -> 34|OK
+===== T12 | rechazado | DELETE FROM evento_envio (no se eliminan registros)
+  Antes:   REGISTRADO > RECOLECTADO
+  Despues: REGISTRADO > RECOLECTADO
+  Error:   ORA-41900: missing DELETE privilege on "BD_ENLACE_EXPRESS"."EVENTO_ENVIO"
+RESULTADO|T12|rechazado|DELETE FROM evento_envio (no se eliminan registros)|ORA-41900 o ORA-01031 (RN16); ROLLBACK, medida sin cambio|ORA-41900; medida 217 -> 217|OK
+===== T12 | rechazado | DELETE FROM envio
+  Antes:   REGISTRADO > RECOLECTADO
+  Despues: REGISTRADO > RECOLECTADO
+  Error:   ORA-41900: missing DELETE privilege on "BD_ENLACE_EXPRESS"."ENVIO"
+RESULTADO|T12|rechazado|DELETE FROM envio|ORA-41900 o ORA-01031 (RN16); ROLLBACK, medida sin cambio|ORA-41900; medida 34 -> 34|OK

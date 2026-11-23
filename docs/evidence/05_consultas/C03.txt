@@ -1,0 +1,14 @@
+Consulta: C03 (C03_planilla_despacho.sql)
+Cuenta:   svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:00 -05
+Filas:    5
+
+ORDEN_VISITA NUMERO_GUIA      DESTINATARIO		 DIRECCION_DESTINO    ZONA	  RESULTADO
+------------ ---------------- -------------------------- -------------------- ----------- ----------
+           1 EE0000000000020  Clínica Santa Teresa S.A.  Calle 70 # 25-40     Norte       ENTREGADO
+           2 EE0000000000021  Daniela Martínez           Calle 73 # 26-41     Occidente   ENTREGADO
+	   3 EE0000000000022  Beatriz Elena Cruz	 Calle 76 # 27-42     Sur	  NOVEDAD
+	   4 EE0000000000023  Santiago Vargas		 Calle 79 # 28-43     Centro	  PENDIENTE
+	   5 EE0000000000024  Emily Johnson		 Calle 82 # 29-44     Suroriente  PENDIENTE
+
+5 rows selected.

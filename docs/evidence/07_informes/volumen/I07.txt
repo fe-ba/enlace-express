@@ -1,0 +1,33 @@
+Informe: I07 (I07_reclamaciones_pendientes.sql)  Modo: volumen
+Cuenta:  svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: ninguno
+Fecha:   2026-11-21 17:00:32 -05
+Filas:   69
+
+I07. Reclamaciones pendientes
+
+FECHA_RADICACION	     CLIENTE			    NUMERO_GUIA      TIPO	  DESCRIPCION
+---------------------------- ------------------------------ ---------------- ------------ --------------------------------------------------
+03-AUG-26 04.07.00.000000 PM Cliente de volumen 9	    EE0000000000936  ENTREGA	  Reclamacion de la guia EE0000000000936
+05-AUG-26 04.47.00.000000 PM Cliente de volumen 5	    EE0000000001936  OTRO	  Reclamacion de la guia EE0000000001936
+06-AUG-26 03.27.00.000000 PM Cliente de volumen 5	    EE0000000002936  ENTREGA	  Reclamacion de la guia EE0000000002936
+07-AUG-26 04.07.00.000000 PM Cliente de volumen 5	    EE0000000003936  OTRO	  Reclamacion de la guia EE0000000003936
+08-AUG-26 04.47.00.000000 PM Cliente de volumen 2	    EE0000000004936  ENTREGA	  Reclamacion de la guia EE0000000004936
+10-AUG-26 03.27.00.000000 PM Cliente de volumen 2	    EE0000000005936  OTRO	  Reclamacion de la guia EE0000000005936
+11-AUG-26 04.07.00.000000 PM Cliente de volumen 2	    EE0000000006936  ENTREGA	  Reclamacion de la guia EE0000000006936
+12-AUG-26 04.47.00.000000 PM Cliente de volumen 28	    EE0000000007936  OTRO	  Reclamacion de la guia EE0000000007936
+13-AUG-26 03.27.00.000000 PM Cliente de volumen 28	    EE0000000008936  ENTREGA	  Reclamacion de la guia EE0000000008936
+15-AUG-26 04.07.00.000000 PM Cliente de volumen 14	    EE0000000009936  OTRO	  Reclamacion de la guia EE0000000009936
+17-AUG-26 03.27.00.000000 PM Cliente de volumen 10	    EE0000000011936  OTRO	  Reclamacion de la guia EE0000000011936
+17-AUG-26 04.47.00.000000 PM Cliente de volumen 10	    EE0000000010936  ENTREGA	  Reclamacion de la guia EE0000000010936
+19-AUG-26 04.07.00.000000 PM Cliente de volumen 10	    EE0000000012936  ENTREGA	  Reclamacion de la guia EE0000000012936
+20-AUG-26 04.47.00.000000 PM Cliente de volumen 7	    EE0000000013936  OTRO	  Reclamacion de la guia EE0000000013936
+21-AUG-26 03.27.00.000000 PM Cliente de volumen 7	    EE0000000014936  ENTREGA	  Reclamacion de la guia EE0000000014936
+22-AUG-26 04.07.00.000000 PM Cliente de volumen 7	    EE0000000015936  OTRO	  Reclamacion de la guia EE0000000015936
+24-AUG-26 03.27.00.000000 PM Cliente de volumen 3	    EE0000000017936  OTRO	  Reclamacion de la guia EE0000000017936
+24-AUG-26 04.47.00.000000 PM Cliente de volumen 3	    EE0000000016936  ENTREGA	  Reclamacion de la guia EE0000000016936
+27-AUG-26 04.07.00.000000 PM Cliente de volumen 19	    EE0000000018936  ENTREGA	  Reclamacion de la guia EE0000000018936
+28-AUG-26 04.47.00.000000 PM Cliente de volumen 15	    EE0000000019936  OTRO	  Reclamacion de la guia EE0000000019936
+... (se muestran las primeras 20 filas; total en la ultima linea)
+
+69 rows selected.

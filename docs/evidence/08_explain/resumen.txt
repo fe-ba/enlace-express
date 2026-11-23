@@ -1,0 +1,8 @@
+Id   Archivo                    Indice esperado              Aparece
+E1   E1_recorrido_guia          EVENTO_GUIA_FECHA_UX         SÍ
+E2   E2_estado_actual_guia      EVENTO_GUIA_FECHA_UX         SÍ
+E3   E3_envios_periodo          ENVIO_FECHA_REGISTRO_IX      SÍ
+E4   E4_despachos_del_dia       DESPACHO_FECHA_IX            SÍ
+E5   E5_novedades_abiertas      NOVEDAD_ESTADO_IX            SÍ
+E6   E6_reclamaciones_pendientes RECLAMACION_ESTADO_IX        SÍ
+E7   E7_planilla_despacho       ASIGNACION_DESPACHO_FK_IX    SÍ

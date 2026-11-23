@@ -1,0 +1,14 @@
+VOLUMEN|lotes|73
+VOLUMEN|envios_por_dia|900
+VOLUMEN|destinatarios_reservados|39430
+VOLUMEN|lote 10 de 73 (2026-08-12)|.4 s el lote, 8.2 s acumulados
+VOLUMEN|lote 20 de 73 (2026-08-24)|.4 s el lote, 12.4 s acumulados
+VOLUMEN|lote 30 de 73 (2026-09-04)|.3 s el lote, 16.5 s acumulados
+VOLUMEN|lote 40 de 73 (2026-09-16)|.3 s el lote, 20.7 s acumulados
+VOLUMEN|lote 50 de 73 (2026-09-28)|.4 s el lote, 25 s acumulados
+VOLUMEN|lote 60 de 73 (2026-10-09)|.5 s el lote, 29.2 s acumulados
+VOLUMEN|lote 70 de 73 (2026-10-21)|.5 s el lote, 33.5 s acumulados
+VOLUMEN|lote 73 de 73 (2026-10-24)|.6 s el lote, 35.3 s acumulados
+VOLUMEN|envios_generados|65700
+VOLUMEN|tiempo_carga_segundos|35.3
+VOLUMEN|estadisticas_recogidas|ok

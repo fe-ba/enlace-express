@@ -1,0 +1,18 @@
+Transaccion: T01 (T01_registrar_solicitud.sql)
+Cuenta:      svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U3
+Reglas:      RN15
+Fecha:       2026-11-21 16:59:32 -05
+
+===== T01 | valido | solicitud de recoleccion de un cliente ACTIVO
+  Antes:   13
+  Despues: 14
+RESULTADO|T01|valido|solicitud de recoleccion de un cliente ACTIVO|COMMIT; medida +1|COMMIT; medida +1|OK
+===== T01 | rechazado | segunda solicitud de un cliente INACTIVO tras una valida
+  Antes:   14
+  Despues: 14
+  Error:   ORA-20015: RN15: el cliente dueño de la sede 7 está INACTIVO; solo se registran solicitudes de clientes activos
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_SOLICITUD_CLIENTE_ACTIVO", line 10
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRES
+RESULTADO|T01|rechazado|segunda solicitud de un cliente INACTIVO tras una valida|ORA-20015 (RN15); ROLLBACK, medida sin cambio|ORA-20015; medida 14 -> 14|OK

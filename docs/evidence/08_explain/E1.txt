@@ -1,0 +1,35 @@
+Consulta: C2, recorrido de una guia (evento_envio + estado_envio + empleado)
+Indice esperado: EVENTO_GUIA_FECHA_UX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:32 -05
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 3228471585
+
+------------------------------------------------------------------------------------------------------------------
+| Id  | Operation				| Name			 | Rows  | Bytes | Cost (%CPU)| Time	 |
+------------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT			|			 |     6 |   510 |    16  (13)| 00:00:01 |
+|   1 |  SORT ORDER BY				|			 |     6 |   510 |    16  (13)| 00:00:01 |
+|*  2 |   HASH JOIN				|			 |     6 |   510 |    15   (7)| 00:00:01 |
+|   3 |    MERGE JOIN				|			 |     6 |   426 |    13   (8)| 00:00:01 |
+|   4 |     TABLE ACCESS BY INDEX ROWID 	| EMPLEADO		 |    37 |   518 |     2   (0)| 00:00:01 |
+|   5 |      INDEX FULL SCAN			| EMPLEADO_PK		 |    37 |	 |     1   (0)| 00:00:01 |
+|*  6 |     SORT JOIN				|			 |     6 |   342 |    11  (10)| 00:00:01 |
+|   7 |      TABLE ACCESS BY INDEX ROWID BATCHED| EVENTO_ENVIO		 |     6 |   342 |    10   (0)| 00:00:01 |
+|*  8 |       INDEX RANGE SCAN			| EVENTO_GUIA_FECHA_UX	 |     6 |	 |     3   (0)| 00:00:01 |
+|   9 |    VIEW 				| index$_join$_002	 |     9 |   126 |     2   (0)| 00:00:01 |
+|* 10 |     HASH JOIN				|			 |	 |	 |	      | 	 |
+|  11 |      INDEX FAST FULL SCAN		| ESTADO_ENVIO_NOMBRE_UK |     9 |   126 |     1   (0)| 00:00:01 |
+|  12 |      INDEX FAST FULL SCAN		| ESTADO_ENVIO_PK	 |     9 |   126 |     1   (0)| 00:00:01 |
+------------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("ES"."ID_ESTADO"="EV"."ID_ESTADO")
+   6 - access("EM"."ID_EMPLEADO"="EV"."ID_EMPLEADO")
+       filter("EM"."ID_EMPLEADO"="EV"."ID_EMPLEADO")
+   8 - access("EV"."NUMERO_GUIA"='EE0000000030000')
+  10 - access(ROWID=ROWID)

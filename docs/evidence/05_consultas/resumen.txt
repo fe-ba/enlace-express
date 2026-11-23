@@ -1,0 +1,11 @@
+Id     Cuenta         Filas
+C01    svc_mesa       1
+C02    svc_mesa       8
+C03    svc_centro     5
+C04    svc_centro     2
+C05    svc_gerencia   10
+C06    svc_gerencia   2
+C07    svc_mesa       4
+C08    svc_gerencia   1
+C09    svc_centro     4
+C10    svc_gerencia   29

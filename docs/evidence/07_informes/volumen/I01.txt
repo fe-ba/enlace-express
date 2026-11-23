@@ -1,0 +1,33 @@
+Informe: I01 (I01_planilla_ruta.sql)  Modo: volumen
+Cuenta:  svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 1669
+Fecha:   2026-11-21 17:00:31 -05
+Filas:   100
+
+I01. Planilla de ruta del despacho 1669
+
+ORDEN NUMERO_GUIA      DESTINATARIO		TELEFONO     DIRECCION_DESTINO	      ZONA	  FRAGIL ALTO_VALOR RESULTADO
+----- ---------------- ------------------------ ------------ ------------------------ ----------- ------ ---------- ----------
+    1 EE0000000033335  Destinatario 19999	3150019999   Carrera 7 # 28-43	      Occidente   S	 N	    ENTREGADO
+    2 EE0000000033347  Destinatario 10833	3150010833   Carrera 19 # 64-37       Norte	  S	 N	    ENTREGADO
+    3 EE0000000033353  Destinatario 18756	3150018756   Carrera 25 # 82-79       Centro	  N	 N	    ENTREGADO
+    4 EE0000000033359  Destinatario 20013	3150020013   Carrera 31 # 1-31	      Suroriente  N	 N	    ENTREGADO
+    5 EE0000000033365  Destinatario 20017	3150020017   Carrera 37 # 19-73       Norte	  N	 N	    ENTREGADO
+    6 EE0000000033371  Destinatario 20021	3150020021   Carrera 43 # 37-25       Suroriente  N	 N	    ENTREGADO
+    7 EE0000000033377  Destinatario 10857	3150010857   Carrera 49 # 55-67       Sur	  N	 N	    ENTREGADO
+    8 EE0000000033383  Destinatario 18780	3150018780   Carrera 55 # 73-19       Suroriente  N	 N	    ENTREGADO
+    9 EE0000000033389  Destinatario 20031	3150020031   Carrera 61 # 91-61       Sur	  N	 N	    ENTREGADO
+   10 EE0000000033395  Destinatario 20035	3150020035   Carrera 67 # 10-13       Occidente   N	 N	    ENTREGADO
+   11 EE0000000033437  Destinatario 10905	3150010905   Carrera 109 # 37-37      Centro	  N	 N	    ENTREGADO
+   12 EE0000000033461  Destinatario 20075	3150020075   Carrera 133 # 10-25      Sur	  N	 N	    ENTREGADO
+   13 EE0000000033467  Destinatario 10929	3150010929   Carrera 139 # 28-67      Norte	  N	 S	    ENTREGADO
+   14 EE0000000033473  Destinatario 18852	3150018852   Carrera 145 # 46-19      Norte	  N	 N	    ENTREGADO
+   15 EE0000000033479  Destinatario 20085	3150020085   Carrera 1 # 64-61	      Occidente   N	 N	    ENTREGADO
+   16 EE0000000033491  Destinatario 20093	3150020093   Carrera 13 # 1-55	      Centro	  N	 N	    ENTREGADO
+   17 EE0000000033503  Destinatario 18876	3150018876   Carrera 25 # 37-49       Suroriente  N	 N	    ENTREGADO
+   18 EE0000000033515  Destinatario 20107	3150020107   Carrera 37 # 73-43       Occidente   N	 N	    ENTREGADO
+   19 EE0000000033521  Destinatario 20111	3150020111   Carrera 43 # 91-85       Centro	  N	 N	    ENTREGADO
+   20 EE0000000033527  Destinatario 10977	3150010977   Carrera 49 # 10-37       Suroriente  N	 N	    ENTREGADO
+... (se muestran las primeras 20 filas; total en la ultima linea)
+
+100 rows selected.

@@ -1,0 +1,16 @@
+Informe: I06 (I06_novedades_abiertas.sql)  Modo: fijos
+Cuenta:  svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: ninguno
+Fecha:   2026-11-21 16:59:26 -05
+Filas:   2
+
+I06. Novedades abiertas
+
+NUMERO_GUIA	 INT TIPO_NOVEDAD	  DESCRIPCION				       DESTINATARIO	    TEL_DEST	 CLIENTE			TEL_CLIENTE
+---------------- --- -------------------- -------------------------------------------- -------------------- ------------ ------------------------------ ------------
+EE0000000000014    1 PAQUETE_AVERIADO     El empaque llegó roto a la dirección de entr Jairo Enrique Mejía  3153334414   Oficinas Andinas Ltda.         6015551002
+					  ega
+
+EE0000000000022    1 DESTINATARIO_AUSENTE Local cerrado en el horario de visita        Beatriz Elena Cruz   3153334408	 TiendaOnline Colombia S.A.S.	6015551003
+
+2 rows selected.

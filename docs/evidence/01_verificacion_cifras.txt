@@ -1,0 +1,30 @@
+Verificacion de cifras contra el documento
+Fecha: 2026-11-21 21:47:34 -05
+Base: FREEPDB1, esquema BD_ENLACE_EXPRESS
+
+CIFRA						     ESPERADO OBTENIDO RESULTADO
+---------------------------------------------------- -------- -------- ---------
+Tablas							   19	    19 OK
+Columnas						  130	   130 OK
+Columnas NOT NULL					  110	   110 OK
+Claves primarias					   19	    19 OK
+Restricciones UNIQUE					   13	    13 OK
+Claves foraneas 					   27	    27 OK
+Restricciones CHECK (sin NOT NULL)			   33	    33 OK
+Columnas con DEFAULT (sin identidad)			   12	    12 OK
+Indices 						   59	    59 OK
+Vistas							    7	     7 OK
+Disparadores						    6	     6 OK
+Procedimientos						    1	     1 OK
+Roles							    5	     5 OK
+Espacios de tablas					    2	     2 OK
+Apoyo: columnas de identidad				   14	    14 OK
+Apoyo: tablas en TS_ENLACE_DATOS			   19	    19 OK
+Apoyo: indices en TS_ENLACE_INDICES			   59	    59 OK
+Apoyo: columnas VARCHAR2/CHAR en caracteres		   65	    65 OK
+Apoyo: comentarios de tabla				   19	    19 OK
+Apoyo: comentarios de columna				  130	   130 OK
+Apoyo: privilegios DELETE de los roles (RN16)		    0	     0 OK
+Extension E1: tablas					    2	     2 OK
+Extension E1: privilegios concedidos a roles		    0	     0 OK
+Extension E2: vistas					    1	     1 OK

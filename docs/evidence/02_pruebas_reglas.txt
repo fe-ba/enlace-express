@@ -1,0 +1,85 @@
+Pruebas de reglas de negocio (RN02, RN04 a RN08, RN10 a RN12, RN15), con los datos de 04_datos cargados
+Fecha: 2026-11-21 16:59:23 -05
+Comando: db/ejecutar.sh propietario 09_verificacion/02_pruebas_reglas.sql
+
+--- Datos base (claves 9001 en adelante; catalogos de 04_datos) ---
+--- RN15: solicitud de cliente activo ---
+OK   RN15 solicitud de cliente ACTIVO -> sin error
+OK   RN15 solicitud de cliente INACTIVO -> ORA-20015
+--- RN10 y RN11: despacho ---
+OK   RN10 despacho con vehiculo DISPONIBLE y mensajero ACTIVO -> sin error
+OK   RN10 vehiculo EN_MANTENIMIENTO -> ORA-20010
+OK   RN10 mensajero RETIRADO -> ORA-20010
+OK   RN10 UPDATE a vehiculo EN_MANTENIMIENTO -> ORA-20010
+OK   RN11 vehiculo de otro tipo que el del mensajero -> ORA-20011
+OK   RN11 UPDATE a vehiculo de otro tipo -> ORA-20011
+--- RN02 y RN04: procedimiento de registro ---
+OK   RN02 registro sin nombre del destinatario -> ORA-20002
+OK   RN02 registro sin peso -> ORA-20002
+OK   RN02 registro sin direccion de destino -> ORA-20002
+OK   RN02 registro valido devuelve guia EE + 13 digitos -> EE0000000000031
+OK   RN12 el registro crea el evento REGISTRADO (eventos: 1)
+OK   RN02 fecha de compromiso calculada con 3 dias habiles (lunes a sabado) -> 2026-11-24
+OK   RN04 destinatario nuevo se crea (15 -> 16)
+OK   RN04 segundo registro con el mismo documento reutiliza el destinatario sin tocar sus datos (total 16)
+--- RN02: fecha de compromiso (el dia del registro es el dia 1; lunes a sabado) ---
+OK   RN02 MISMO_DIA registrado un sabado -> ese sabado (2026-11-07 -> 2026-11-07)
+OK   RN02 DIA_SIGUIENTE registrado un sabado -> el lunes (2026-11-07 -> 2026-11-09)
+OK   RN02 ESTANDAR registrado un viernes -> el lunes (2026-11-06 -> 2026-11-09)
+OK   RN02 MISMO_DIA registrado un domingo -> el lunes (2026-11-08 -> 2026-11-09)
+OK   RN02 DIA_SIGUIENTE registrado un domingo -> el martes (2026-11-08 -> 2026-11-10)
+OK   RN02 ESTANDAR registrado un martes -> el jueves (2026-11-03 -> 2026-11-05)
+OK   RN02 ESTANDAR registrado un sabado -> el martes (2026-11-07 -> 2026-11-10)
+--- RN07, RN08, RN05, RN12: guia 1, de la solicitud a la devolucion ---
+OK   RN12 INSERT ... SELECT con EN_CENTRO y CLASIFICADO (instantes distintos) -> sin error
+OK   RN12 CLASIFICADO -> EN_RUTA -> sin error
+OK   RN07 intento 1 con despacho de ENTREGA abierto -> sin error
+OK   RN07 intento 2 sin que el 1 termine en NOVEDAD (PENDIENTE) -> ORA-20007
+OK   RN08 resultado NOVEDAD sin novedad registrada -> ORA-20008
+OK   RN08 resultado NOVEDAD con novedad registrada -> sin error
+OK   RN08 segunda novedad del mismo intento (UNIQUE) -> ORA-00001
+OK   RN12 EN_RUTA -> CON_NOVEDAD -> sin error
+OK   RN12 CON_NOVEDAD -> EN_RUTA (reintento) -> sin error
+OK   RN07 intento 2 tras NOVEDAD en el 1 -> sin error
+OK   RN07 intento 3 sin que el 2 termine en NOVEDAD -> ORA-20007
+OK   RN07 intento 3 tras dos NOVEDAD (devolucion) -> sin error
+OK   RN07 ENTREGADO en el intento 3 -> ORA-20007
+OK   RN07 NOVEDAD en el intento 3 -> ORA-20007
+OK   RN05 DEVUELTO en el intento 3 sin prueba -> ORA-20005
+OK   RN07 DEVUELTO en el intento 3 con prueba -> sin error
+OK   RN12 EN_RUTA -> DEVUELTO tras el tercer intento (flujo completo) -> sin error
+OK   RN12 evento despues de DEVUELTO (estado final) -> ORA-20012
+--- RN07: despachos y resultados ---
+OK   RN07 intento 1 en despacho CERRADO -> ORA-20007
+OK   RN07 intento 1 en despacho de RECOLECCION -> ORA-20007
+OK   RN07 intento 3 sin intentos anteriores -> ORA-20007
+OK   RN05 asignacion que nace ENTREGADO -> ORA-20005
+OK   RN08 asignacion que nace NOVEDAD -> ORA-20008
+OK   RN07 DEVUELTO en el intento 1 -> ORA-20007
+--- RN05: entrega con prueba ---
+OK   RN05 resultado ENTREGADO sin prueba de entrega -> ORA-20005
+OK   RN05 prueba de entrega de envio normal -> sin error
+OK   RN05 resultado ENTREGADO con prueba -> sin error
+OK   RN08 segunda prueba del mismo intento (UNIQUE) -> ORA-00001
+--- RN06: documento de quien recibe ---
+OK   RN06 envio fragil con documento distinto al del destinatario -> ORA-20006
+OK   RN06 envio fragil con el documento del destinatario -> sin error
+OK   RN06 envio de alto valor con documento distinto -> ORA-20006
+OK   RN06 envio normal con otro documento -> sin error
+--- RN05 y RN12: eventos ---
+OK   RN05 evento ENTREGADO sin asignacion ENTREGADO -> ORA-20005
+OK   RN05 evento ENTREGADO con asignacion ENTREGADO -> sin error
+OK   RN12 evento despues de ENTREGADO -> ORA-20012
+OK   RN12 primer evento distinto de REGISTRADO -> ORA-20012
+OK   RN12 primer evento REGISTRADO -> sin error
+OK   RN12 REGISTRADO -> ENTREGADO -> ORA-20012
+OK   RN12 REGISTRADO -> REGISTRADO -> ORA-20012
+OK   RN12 REGISTRADO -> ANULADO -> sin error
+OK   RN12 ANULADO desde EN_RUTA -> ORA-20012
+OK   RN12 EN_RUTA -> CLASIFICADO (retroceso) -> ORA-20012
+--- Total ---
+65 OK, 0 FALLA
+PL/SQL procedure successfully completed.
+Rollback complete.
+PL/SQL procedure successfully completed.
+Prueba terminada: ROLLBACK ejecutado, sin datos persistentes.

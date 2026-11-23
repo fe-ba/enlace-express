@@ -1,0 +1,32 @@
+Consulta: estado actual de una guia con v_estado_actual_envio (subconsulta MAX(fecha_hora), C10)
+Indice esperado: EVENTO_GUIA_FECHA_UX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:32 -05
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 1051293738
+
+--------------------------------------------------------------------------------------------------------------
+| Id  | Operation			      | Name		     | Rows  | Bytes | Cost (%CPU)| Time     |
+--------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT		      | 		     |	   6 |	 264 |	   8   (0)| 00:00:01 |
+|   1 |  NESTED LOOPS			      | 		     |	   1 |	  44 |	   5   (0)| 00:00:01 |
+|   2 |   NESTED LOOPS			      | 		     |	   1 |	  44 |	   5   (0)| 00:00:01 |
+|   3 |    TABLE ACCESS BY INDEX ROWID BATCHED| EVENTO_ENVIO	     |	   1 |	  30 |	   4   (0)| 00:00:01 |
+|*  4 |     INDEX RANGE SCAN		      | EVENTO_GUIA_FECHA_UX |	   1 |	     |	   3   (0)| 00:00:01 |
+|   5 |      SORT AGGREGATE		      | 		     |	   1 |	  27 |		  |	     |
+|   6 |       FIRST ROW 		      | 		     |	   1 |	  27 |	   3   (0)| 00:00:01 |
+|*  7 |        INDEX RANGE SCAN (MIN/MAX)     | EVENTO_GUIA_FECHA_UX |	   1 |	  27 |	   3   (0)| 00:00:01 |
+|*  8 |    INDEX UNIQUE SCAN		      | ESTADO_ENVIO_PK      |	   1 |	     |	   0   (0)| 00:00:01 |
+|   9 |   TABLE ACCESS BY INDEX ROWID	      | ESTADO_ENVIO	     |	   1 |	  14 |	   1   (0)| 00:00:01 |
+--------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   4 - access("EV"."NUMERO_GUIA"='EE0000000030000')
+       filter("EV"."FECHA_HORA"= (SELECT MAX("X"."FECHA_HORA") FROM
+	      "BD_ENLACE_EXPRESS"."EVENTO_ENVIO" "X" WHERE "X"."NUMERO_GUIA"=:B1))
+   7 - access("X"."NUMERO_GUIA"=:B1)
+   8 - access("ES"."ID_ESTADO"="EV"."ID_ESTADO")

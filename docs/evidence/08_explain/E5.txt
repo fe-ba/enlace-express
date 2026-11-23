@@ -1,0 +1,48 @@
+Consulta: v_novedades_abiertas (novedades con estado ABIERTA)
+Indice esperado: NOVEDAD_ESTADO_IX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:33 -05
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 1734382496
+
+--------------------------------------------------------------------------------------------------------------------
+| Id  | Operation				   | Name		   | Rows  | Bytes | Cost (%CPU)| Time	   |
+--------------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT			   |			   |   650 | 99450 |   602   (1)| 00:00:01 |
+|   1 |  SORT ORDER BY				   |			   |   650 | 99450 |   602   (1)| 00:00:01 |
+|*  2 |   HASH JOIN				   |			   |   650 | 99450 |   601   (1)| 00:00:01 |
+|   3 |    TABLE ACCESS FULL			   | CLIENTE		   |	34 |   884 |	 3   (0)| 00:00:01 |
+|*  4 |    HASH JOIN				   |			   |   650 | 82550 |   598   (1)| 00:00:01 |
+|   5 |     VIEW				   | index$_join$_011	   |	67 |   402 |	 2   (0)| 00:00:01 |
+|*  6 |      HASH JOIN				   |			   |	   |	   |		|	   |
+|   7 |       INDEX FAST FULL SCAN		   | SEDE_CLIENTE_FK_IX    |	67 |   402 |	 1   (0)| 00:00:01 |
+|   8 |       INDEX FAST FULL SCAN		   | SEDE_PK		   |	67 |   402 |	 1   (0)| 00:00:01 |
+|*  9 |     HASH JOIN				   |			   |   650 | 78650 |   596   (1)| 00:00:01 |
+|* 10 |      HASH JOIN				   |			   |   650 | 73450 |   574   (1)| 00:00:01 |
+|* 11 |       HASH JOIN 			   |			   |   656 | 58384 |   471   (1)| 00:00:01 |
+|* 12 |        HASH JOIN			   |			   |   656 | 41328 |   198   (1)| 00:00:01 |
+|  13 | 	TABLE ACCESS BY INDEX ROWID BATCHED| NOVEDAD		   |   656 | 18368 |	27   (0)| 00:00:01 |
+|* 14 | 	 INDEX RANGE SCAN		   | NOVEDAD_ESTADO_IX	   |   656 |	   |	 3   (0)| 00:00:01 |
+|  15 | 	TABLE ACCESS FULL		   | ASIGNACION_DESPACHO   | 71962 |  2459K|   171   (1)| 00:00:01 |
+|  16 |        TABLE ACCESS FULL		   | ENVIO		   | 65729 |  1668K|   273   (1)| 00:00:01 |
+|  17 |       TABLE ACCESS FULL 		   | DESTINATARIO	   | 39444 |   924K|   102   (0)| 00:00:01 |
+|  18 |      TABLE ACCESS FULL			   | SOLICITUD_RECOLECCION | 10963 | 87704 |	22   (0)| 00:00:01 |
+--------------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("C"."ID_CLIENTE"="SC"."ID_CLIENTE")
+   4 - access("SC"."ID_SEDE"="SR"."ID_SEDE")
+   6 - access(ROWID=ROWID)
+   9 - access("SR"."ID_SOLICITUD"="E"."ID_SOLICITUD")
+  10 - access("DE"."ID_DESTINATARIO"="E"."ID_DESTINATARIO")
+  11 - access("E"."NUMERO_GUIA"="A"."NUMERO_GUIA")
+  12 - access("A"."ID_ASIGNACION"="N"."ID_ASIGNACION")
+  14 - access("N"."ESTADO"='ABIERTA')
+
+Note
+-----
+   - this is an adaptive plan

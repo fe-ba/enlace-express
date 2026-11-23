@@ -1,0 +1,8 @@
+
+Session altered.
+
+Preparacion de T08: envio EE0000000000032 con 2 novedades y el intento 3
+PENDIENTE
+
+PL/SQL procedure successfully completed.
+

@@ -1,0 +1,15 @@
+Transaccion: T10 (T10_gestionar_novedad.sql)
+Cuenta:      svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U3
+Reglas:      --
+Fecha:       2026-11-21 16:59:34 -05
+
+===== T10 | valido | gestionar la novedad del envio C: accion, solucion y estado CERRADA
+  Antes:   ABIERTA/-
+  Despues: CERRADA/REINTENTO
+RESULTADO|T10|valido|gestionar la novedad del envio C: accion, solucion y estado CERRADA|COMMIT; medida -1|COMMIT; medida -1|OK
+===== T10 | rechazado | accion no permitida tras actualizar la solucion
+  Antes:   ABIERTA/-
+  Despues: ABIERTA/-
+  Error:   ORA-02290: check constraint (BD_ENLACE_EXPRESS.NOVEDAD_ACCION_CK) violated
+RESULTADO|T10|rechazado|accion no permitida tras actualizar la solucion|ORA-02290 (CHECK NOVEDAD_ACCION_CK); ROLLBACK, medida sin cambio|ORA-02290; medida 8 -> 8|OK

@@ -1,0 +1,45 @@
+Transaccion: T06 (T06_registrar_entrega.sql)
+Cuenta:      svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U4
+Reglas:      RN05, RN06, RN08, RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T06 | valido | entrega del envio A: prueba, resultado ENTREGADO y evento
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: ENTREGADO / 1>2>3>4>5>6
+RESULTADO|T06|valido|entrega del envio A: prueba, resultado ENTREGADO y evento|COMMIT; medida +3|COMMIT; medida +3|OK
+===== T06 | rechazado | envio B fragil con documento distinto al del destinatario
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: PENDIENTE / 1>2>3>4>5
+  Error:   ORA-20006: RN06: el envío es frágil o de alto valor y solo se entrega al destinatario; el documento de quien recibe no coincide con el del destinatario
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_PRUEBA_DOCUMENTO", line 14
+ORA-04088: error during execut
+RESULTADO|T06|rechazado|envio B fragil con documento distinto al del destinatario|ORA-20006 (RN06); ROLLBACK, medida sin cambio|ORA-20006; medida 84 -> 84|OK
+===== T06 | valido | entrega del envio B fragil al propio destinatario
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: ENTREGADO / 1>2>3>4>5>6
+RESULTADO|T06|valido|entrega del envio B fragil al propio destinatario|COMMIT; medida +3|COMMIT; medida +3|OK
+===== T06 | rechazado | segunda prueba de entrega para el mismo intento
+  Antes:   ENTREGADO / 1>2>3>4>5>6
+  Despues: ENTREGADO / 1>2>3>4>5>6
+  Error:   ORA-00001: unique constraint (BD_ENLACE_EXPRESS.PRUEBA_ASIGNACION_UK) violated on table BD_ENLACE_EXPRESS.PRUEBA_ENTREGA columns (ID_ASIGNACION)
+ORA-03301: (ORA-00001 details) row with column values (ID_ASIGNACION:28) already exists
+RESULTADO|T06|rechazado|segunda prueba de entrega para el mismo intento|ORA-00001 (RN08, UNIQUE PRUEBA_ASIGNACION_UK); ROLLBACK, medida sin cambio|ORA-00001; medida 88 -> 88|OK
+===== T06 | rechazado | ENTREGADO sin prueba de entrega
+  Antes:   PENDIENTE / 1>2>3>4>5
+  Despues: PENDIENTE / 1>2>3>4>5
+  Error:   ORA-20005: RN05: la asignación 26 no puede quedar ENTREGADO sin prueba de entrega
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO", line 23
+ORA-04088: error during execution of trigger 'BD_ENLACE_EXPRESS.TRG_ASIGNACION_RESULTADO'
+RESULTADO|T06|rechazado|ENTREGADO sin prueba de entrega|ORA-20005 (RN05); ROLLBACK, medida sin cambio|ORA-20005; medida 88 -> 88|OK
+===== T06 | rechazado | evento ENTREGADO sobre un envio CON_NOVEDAD (prueba y resultado ya registrados)
+  Antes:   NOVEDAD / 1>2>3>4>5>7
+  Despues: NOVEDAD / 1>2>3>4>5>7
+  Error:   ORA-20012: RN12: transición no permitida de CON_NOVEDAD a ENTREGADO en la guía EE0000000000022
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 62
+ORA-04088: error duri
+RESULTADO|T06|rechazado|evento ENTREGADO sobre un envio CON_NOVEDAD (prueba y resultado ya registrados)|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 61 -> 61|OK

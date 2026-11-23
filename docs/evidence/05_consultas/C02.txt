@@ -1,0 +1,17 @@
+Consulta: C02 (C02_recorrido_envio.sql)
+Cuenta:   svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:00 -05
+Filas:    8
+
+FECHA_HORA		       ESTADO	    RESPONSABLE  OBSERVACION
+------------------------------ ------------ ------------ --------------------------------------------------
+03-NOV-26 08.33.00.000000 AM   REGISTRADO   Natalia      Envío registrado en la mesa de servicio
+03-NOV-26 10.33.00.000000 AM   RECOLECTADO  Carlos	 Recogido en la sede del cliente
+03-NOV-26 02.03.00.000000 PM   EN_CENTRO    Diego        Recibido y pesado en el centro de distribución
+03-NOV-26 04.03.00.000000 PM   CLASIFICADO  Diego	 Clasificado por zona de destino
+04-NOV-26 08.43.00.000000 AM   EN_RUTA	    Carlos	 Sale en el despacho 11 (intento 1)
+04-NOV-26 11.11.00.000000 AM   CON_NOVEDAD  Carlos	 Novedad: DESTINATARIO_AUSENTE
+05-NOV-26 08.43.00.000000 AM   EN_RUTA      Julián       Sale en el despacho 12 (intento 2)
+05-NOV-26 10.11.00.000000 AM   ENTREGADO    Julián       Entregado a Recepción del edificio
+
+8 rows selected.

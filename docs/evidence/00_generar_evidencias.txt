@@ -1,0 +1,25 @@
+Regeneracion de todas las evidencias: db/generar_evidencias.sh
+Inicio: 2026-11-21 16:59:18 -05
+
+Fin: 2026-11-21 17:00:46 -05
+
+================ Resumen ================
+OK     1. Instalacion normal (con verificacion estricta de cifras)       5 s
+OK     2. Cifras del documento: 0 FALLA                                  0 s
+OK     3. Pruebas de reglas de negocio (65 casos)                        0 s
+OK     4. Pruebas de permisos de las 5 cuentas                           1 s
+OK     5. Extension E1: codigos de activacion y usuarios (74 casos)      0 s
+OK     5b. Conteo de los datos fijos                                     0 s
+OK     6. Consultas C1 a C10 con la cuenta de cada usuario               1 s
+OK     7. Consultas iguales al documento (10 IGUAL)                      0 s
+OK     8. Informes I01 a I07 con datos fijos                             1 s
+OK     9. Transacciones T01 a T12 (reinstala y ejecuta)                  8 s
+OK     10. Concurrencia (SELECT FOR UPDATE NOWAIT)                       7 s
+OK     11. Instalacion con volumen (900 envios por dia habil)           49 s
+OK     12. Conteo y tamano de los datos de volumen                       0 s
+OK     13. Informes I01 a I07 con volumen                                2 s
+OK     14. EXPLAIN PLAN E1 a E7                                          1 s
+OK     15. Reinstalacion normal (datos fijos) para la aplicacion         6 s
+OK     16. Cifras finales: 0 FALLA                                       0 s
+Tiempo total: 81 s
+Todos los pasos OK

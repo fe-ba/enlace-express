@@ -1,0 +1,29 @@
+Informe: I02 (I02_seguimiento_envio.sql)  Modo: volumen
+Cuenta:  svc_cliente (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: EE0000000000165 26
+Fecha:   2026-11-21 17:00:31 -05
+Filas:   10
+
+I02. Seguimiento de la guia EE0000000000165 para el cliente 26
+
+FECHA_HORA		     ESTADO	  OBSERVACION					     RESPONSABLE
+---------------------------- ------------ -------------------------------------------------- ------------------------
+01-AUG-26 11.52.00.000000 AM REGISTRADO   Envio registrado				     Natalia Quintero Rojas
+01-AUG-26 12.52.00.000000 PM RECOLECTADO  Recogido en la sede del cliente		     Mensajero12 De volumen
+01-AUG-26 03.52.00.000000 PM EN_CENTRO    Recibido en el centro                              Diego Ramírez Torres
+01-AUG-26 04.52.00.000000 PM CLASIFICADO  Clasificado por zona                               Diego Ramírez Torres
+05-AUG-26 08.42.00.000000 AM EN_RUTA	  Sale en el despacho 57			     Mensajero12 De volumen
+05-AUG-26 10.04.00.000000 AM CON_NOVEDAD  Novedad en el intento 1			     Mensajero12 De volumen
+06-AUG-26 08.42.00.000000 AM EN_RUTA	  Sale en el despacho 63			     Mensajero17 De volumen
+06-AUG-26 10.04.00.000000 AM CON_NOVEDAD  Novedad en el intento 2			     Mensajero17 De volumen
+07-AUG-26 08.42.00.000000 AM EN_RUTA	  Sale en el despacho 69			     Mensajero22 De volumen
+07-AUG-26 10.04.00.000000 AM DEVUELTO	  Devuelto a la sede del cliente		     Mensajero22 De volumen
+
+10 rows selected.
+
+---- Misma guia con otro id_cliente (27): el portal no debe ver el envio ----
+Filas:   0
+
+I02. Seguimiento de la guia EE0000000000165 para el cliente 27
+
+no rows selected

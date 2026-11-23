@@ -1,0 +1,19 @@
+Transaccion: T03 (T03_recolectar.sql)
+Cuenta:      svc_mensajero (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U4
+Reglas:      RN12
+Fecha:       2026-11-21 16:59:33 -05
+
+===== T03 | valido | recolectar la solicitud: ATENDIDA y evento RECOLECTADO de sus 3 envios
+  Antes:   PROGRAMADA / 1
+  Despues: ATENDIDA / 1>2
+RESULTADO|T03|valido|recolectar la solicitud: ATENDIDA y evento RECOLECTADO de sus 3 envios|COMMIT; medida +4|COMMIT; medida +4|OK
+===== T03 | rechazado | recolectar un envio que ya fue entregado (solicitud 11 vuelve a ATENDIDA y se deshace)
+  Antes:   PROGRAMADA
+  Despues: PROGRAMADA
+  Error:   ORA-20012: RN12: la guía EE0000000000020 ya está en un estado final (ENTREGADO) y no admite el evento RECOLECTADO
+ORA-06512: at "BD_ENLACE_EXPRESS.PKG_ERRORES", line 4
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 58
+ORA-06512: at "BD_ENLACE_EXPRESS.TRG_EVENTO_TRANSICION", line 58
+OR
+RESULTADO|T03|rechazado|recolectar un envio que ya fue entregado (solicitud 11 vuelve a ATENDIDA y se deshace)|ORA-20012 (RN12); ROLLBACK, medida sin cambio|ORA-20012; medida 41 -> 41|OK

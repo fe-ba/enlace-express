@@ -1,0 +1,102 @@
+Pruebas de la extension E1 (usuarios de la aplicacion y codigos de activacion)
+Fecha: 2026-11-21 16:59:24 -05
+Comando: db/09_verificacion/probar_e1.sh
+
+=== Parte 1: logica (propietario, ROLLBACK al final) ===
+--- Generacion de codigos ---
+OK   generar codigo para un mensajero activo -> sin error
+OK   el codigo tiene el formato XXXX-XXXX-XXXX sin I, O, 0 ni 1 (PGD6-FZLB-S9H2)
+OK   la base no guarda el codigo en claro
+OK   el hash guardado es SHA-256 en hexadecimal (64 caracteres)
+OK   empleado RETIRADO: no se le genera codigo -> ORA-20110
+OK   documento inexistente: no se genera codigo -> ORA-20110
+OK   cliente INACTIVO: no se genera codigo -> ORA-20111
+OK   cliente inexistente: no se genera codigo -> ORA-20111
+OK   vigencia de 0 horas -> ORA-20112
+--- Registro de empleados ---
+OK   registrar al mensajero con su codigo -> sin error
+OK   el rol se deriva del cargo Mensajero -> MENSAJERO
+OK   el codigo queda usado (fecha_uso e id_usuario)
+OK   reutilizar el codigo -> ORA-20101
+OK   codigo vencido -> ORA-20101
+OK   codigo de otro empleado -> ORA-20101
+OK   documento inexistente -> ORA-20101
+OK   el mismo mensaje para codigo usado, vencido, ajeno y documento inexistente
+OK   empleado RETIRADO no se registra (mismo mensaje) -> ORA-20101
+OK   nombre de usuario repetido -> ORA-20102
+OK   hash de contrasena invalido -> ORA-20104
+OK   el mismo codigo escrito en minusculas y sin guiones sirve -> sin error
+OK   segundo mensajero tambien MENSAJERO
+OK   una segunda cuenta para el mismo empleado -> ORA-20105
+--- Rol derivado del cargo ---
+OK   cargo Gerente -> sin error
+OK   Gerente -> GERENCIA
+OK   cargo Auxiliar de centro -> sin error
+OK   Auxiliar de centro -> CENTRO
+OK   cargo Agente de mesa de servicio -> sin error
+OK   Agente de mesa de servicio -> MESA
+OK   cargo sin acceso a la aplicacion (Contador) -> ORA-20103
+OK   cargo Mensajero sin fila en MENSAJERO -> ORA-20103
+--- Registro de clientes ---
+OK   generar codigo para un cliente ACTIVO -> sin error
+OK   registrar al cliente con su NIT y su codigo -> sin error
+OK   rol CLIENTE vinculado a la empresa
+OK   la cuenta del cliente tiene id_cliente y no id_empleado
+OK   una empresa puede tener varias cuentas (otro codigo) -> sin error
+OK   codigo de otra empresa -> ORA-20101
+OK   codigo de un empleado usado como cliente -> ORA-20101
+OK   NIT de cliente INACTIVO -> ORA-20101
+--- Inicio de sesion ---
+OK   datos_ingreso de un usuario existente: hash, rol, estado y empleado
+OK   datos_ingreso de un cliente: rol CLIENTE e id_cliente
+OK   datos_ingreso de un usuario inexistente devuelve nulos y no lanza error
+OK   empleado RETIRADO: la cuenta sale INACTIVA aunque su fila diga ACTIVO
+OK   cliente INACTIVO: la cuenta sale INACTIVA
+OK   cuenta INACTIVA por su propio estado
+OK   registrar_ingreso anota ultimo_ingreso
+--- Restricciones de la tabla ---
+OK   CHECK de vinculo: rol CLIENTE con empleado -> ORA-02290
+OK   CHECK de destino: codigo para empleado y cliente a la vez -> ORA-02290
+--- Total ---
+E1 (propietario): 48 OK, 0 FALLA
+
+=== Parte 2: la aplicacion (svc_cliente) ===
+(el administrador genero un codigo para el mensajero de prueba 9301)
+OK   svc_cliente registra al mensajero con su codigo por pkg_seguridad (id_usuario 11)
+OK   svc_cliente datos_ingreso devuelve hash, rol MENSAJERO, estado ACTIVO y empleado 9301
+OK   svc_cliente registrar_ingreso confirma sin error
+OK   svc_cliente datos_ingreso de un usuario inexistente devuelve nulos
+OK   svc_cliente reutilizar el codigo -> ORA-20101
+OK   svc_cliente SELECT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   svc_cliente SELECT CODIGO_ACTIVACION se rechaza -> ORA-00942
+OK   svc_cliente INSERT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   svc_cliente DELETE USUARIO_APLICACION se rechaza -> ORA-00942
+OK   svc_cliente EXECUTE pkg_codigos_activacion se rechaza -> ORA-06550
+svc_cliente: 10 OK, 0 FALLA
+
+=== Parte 3: las demas cuentas de servicio no tienen acceso a E1 ===
+--- SVC_GERENCIA ---
+OK   SVC_GERENCIA SELECT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   SVC_GERENCIA SELECT CODIGO_ACTIVACION se rechaza -> ORA-00942
+OK   SVC_GERENCIA EXECUTE pkg_seguridad se rechaza -> ORA-06550
+OK   SVC_GERENCIA EXECUTE pkg_codigos_activacion se rechaza -> ORA-06550
+SVC_GERENCIA: 4 OK, 0 FALLA
+--- SVC_CENTRO ---
+OK   SVC_CENTRO SELECT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   SVC_CENTRO SELECT CODIGO_ACTIVACION se rechaza -> ORA-00942
+OK   SVC_CENTRO EXECUTE pkg_seguridad se rechaza -> ORA-06550
+OK   SVC_CENTRO EXECUTE pkg_codigos_activacion se rechaza -> ORA-06550
+SVC_CENTRO: 4 OK, 0 FALLA
+--- SVC_MESA ---
+OK   SVC_MESA SELECT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   SVC_MESA SELECT CODIGO_ACTIVACION se rechaza -> ORA-00942
+OK   SVC_MESA EXECUTE pkg_seguridad se rechaza -> ORA-06550
+OK   SVC_MESA EXECUTE pkg_codigos_activacion se rechaza -> ORA-06550
+SVC_MESA: 4 OK, 0 FALLA
+--- SVC_MENSAJERO ---
+OK   SVC_MENSAJERO SELECT USUARIO_APLICACION se rechaza -> ORA-00942
+OK   SVC_MENSAJERO SELECT CODIGO_ACTIVACION se rechaza -> ORA-00942
+OK   SVC_MENSAJERO EXECUTE pkg_seguridad se rechaza -> ORA-06550
+OK   SVC_MENSAJERO EXECUTE pkg_codigos_activacion se rechaza -> ORA-06550
+SVC_MENSAJERO: 4 OK, 0 FALLA
+Total E1: 74 OK, 0 FALLA

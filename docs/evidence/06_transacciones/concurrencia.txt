@@ -1,0 +1,14 @@
+Prueba de concurrencia: SELECT ... FOR UPDATE (decision C4)
+Fecha: 2026-11-21 16:59:41 -05
+Fila: envio EE0000000000028. Sesion A: svc_centro; sesion B: svc_mesa (FOR UPDATE NOWAIT).
+
+16:59:34.534  A: bloqueo obtenido sobre EE0000000000028 (sin COMMIT)
+16:59:35.037  B: intento 1 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:36.038  B: intento 2 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:37.038  B: intento 3 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:38.039  B: intento 4 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:39.039  B: intento 5 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:40.040  B: intento 6 rechazado: ORA-00054 recurso ocupado (la fila esta bloqueada por A)
+16:59:40.537  A: ROLLBACK, bloqueo liberado
+16:59:41.040  B: intento 7 consigue el bloqueo sobre EE0000000000028
+16:59:41.041  B: ROLLBACK (la prueba no modifica datos)

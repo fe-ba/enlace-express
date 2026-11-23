@@ -1,0 +1,33 @@
+Informe: I05 (I05_envios_por_despachar.sql)  Modo: volumen
+Cuenta:  svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 1
+Fecha:   2026-11-21 17:00:31 -05
+Filas:   269
+
+I05. Envios por despachar del centro 1
+
+NUMERO_GUIA	 ZONA	     MODALIDAD	    FECHA_COMPROMISO   PESO_KG FRAGIL ALTO_VALOR
+---------------- ----------- -------------- ------------------ ------- ------ ----------
+EE0000000000455  Occidente   MISMO_DIA	    01-AUG-26		  3.27 N      N
+EE0000000000598  Occidente   MISMO_DIA	    01-AUG-26		 11.09 N      S
+EE0000000000740  Occidente   MISMO_DIA	    01-AUG-26		  1.96 N      N
+EE0000000000741  Norte	     MISMO_DIA	    01-AUG-26		  8.31 S      N
+EE0000000000312  Norte	     DIA_SIGUIENTE  03-AUG-26		  1.16 N      N
+EE0000000000883  Norte	     DIA_SIGUIENTE  03-AUG-26		  9.82 N      N
+EE0000000001740  Norte	     DIA_SIGUIENTE  04-AUG-26		  3.18 N      N
+EE0000000001027  Norte	     ESTANDAR	    05-AUG-26		  6.23 N      N
+EE0000000001169  Norte	     ESTANDAR	    05-AUG-26		  9.52 N      N
+EE0000000001312  Norte	     ESTANDAR	    05-AUG-26		  5.85 N      N
+EE0000000003026  Norte	     MISMO_DIA	    05-AUG-26		  4.51 N      N
+EE0000000003027  Occidente   MISMO_DIA	    05-AUG-26		  3.69 N      N
+EE0000000001884  Occidente   ESTANDAR	    06-AUG-26		  2.08 N      N
+EE0000000002312  Norte	     ESTANDAR	    06-AUG-26		  3.15 N      N
+EE0000000002598  Norte	     ESTANDAR	    06-AUG-26		  9.83 N      S
+EE0000000002740  Norte	     ESTANDAR	    07-AUG-26		  7.57 N      N
+EE0000000004026  Occidente   DIA_SIGUIENTE  07-AUG-26		  4.35 N      N
+EE0000000004455  Occidente   DIA_SIGUIENTE  07-AUG-26		  6.45 N      N
+EE0000000005027  Norte	     MISMO_DIA	    07-AUG-26		 10.60 N      N
+EE0000000003741  Norte	     ESTANDAR	    08-AUG-26		  1.06 S      N
+... (se muestran las primeras 20 filas; total en la ultima linea)
+
+269 rows selected.

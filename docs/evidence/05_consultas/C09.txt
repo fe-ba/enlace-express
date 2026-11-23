@@ -1,0 +1,13 @@
+Consulta: C09 (C09_vehiculos_mensajero.sql)
+Cuenta:   svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:01 -05
+Filas:    4
+
+ID_VEHICULO PLACA      MARCA	    MODELO
+----------- ---------- ------------ ----------------
+	  1 ABC12D     Honda	    CB 125F
+	  2 DEF34G     Yamaha	    FZ 150
+	  4 JKL78M     Honda	    XR 150L
+	  9 WXY12Z     Honda	    CB 125F
+
+4 rows selected.

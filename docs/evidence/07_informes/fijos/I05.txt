@@ -1,0 +1,14 @@
+Informe: I05 (I05_envios_por_despachar.sql)  Modo: fijos
+Cuenta:  svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 1
+Fecha:   2026-11-21 16:59:26 -05
+Filas:   2
+
+I05. Envios por despachar del centro 1
+
+NUMERO_GUIA	 ZONA	     MODALIDAD	    FECHA_COMPROMISO   PESO_KG FRAGIL ALTO_VALOR
+---------------- ----------- -------------- ------------------ ------- ------ ----------
+EE0000000000025  Norte	     ESTANDAR	    21-NOV-26		  2.50 N      N
+EE0000000000026  Occidente   ESTANDAR	    21-NOV-26		  1.40 N      N
+
+2 rows selected.

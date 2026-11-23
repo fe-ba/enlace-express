@@ -1,0 +1,17 @@
+Informe: I03 (I03_envios_por_estado.sql)  Modo: volumen
+Cuenta:  svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 1 0
+Fecha:   2026-11-21 17:00:31 -05
+Filas:   5
+
+I03. Envios por estado del centro 1 (zona 0; 0 = todas)
+
+ESTADO_ACTUAL	 ENVIOS
+-------------- --------
+CLASIFICADO	      2
+ENTREGADO	 25,147
+CON_NOVEDAD	    267
+DEVUELTO	    395
+ANULADO 	    394
+
+5 rows selected.

@@ -1,0 +1,77 @@
+Consulta: C5, envios por zona y modalidad de una semana (14 a 19 de septiembre) y, al final, de un mes
+Indice esperado: ENVIO_FECHA_REGISTRO_IX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:32 -05
+
+Nota: Con la semana (unos 5.400 de 65.700 envios, 8 %) se espera el indice; con el mes
+Nota: (unos 22.000, 33 %) el optimizador suele preferir recorrer la tabla completa,
+Nota: porque leer un tercio de las filas por indice cuesta mas que un barrido.
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 3988369335
+
+------------------------------------------------------------------------------------------------------------------
+| Id  | Operation			       | Name			 | Rows  | Bytes | Cost (%CPU)| Time	 |
+------------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT		       |			 |    11 |   517 |    96   (2)| 00:00:01 |
+|   1 |  SORT GROUP BY			       |			 |    11 |   517 |    96   (2)| 00:00:01 |
+|*  2 |   HASH JOIN			       |			 |  4572 |   209K|    95   (0)| 00:00:01 |
+|   3 |    VIEW 			       | index$_join$_002	 |     5 |    55 |     2   (0)| 00:00:01 |
+|*  4 |     HASH JOIN			       |			 |	 |	 |	      | 	 |
+|   5 |      INDEX FAST FULL SCAN	       | ZONA_NOMBRE_UK 	 |     5 |    55 |     1   (0)| 00:00:01 |
+|   6 |      INDEX FAST FULL SCAN	       | ZONA_PK		 |     5 |    55 |     1   (0)| 00:00:01 |
+|*  7 |    HASH JOIN			       |			 |  4572 |   160K|    93   (0)| 00:00:01 |
+|   8 |     VIEW			       | index$_join$_004	 |     3 |    42 |     2   (0)| 00:00:01 |
+|*  9 |      HASH JOIN			       |			 |	 |	 |	      | 	 |
+|  10 |       INDEX FAST FULL SCAN	       | MODALIDAD_NOMBRE_UK	 |     3 |    42 |     1   (0)| 00:00:01 |
+|  11 |       INDEX FAST FULL SCAN	       | MODALIDAD_PK		 |     3 |    42 |     1   (0)| 00:00:01 |
+|* 12 |     TABLE ACCESS BY INDEX ROWID BATCHED| ENVIO			 |  4572 |    98K|    91   (0)| 00:00:01 |
+|* 13 |      INDEX RANGE SCAN		       | ENVIO_FECHA_REGISTRO_IX |  4572 |	 |    20   (0)| 00:00:01 |
+------------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("Z"."ID_ZONA"="E"."ID_ZONA")
+   4 - access(ROWID=ROWID)
+   7 - access("M"."ID_MODALIDAD"="E"."ID_MODALIDAD")
+   9 - access(ROWID=ROWID)
+  12 - filter("FECHA_COMPROMISO">=TO_DATE(' 2026-09-14 00:00:00', 'syyyy-mm-dd hh24:mi:ss'))
+  13 - access("E"."FECHA_REGISTRO">=TO_DATE(' 2026-09-14 00:00:00', 'syyyy-mm-dd hh24:mi:ss') AND
+	      "E"."FECHA_REGISTRO"<=TO_DATE(' 2026-09-19 00:00:00', 'syyyy-mm-dd hh24:mi:ss'))
+
+El mismo informe para el mes de septiembre
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 1362341480
+
+-------------------------------------------------------------------------------------------------
+| Id  | Operation		  | Name		| Rows	| Bytes | Cost (%CPU)| Time	|
+-------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT	  |			|    11 |   517 |   279   (2)| 00:00:01 |
+|   1 |  SORT GROUP BY		  |			|    11 |   517 |   279   (2)| 00:00:01 |
+|*  2 |   HASH JOIN		  |			| 18912 |   868K|   278   (1)| 00:00:01 |
+|   3 |    VIEW 		  | index$_join$_002	|     5 |    55 |     2   (0)| 00:00:01 |
+|*  4 |     HASH JOIN		  |			|	|	|	     |		|
+|   5 |      INDEX FAST FULL SCAN | ZONA_NOMBRE_UK	|     5 |    55 |     1   (0)| 00:00:01 |
+|   6 |      INDEX FAST FULL SCAN | ZONA_PK		|     5 |    55 |     1   (0)| 00:00:01 |
+|*  7 |    HASH JOIN		  |			| 18912 |   664K|   276   (1)| 00:00:01 |
+|   8 |     VIEW		  | index$_join$_004	|     3 |    42 |     2   (0)| 00:00:01 |
+|*  9 |      HASH JOIN		  |			|	|	|	     |		|
+|  10 |       INDEX FAST FULL SCAN| MODALIDAD_NOMBRE_UK |     3 |    42 |     1   (0)| 00:00:01 |
+|  11 |       INDEX FAST FULL SCAN| MODALIDAD_PK	|     3 |    42 |     1   (0)| 00:00:01 |
+|* 12 |     TABLE ACCESS FULL	  | ENVIO		| 18912 |   406K|   273   (1)| 00:00:01 |
+-------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("Z"."ID_ZONA"="E"."ID_ZONA")
+   4 - access(ROWID=ROWID)
+   7 - access("M"."ID_MODALIDAD"="E"."ID_MODALIDAD")
+   9 - access(ROWID=ROWID)
+  12 - filter("E"."FECHA_REGISTRO"<=TO_DATE(' 2026-09-30 00:00:00', 'syyyy-mm-dd
+	      hh24:mi:ss') AND "E"."FECHA_REGISTRO">=TO_DATE(' 2026-09-01 00:00:00', 'syyyy-mm-dd
+	      hh24:mi:ss') AND "FECHA_COMPROMISO">=TO_DATE(' 2026-09-01 00:00:00', 'syyyy-mm-dd
+	      hh24:mi:ss'))

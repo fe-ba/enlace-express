@@ -1,0 +1,42 @@
+Consulta: C3, planilla del despacho 15 (reunion por clave foranea ASIGNACION_DESPACHO.ID_DESPACHO)
+Indice esperado: ASIGNACION_DESPACHO_FK_IX. Aparece en el plan: SÍ
+Fecha: 2026-11-21 17:00:33 -05
+
+
+PLAN_TABLE_OUTPUT
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Plan hash value: 4223365440
+
+----------------------------------------------------------------------------------------------------------------------
+| Id  | Operation				 | Name 		     | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT			 |			     |	  28 |	3164 |	  67   (2)| 00:00:01 |
+|   1 |  SORT ORDER BY				 |			     |	  28 |	3164 |	  67   (2)| 00:00:01 |
+|*  2 |   HASH JOIN				 |			     |	  28 |	3164 |	  66   (0)| 00:00:01 |
+|   3 |    NESTED LOOPS 			 |			     |	  28 |	2856 |	  64   (0)| 00:00:01 |
+|   4 |     NESTED LOOPS			 |			     |	  29 |	2856 |	  64   (0)| 00:00:01 |
+|   5 |      NESTED LOOPS			 |			     |	  29 |	2262 |	  35   (0)| 00:00:01 |
+|   6 |       TABLE ACCESS BY INDEX ROWID BATCHED| ASIGNACION_DESPACHO	     |	  29 |	 986 |	   6   (0)| 00:00:01 |
+|*  7 |        INDEX RANGE SCAN 		 | ASIGNACION_DESPACHO_FK_IX |	  29 |	     |	   1   (0)| 00:00:01 |
+|   8 |       TABLE ACCESS BY INDEX ROWID	 | ENVIO		     |	   1 |	  44 |	   1   (0)| 00:00:01 |
+|*  9 |        INDEX UNIQUE SCAN		 | ENVIO_PK		     |	   1 |	     |	   0   (0)| 00:00:01 |
+|* 10 |      INDEX UNIQUE SCAN			 | DESTINATARIO_PK	     |	   1 |	     |	   0   (0)| 00:00:01 |
+|  11 |     TABLE ACCESS BY INDEX ROWID 	 | DESTINATARIO 	     |	   1 |	  24 |	   1   (0)| 00:00:01 |
+|  12 |    VIEW 				 | index$_join$_006	     |	   5 |	  55 |	   2   (0)| 00:00:01 |
+|* 13 |     HASH JOIN				 |			     |	     |	     |		  |	     |
+|  14 |      INDEX FAST FULL SCAN		 | ZONA_NOMBRE_UK	     |	   5 |	  55 |	   1   (0)| 00:00:01 |
+|  15 |      INDEX FAST FULL SCAN		 | ZONA_PK		     |	   5 |	  55 |	   1   (0)| 00:00:01 |
+----------------------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("Z"."ID_ZONA"="E"."ID_ZONA")
+   7 - access("A"."ID_DESPACHO"=15)
+   9 - access("E"."NUMERO_GUIA"="A"."NUMERO_GUIA")
+  10 - access("D"."ID_DESTINATARIO"="E"."ID_DESTINATARIO")
+  13 - access(ROWID=ROWID)
+
+Note
+-----
+   - this is an adaptive plan

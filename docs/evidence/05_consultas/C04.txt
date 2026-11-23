@@ -1,0 +1,11 @@
+Consulta: C04 (C04_clasificados_sin_asignar.sql)
+Cuenta:   svc_centro (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:00 -05
+Filas:    2
+
+NUMERO_GUIA
+----------------
+EE0000000000025
+EE0000000000026
+
+2 rows selected.

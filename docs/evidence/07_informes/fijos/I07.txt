@@ -1,0 +1,24 @@
+Informe: I07 (I07_reclamaciones_pendientes.sql)  Modo: fijos
+Cuenta:  svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: ninguno
+Fecha:   2026-11-21 16:59:26 -05
+Filas:   4
+
+I07. Reclamaciones pendientes
+
+FECHA_RADICACION	     CLIENTE			    NUMERO_GUIA      TIPO	  DESCRIPCION
+---------------------------- ------------------------------ ---------------- ------------ --------------------------------------------------
+17-NOV-26 08.45.00.000000 AM Droguería Nueva Salud S.A.S.   EE0000000000015  ENTREGA      El paquete se entregó fuera de la fecha de comprom
+											  iso
+
+18-NOV-26 09.30.00.000000 AM Oficinas Andinas Ltda.         EE0000000000014  DANO         El paquete llegó averiado a la dirección del desti
+											  natario
+
+19-NOV-26 09.15.00.000000 AM TiendaOnline Colombia S.A.S.   EE0000000000011  OTRO         Solicitud de certificación de entrega para auditor
+                                                                                          ía
+
+19-NOV-26 04.00.00.000000 PM TiendaOnline Colombia S.A.S.                    FACTURACION  La factura de octubre trae un cobro de recolección
+											   duplicado
+
+
+4 rows selected.

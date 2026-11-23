@@ -1,0 +1,15 @@
+Transaccion: T11 (T11_reclamacion.sql)
+Cuenta:      svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Usuario:     U3
+Reglas:      RN14
+Fecha:       2026-11-21 16:59:34 -05
+
+===== T11 | valido | radicar la reclamacion del envio A y responderla a las 3 horas
+  Antes:   7 reclamaciones, 2 respondidas
+  Despues: 8 reclamaciones, 3 respondidas
+RESULTADO|T11|valido|radicar la reclamacion del envio A y responderla a las 3 horas|COMMIT; medida +2|COMMIT; medida +2|OK
+===== T11 | rechazado | respuesta con fecha anterior a la radicacion
+  Antes:   8 reclamaciones, 3 respondidas
+  Despues: 8 reclamaciones, 3 respondidas
+  Error:   ORA-02290: check constraint (BD_ENLACE_EXPRESS.RECLAMACION_RESP_CK) violated
+RESULTADO|T11|rechazado|respuesta con fecha anterior a la radicacion|ORA-02290 (RN14, CHECK RECLAMACION_RESP_CK); ROLLBACK, medida sin cambio|ORA-02290; medida 11 -> 11|OK

@@ -1,0 +1,13 @@
+Consulta: C07 (C07_envios_gestion.sql)
+Cuenta:   svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:01 -05
+Filas:    4
+
+NUMERO_GUIA
+----------------
+EE0000000000014
+EE0000000000022
+EE0000000000011
+EE0000000000015
+
+4 rows selected.

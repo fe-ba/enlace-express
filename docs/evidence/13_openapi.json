@@ -1,0 +1,3500 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API de Enlace Express - módulo M1",
+    "description": "API REST del prototipo del módulo M1 (operación de envíos) de BD_ENLACE_EXPRESS.\n\n**Autenticación.** Sesión en el servidor: `POST /api/sesion` entrega la cookie `JSESSIONID`. Cada ruta exige el rol que indica su sección. Los `POST` también exigen el token CSRF en el encabezado `X-XSRF-TOKEN` (valor de la cookie `XSRF-TOKEN`, que entrega `GET /api/csrf`). El rastreo público y el registro no necesitan sesión.\n\n**Errores.** Todos salen como Problem Details (RFC 9457) con la propiedad `codigo`: 422 para las reglas de negocio (`RN01` a `RN16`, `E1`), 400 para datos inválidos, 401 sin sesión, 403 sin permiso, 404 si no existe, 409 por conflictos y 429 por demasiadas consultas.",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Mesa de servicio",
+      "description": "Solicitudes de recolección, registro, consulta y anulación de envíos."
+    },
+    {
+      "name": "Centro de distribución",
+      "description": "Recepción y clasificación, envíos por despachar, armado, planilla y cierre de despachos."
+    },
+    {
+      "name": "Mensajero",
+      "description": "Recolecciones, planilla de ruta, entrega con prueba, novedad y devolución."
+    },
+    {
+      "name": "Tablero de gerencia",
+      "description": "Cumplimiento de entregas por zona, envíos por estado y reclamaciones pendientes."
+    },
+    {
+      "name": "Portal del cliente",
+      "description": "Envíos y seguimiento de la empresa del cliente que inició sesión."
+    },
+    {
+      "name": "Rastreo público",
+      "description": "Consulta de un envío por su número de guía, sin cuenta y sin datos personales; limitada por dirección IP."
+    },
+    {
+      "name": "Sesión y registro",
+      "description": "Inicio y cierre de sesión, token CSRF y registro con código de activación."
+    },
+    {
+      "name": "Salud",
+      "description": "Chequeo de que la aplicación y la base de datos responden."
+    }
+  ],
+  "paths": {
+    "/api/sesion": {
+      "get": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "actual",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaSesion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "iniciar",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitudSesion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/RespuestaSesion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/sesion/cerrar": {
+      "post": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "cerrar",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/registro/empleado": {
+      "post": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "empleado",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistroEmpleado"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioRegistrado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/registro/cliente": {
+      "post": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "cliente",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistroCliente"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioRegistrado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/solicitudes": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "registrarSolicitud",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SolicitudNueva"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/reclamaciones": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "reclamaciones",
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ABIERTA",
+                "RESPONDIDA",
+                "CERRADA"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaReclamacionMesa"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "registrarReclamacion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReclamacionNueva"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Radicada"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/reclamaciones/{id}/responder": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "responder",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RespuestaReclamacion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Respondida"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/reclamaciones/{id}/cerrar": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "cerrar_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cerrada"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/novedades/{id}/gestionar": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "gestionarNovedad",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GestionNovedad"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/NovedadGestionada"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/envios": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "registrarEnvio",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosEnvio"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvioRegistrado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/envios/{guia}/anular": {
+      "post": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "anular",
+        "parameters": [
+          {
+            "name": "guia",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Anulacion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvioAnulado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/solicitudes/{id}/recolectar": {
+      "post": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "recolectar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Recoleccion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/asignaciones/{id}/novedad": {
+      "post": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "novedad",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosNovedad"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultadoAsignacion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/asignaciones/{id}/entrega": {
+      "post": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "entrega",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosPrueba"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultadoAsignacion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/asignaciones/{id}/devolucion": {
+      "post": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "devolucion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosPrueba"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultadoAsignacion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/zonas": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "zonas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zona"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "crearZona",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosZona"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zona"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/zonas/{id}/modificar": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "modificarZona",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosZona"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zona"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/envios/{guia}/recepcion": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "recepcion",
+        "parameters": [
+          {
+            "name": "guia",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Recepcion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvioRecibido"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/despachos": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "armarDespacho",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DespachoNuevo"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DespachoArmado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/despachos/{id}/cerrar": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "cerrar_2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DespachoCerrado"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/centros": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "centros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CentroDistribucion"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "crearCentro",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosCentro"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CentroDistribucion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/centros/{id}/modificar": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "modificarCentro",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatosCentro"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CentroDistribucion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/centro/centros/{id}/estado": {
+      "post": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "cambiarEstado",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CambioDeEstado"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CentroDistribucion"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          },
+          {
+            "tokenCsrf": []
+          }
+        ]
+      }
+    },
+    "/api/tablero/reclamaciones-pendientes": {
+      "get": {
+        "tags": [
+          "Tablero de gerencia"
+        ],
+        "description": "Rol requerido: GERENCIA.",
+        "operationId": "reclamaciones_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaReclamacion"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/tablero/envios-por-estado": {
+      "get": {
+        "tags": [
+          "Tablero de gerencia"
+        ],
+        "description": "Rol requerido: GERENCIA.",
+        "operationId": "enviosPorEstado",
+        "parameters": [
+          {
+            "name": "centro",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaConteo"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/tablero/cumplimiento": {
+      "get": {
+        "tags": [
+          "Tablero de gerencia"
+        ],
+        "description": "Rol requerido: GERENCIA.",
+        "operationId": "cumplimiento",
+        "parameters": [
+          {
+            "name": "centro",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaCumplimiento"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/salud": {
+      "get": {
+        "tags": [
+          "Salud"
+        ],
+        "operationId": "salud",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {}
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/publico/rastreo/{guia}": {
+      "get": {
+        "tags": [
+          "Rastreo público"
+        ],
+        "operationId": "rastreoPublico",
+        "parameters": [
+          {
+            "name": "guia",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rastreo"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/mesa/zonas": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "zonas_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zona"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/novedades": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "novedadesAbiertas",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaNovedadAbierta"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/modalidades": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "modalidades",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Modalidad"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/envios/{guia}": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "envio",
+        "parameters": [
+          {
+            "name": "guia",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleEnvio"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/clientes": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "clientes",
+        "parameters": [
+          {
+            "name": "todos",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResumenCliente"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mesa/clientes/{id}/sedes": {
+      "get": {
+        "tags": [
+          "Mesa de servicio"
+        ],
+        "description": "Rol requerido: MESA.",
+        "operationId": "sedes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SedeCliente"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/recolecciones": {
+      "get": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "recolecciones",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaRecoleccion"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/mensajero/planilla": {
+      "get": {
+        "tags": [
+          "Mensajero"
+        ],
+        "description": "Rol requerido: MENSAJERO.",
+        "operationId": "planilla",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaPlanilla"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/csrf": {
+      "get": {
+        "tags": [
+          "Sesión y registro"
+        ],
+        "operationId": "csrf",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CsrfToken"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/cliente/envios": {
+      "get": {
+        "tags": [
+          "Portal del cliente"
+        ],
+        "description": "Rol requerido: CLIENTE.",
+        "operationId": "enviosDelCliente",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaEnvioCliente"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/cliente/envios/{guia}/seguimiento": {
+      "get": {
+        "tags": [
+          "Portal del cliente"
+        ],
+        "description": "Rol requerido: CLIENTE.",
+        "operationId": "seguimientoDelCliente",
+        "parameters": [
+          {
+            "name": "guia",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaSeguimiento"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/centro/por-despachar": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "porDespachar",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaPorDespachar"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/centro/mensajeros": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "mensajeros",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResumenMensajero"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/centro/mensajeros/{id}/vehiculos": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "vehiculos",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResumenVehiculo"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/centro/envios/recolectados": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "recolectados",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaEnvioEstado"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    },
+    "/api/centro/despachos/{id}/planilla": {
+      "get": {
+        "tags": [
+          "Centro de distribución"
+        ],
+        "description": "Rol requerido: CENTRO.",
+        "operationId": "planilla_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FilaPlanilla"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error: formato Problem Details con el código de la regla o del error en la propiedad \"codigo\".",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "cookieDeSesion": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SolicitudSesion": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "string"
+          },
+          "contrasena": {
+            "type": "string"
+          }
+        }
+      },
+      "RespuestaSesion": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "string"
+          },
+          "rol": {
+            "type": "string"
+          },
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "RegistroEmpleado": {
+        "type": "object",
+        "properties": {
+          "documento": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "string"
+          },
+          "usuario": {
+            "type": "string"
+          },
+          "contrasena": {
+            "type": "string"
+          }
+        }
+      },
+      "UsuarioRegistrado": {
+        "type": "object",
+        "properties": {
+          "usuario": {
+            "type": "string"
+          },
+          "rol": {
+            "type": "string"
+          }
+        }
+      },
+      "RegistroCliente": {
+        "type": "object",
+        "properties": {
+          "nit": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "string"
+          },
+          "usuario": {
+            "type": "string"
+          },
+          "contrasena": {
+            "type": "string"
+          }
+        }
+      },
+      "SolicitudNueva": {
+        "type": "object",
+        "properties": {
+          "idSede": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaProgramada": {
+            "type": "string",
+            "format": "date"
+          },
+          "franjaHoraria": {
+            "type": "string",
+            "enum": [
+              "MANANA",
+              "TARDE"
+            ]
+          }
+        }
+      },
+      "ReclamacionNueva": {
+        "type": "object",
+        "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "ENTREGA",
+              "DANO",
+              "FACTURACION",
+              "OTRO"
+            ]
+          },
+          "descripcion": {
+            "type": "string"
+          }
+        }
+      },
+      "Radicada": {
+        "type": "object",
+        "properties": {
+          "idReclamacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaRadicacion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "RespuestaReclamacion": {
+        "type": "object",
+        "properties": {
+          "respuesta": {
+            "type": "string"
+          }
+        }
+      },
+      "Respondida": {
+        "type": "object",
+        "properties": {
+          "idReclamacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "fechaRespuesta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "horas": {
+            "type": "number"
+          },
+          "superaMeta": {
+            "type": "boolean"
+          }
+        }
+      },
+      "Cerrada": {
+        "type": "object",
+        "properties": {
+          "idReclamacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estado": {
+            "type": "string"
+          }
+        }
+      },
+      "GestionNovedad": {
+        "type": "object",
+        "properties": {
+          "accion": {
+            "type": "string",
+            "enum": [
+              "REINTENTO",
+              "DEVOLUCION"
+            ]
+          },
+          "solucion": {
+            "type": "string"
+          }
+        }
+      },
+      "NovedadGestionada": {
+        "type": "object",
+        "properties": {
+          "idNovedad": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "accion": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          }
+        }
+      },
+      "DatosDestinatario": {
+        "type": "object",
+        "properties": {
+          "tipoDocumento": {
+            "type": "string",
+            "enum": [
+              "CC",
+              "CE",
+              "NIT",
+              "PAS",
+              "TI"
+            ]
+          },
+          "numeroDocumento": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          }
+        }
+      },
+      "DatosEnvio": {
+        "type": "object",
+        "properties": {
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "destinatario": {
+            "$ref": "#/components/schemas/DatosDestinatario"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idModalidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direccionDestino": {
+            "type": "string"
+          },
+          "pesoDeclarado": {
+            "type": "number"
+          },
+          "contenido": {
+            "type": "string"
+          },
+          "valorDeclarado": {
+            "type": "number"
+          },
+          "fragil": {
+            "type": "boolean"
+          },
+          "altoValor": {
+            "type": "boolean"
+          },
+          "fechaCompromiso": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "EnvioRegistrado": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "fechaCompromiso": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "Anulacion": {
+        "type": "object",
+        "properties": {
+          "observacion": {
+            "type": "string"
+          }
+        }
+      },
+      "EnvioAnulado": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "estadoActual": {
+            "type": "string"
+          }
+        }
+      },
+      "Recoleccion": {
+        "type": "object",
+        "properties": {
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "enviosRecolectados": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DatosNovedad": {
+        "type": "object",
+        "properties": {
+          "tipoNovedad": {
+            "type": "string",
+            "enum": [
+              "DESTINATARIO_AUSENTE",
+              "DIRECCION_ERRADA",
+              "RECHAZADO",
+              "PAQUETE_AVERIADO",
+              "OTRA"
+            ]
+          },
+          "descripcion": {
+            "type": "string"
+          }
+        }
+      },
+      "ResultadoAsignacion": {
+        "type": "object",
+        "properties": {
+          "idAsignacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "resultado": {
+            "type": "string"
+          },
+          "estadoEnvio": {
+            "type": "string"
+          }
+        }
+      },
+      "DatosPrueba": {
+        "type": "object",
+        "properties": {
+          "nombreReceptor": {
+            "type": "string"
+          },
+          "documentoReceptor": {
+            "type": "string"
+          },
+          "tipoPrueba": {
+            "type": "string",
+            "enum": [
+              "FIRMA",
+              "DOCUMENTO",
+              "FOTOGRAFIA"
+            ]
+          }
+        }
+      },
+      "DatosZona": {
+        "type": "object",
+        "properties": {
+          "idCentro": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "localidades": {
+            "type": "string"
+          }
+        }
+      },
+      "Zona": {
+        "type": "object",
+        "properties": {
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idCentro": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "localidades": {
+            "type": "string"
+          }
+        }
+      },
+      "Recepcion": {
+        "type": "object",
+        "properties": {
+          "pesoReal": {
+            "type": "number"
+          },
+          "valorFlete": {
+            "type": "number"
+          }
+        }
+      },
+      "EnvioRecibido": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "estadoActual": {
+            "type": "string"
+          }
+        }
+      },
+      "DespachoNuevo": {
+        "type": "object",
+        "properties": {
+          "idMensajero": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idVehiculo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "guias": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "DespachoArmado": {
+        "type": "object",
+        "properties": {
+          "idDespacho": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "asignaciones": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "DespachoCerrado": {
+        "type": "object",
+        "properties": {
+          "idDespacho": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "horaCierre": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DatosCentro": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          }
+        }
+      },
+      "CentroDistribucion": {
+        "type": "object",
+        "properties": {
+          "idCentro": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string",
+            "enum": [
+              "ACTIVO",
+              "INACTIVO"
+            ]
+          }
+        }
+      },
+      "CambioDeEstado": {
+        "type": "object",
+        "properties": {
+          "estado": {
+            "type": "string",
+            "enum": [
+              "ACTIVO",
+              "INACTIVO"
+            ]
+          }
+        }
+      },
+      "FilaReclamacion": {
+        "type": "object",
+        "properties": {
+          "idReclamacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaRadicacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cliente": {
+            "type": "string"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "horasTranscurridas": {
+            "type": "number"
+          }
+        }
+      },
+      "FilaConteo": {
+        "type": "object",
+        "properties": {
+          "etiqueta": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "FilaCumplimiento": {
+        "type": "object",
+        "properties": {
+          "idCentro": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "zona": {
+            "type": "string"
+          },
+          "entregados": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "entregadosATiempo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "porcentajeATiempo": {
+            "type": "number"
+          }
+        }
+      },
+      "EventoRastreo": {
+        "type": "object",
+        "properties": {
+          "fechaHora": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "zona": {
+            "type": "string"
+          }
+        }
+      },
+      "Rastreo": {
+        "type": "object",
+        "properties": {
+          "guia": {
+            "type": "string"
+          },
+          "estadoActual": {
+            "type": "string"
+          },
+          "eventos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EventoRastreo"
+            }
+          }
+        }
+      },
+      "FilaReclamacionMesa": {
+        "type": "object",
+        "properties": {
+          "idReclamacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaRadicacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cliente": {
+            "type": "string"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "tipo": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "respuesta": {
+            "type": "string"
+          },
+          "fechaRespuesta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "horas": {
+            "type": "number"
+          },
+          "superaMeta": {
+            "type": "boolean"
+          }
+        }
+      },
+      "FilaNovedadAbierta": {
+        "type": "object",
+        "properties": {
+          "idNovedad": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "numeroIntento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "horaVisita": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoNovedad": {
+            "type": "string"
+          },
+          "descripcion": {
+            "type": "string"
+          },
+          "destinatario": {
+            "type": "string"
+          },
+          "telefonoDestinatario": {
+            "type": "string"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "cliente": {
+            "type": "string"
+          },
+          "telefonoCliente": {
+            "type": "string"
+          }
+        }
+      },
+      "Modalidad": {
+        "type": "object",
+        "properties": {
+          "idModalidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "plazoDiasHabiles": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Destinatario": {
+        "type": "object",
+        "properties": {
+          "idDestinatario": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "enum": [
+              "CC",
+              "CE",
+              "NIT",
+              "PAS",
+              "TI"
+            ]
+          },
+          "numeroDocumento": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "correo": {
+            "type": "string"
+          }
+        }
+      },
+      "DetalleEnvio": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaCompromiso": {
+            "type": "string",
+            "format": "date"
+          },
+          "estadoActual": {
+            "type": "string"
+          },
+          "direccionDestino": {
+            "type": "string"
+          },
+          "pesoDeclarado": {
+            "type": "number"
+          },
+          "pesoReal": {
+            "type": "number"
+          },
+          "contenido": {
+            "type": "string"
+          },
+          "valorDeclarado": {
+            "type": "number"
+          },
+          "fragil": {
+            "type": "boolean"
+          },
+          "altoValor": {
+            "type": "boolean"
+          },
+          "valorFlete": {
+            "type": "number"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idModalidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "destinatario": {
+            "$ref": "#/components/schemas/Destinatario"
+          },
+          "recorrido": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilaSeguimiento"
+            }
+          }
+        }
+      },
+      "FilaSeguimiento": {
+        "type": "object",
+        "properties": {
+          "fechaHora": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "observacion": {
+            "type": "string"
+          },
+          "responsable": {
+            "type": "string"
+          }
+        }
+      },
+      "ResumenCliente": {
+        "type": "object",
+        "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nit": {
+            "type": "string"
+          },
+          "razonSocial": {
+            "type": "string"
+          },
+          "tipoCliente": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          }
+        }
+      },
+      "SedeCliente": {
+        "type": "object",
+        "properties": {
+          "idSede": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "contacto": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          }
+        }
+      },
+      "FilaRecoleccion": {
+        "type": "object",
+        "properties": {
+          "idSolicitud": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fechaProgramada": {
+            "type": "string",
+            "format": "date"
+          },
+          "franjaHoraria": {
+            "type": "string"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "sede": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "contacto": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "envios": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "FilaPlanilla": {
+        "type": "object",
+        "properties": {
+          "ordenVisita": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numeroGuia": {
+            "type": "string"
+          },
+          "destinatario": {
+            "type": "string"
+          },
+          "telefono": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "resultado": {
+            "type": "string",
+            "enum": [
+              "PENDIENTE",
+              "ENTREGADO",
+              "NOVEDAD",
+              "DEVUELTO"
+            ]
+          },
+          "idAsignacion": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "numeroIntento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoDocumentoDestinatario": {
+            "type": "string",
+            "enum": [
+              "CC",
+              "CE",
+              "NIT",
+              "PAS",
+              "TI"
+            ]
+          },
+          "numeroDocumentoDestinatario": {
+            "type": "string"
+          },
+          "zona": {
+            "type": "string"
+          },
+          "fragil": {
+            "type": "boolean"
+          },
+          "altoValor": {
+            "type": "boolean"
+          },
+          "idDespacho": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "estadoDespacho": {
+            "type": "string"
+          }
+        }
+      },
+      "CsrfToken": {
+        "type": "object",
+        "properties": {
+          "parameterName": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "headerName": {
+            "type": "string"
+          }
+        }
+      },
+      "FilaEnvioCliente": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "estadoActual": {
+            "type": "string"
+          },
+          "fechaHora": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "FilaPorDespachar": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "idCentro": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "zona": {
+            "type": "string"
+          },
+          "modalidad": {
+            "type": "string"
+          },
+          "fechaCompromiso": {
+            "type": "string",
+            "format": "date"
+          },
+          "pesoKg": {
+            "type": "number"
+          },
+          "fragil": {
+            "type": "boolean"
+          },
+          "altoValor": {
+            "type": "boolean"
+          },
+          "estadoActual": {
+            "type": "string"
+          },
+          "intentosPrevios": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ResumenMensajero": {
+        "type": "object",
+        "properties": {
+          "idEmpleado": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nombres": {
+            "type": "string"
+          },
+          "apellidos": {
+            "type": "string"
+          },
+          "idZona": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "idTipoVehiculo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoVehiculo": {
+            "type": "string"
+          }
+        }
+      },
+      "ResumenVehiculo": {
+        "type": "object",
+        "properties": {
+          "idVehiculo": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "placa": {
+            "type": "string"
+          },
+          "marca": {
+            "type": "string"
+          },
+          "modelo": {
+            "type": "string"
+          }
+        }
+      },
+      "FilaEnvioEstado": {
+        "type": "object",
+        "properties": {
+          "numeroGuia": {
+            "type": "string"
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date"
+          },
+          "fechaCompromiso": {
+            "type": "string",
+            "format": "date"
+          },
+          "razonSocial": {
+            "type": "string"
+          },
+          "zona": {
+            "type": "string"
+          },
+          "modalidad": {
+            "type": "string"
+          },
+          "estadoActual": {
+            "type": "string"
+          },
+          "fechaHoraEstado": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Problema": {
+        "type": "object",
+        "description": "Error de la API en formato Problem Details (RFC 9457), con la propiedad adicional \"codigo\".",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "about:blank"
+          },
+          "title": {
+            "type": "string",
+            "example": "Regla de negocio incumplida"
+          },
+          "status": {
+            "example": 422
+          },
+          "detail": {
+            "type": "string",
+            "example": "la guía EE0000000000030 ya está en un estado final (ENTREGADO) y no admite el evento ANULADO"
+          },
+          "codigo": {
+            "type": "string",
+            "description": "Código de la regla de negocio (RN01 a RN16, E1) o uno general: DATO_INVALIDO, DATO_DUPLICADO, REFERENCIA_INEXISTENTE, RECURSO_OCUPADO, ACCESO_DENEGADO, NO_AUTENTICADO, CSRF, NO_ENCONTRADO, DEMASIADAS_CONSULTAS, ERROR_INTERNO.",
+            "example": "RN12"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "cookieDeSesion": {
+        "type": "apiKey",
+        "description": "Sesión en el servidor: la cookie JSESSIONID la entrega POST /api/sesion con usuario y contraseña.",
+        "name": "JSESSIONID",
+        "in": "cookie"
+      },
+      "tokenCsrf": {
+        "type": "apiKey",
+        "description": "Token contra falsificación de peticiones (CSRF), obligatorio en los POST. Se obtiene con GET /api/csrf: el valor de la cookie XSRF-TOKEN se envía en este encabezado.",
+        "name": "X-XSRF-TOKEN",
+        "in": "header"
+      }
+    }
+  }
+}

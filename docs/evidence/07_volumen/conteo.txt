@@ -1,0 +1,77 @@
+Datos de volumen (db/04_datos/volumen/generar_volumen.sql): conteo y tamano
+Fecha: 2026-11-21 17:00:30 -05
+
+Carga (salida del generador)
+lotes: 73
+envios_por_dia: 900
+destinatarios_reservados: 39430
+lote 10 de 73 (2026-08-12): .4 s el lote, 8.2 s acumulados
+lote 20 de 73 (2026-08-24): .4 s el lote, 12.4 s acumulados
+lote 30 de 73 (2026-09-04): .3 s el lote, 16.5 s acumulados
+lote 40 de 73 (2026-09-16): .3 s el lote, 20.7 s acumulados
+lote 50 de 73 (2026-09-28): .4 s el lote, 25 s acumulados
+lote 60 de 73 (2026-10-09): .5 s el lote, 29.2 s acumulados
+lote 70 de 73 (2026-10-21): .5 s el lote, 33.5 s acumulados
+lote 73 de 73 (2026-10-24): .6 s el lote, 35.3 s acumulados
+envios_generados: 65700
+tiempo_carga_segundos: 35.3
+estadisticas_recogidas: ok
+
+Filas por tabla
+TABLA				  FILAS
+---------------------------- ----------
+ASIGNACION_DESPACHO		 71,962
+CENTRO_DISTRIBUCION		      2
+CLIENTE 			     34
+DESPACHO			  3,238
+DESTINATARIO			 39,444
+EMPLEADO			     37
+ENVIO				 65,729
+ESTADO_ENVIO			      9
+EVENTO_ENVIO			404,862
+MENSAJERO			     32
+MODALIDAD			      3
+NOVEDAD 			  7,879
+PRUEBA_ENTREGA			 64,081
+RECLAMACION			    664
+SEDE_CLIENTE			     67
+SOLICITUD_RECOLECCION		 10,963
+TIPO_VEHICULO			      3
+VEHICULO			     34
+ZONA				      5
+Proporciones por envio de agosto a octubre (supuesto del capitulo 5 entre parentesis)
+CONCEPTO					     VALOR
+---------------------------------------------------- --------------
+Eventos por envio (6,2) 			     6.16
+Asignaciones por envio (1,12)			     1.09
+Novedades por envio (0,12)			     0.12
+Pruebas de entrega por envio (1)		     0.98
+Envios por solicitud (6)			     6.00
+Destinatarios nuevos por envio (0,60)		     0.60
+Despachos por dia habil (50)			     44.0
+Envios por estado actual (v_estado_actual_envio)
+ESTADO_ACTUAL	     ENVIOS
+---------------- ----------
+REGISTRADO		  1
+RECOLECTADO		  1
+EN_CENTRO		  1
+CLASIFICADO		  2
+EN_RUTA 		  2
+ENTREGADO	     63,096
+CON_NOVEDAD		656
+DEVUELTO		985
+ANULADO 		985
+Tamano de los segmentos por espacio de tablas (USER_SEGMENTS)
+ESPACIO 	       TIPO	       MB
+---------------------- -------- ---------
+TS_ENLACE_DATOS        TABLE	     54.6
+TS_ENLACE_INDICES      INDEX	     84.6
+Tablas mas grandes (MB, datos)
+TABLA				    MB
+---------------------------- ---------
+EVENTO_ENVIO			  29.0
+ENVIO				   8.0
+PRUEBA_ENTREGA			   6.0
+ASIGNACION_DESPACHO		   5.0
+DESTINATARIO			   3.0
+NOVEDAD 			   2.0

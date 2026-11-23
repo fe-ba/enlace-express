@@ -1,0 +1,33 @@
+Informe: I06 (I06_novedades_abiertas.sql)  Modo: volumen
+Cuenta:  svc_mesa (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: ninguno
+Fecha:   2026-11-21 17:00:32 -05
+Filas:   656
+
+I06. Novedades abiertas
+
+NUMERO_GUIA	 INT TIPO_NOVEDAD	  DESCRIPCION				       DESTINATARIO	    TEL_DEST	 CLIENTE			TEL_CLIENTE
+---------------- --- -------------------- -------------------------------------------- -------------------- ------------ ------------------------------ ------------
+EE0000000000455    1 DIRECCION_ERRADA	  Novedad en el intento 1 de la guia EE0000000 Destinatario 271     3150000271	 Cliente de volumen 10		6015560010
+					  000455
+
+EE0000000000598    1 OTRA		  Novedad en el intento 1 de la guia EE0000000 Destinatario 76	    3150000076	 Cliente de volumen 4		6015560004
+					  000598
+
+EE0000000000741    1 RECHAZADO		  Novedad en el intento 1 de la guia EE0000000 Destinatario 443     3150000443	 Cliente de volumen 28		6015560028
+					  000741
+
+EE0000000000740    1 DIRECCION_ERRADA	  Novedad en el intento 1 de la guia EE0000000 Destinatario 442     3150000442	 Cliente de volumen 28		6015560028
+					  000740
+
+EE0000000000312    1 PAQUETE_AVERIADO	  Novedad en el intento 1 de la guia EE0000000 Destinatario 137     3150000137	 Cliente de volumen 19		6015560019
+					  000312
+
+EE0000000000884    1 DESTINATARIO_AUSENTE Novedad en el intento 1 de la guia EE0000000 Destinatario 528     3150000528	 Cliente de volumen 22		6015560022
+					  000884
+
+EE0000000000883    1 OTRA		  Novedad en el intento 1 de la guia EE0000000 Destinatario 475     3150000475	 Cliente de volumen 22		6015560022
+					  000883
+... (se muestran las primeras 20 filas; total en la ultima linea)
+
+656 rows selected.

@@ -1,0 +1,9 @@
+Id    Cuenta         Parametros                   Filas
+I01   svc_mensajero  1669                         100
+I02   svc_cliente    EE0000000000165 26           10
+I02b  svc_cliente    EE0000000000165 27           0
+I03   svc_gerencia   1 0                          5
+I04   svc_gerencia   1                            2
+I05   svc_centro     1                            269
+I06   svc_mesa       ninguno                      656
+I07   svc_gerencia   ninguno                      69

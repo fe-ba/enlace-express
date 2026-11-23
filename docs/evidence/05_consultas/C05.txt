@@ -1,0 +1,19 @@
+Consulta: C05 (C05_envios_zona_modalidad.sql)
+Cuenta:   svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Fecha:    2026-11-21 17:15:01 -05
+Filas:    10
+
+ZONA	     MODALIDAD		ENVIOS
+------------ -------------- ----------
+Centro	     DIA_SIGUIENTE	     1
+Centro	     ESTANDAR		     4
+Centro	     MISMO_DIA		     1
+Norte	     DIA_SIGUIENTE	     3
+Norte	     ESTANDAR		     3
+Occidente    ESTANDAR		     5
+Sur	     ESTANDAR		     4
+Sur	     MISMO_DIA		     2
+Suroriente   DIA_SIGUIENTE	     2
+Suroriente   ESTANDAR		     4
+
+10 rows selected.

@@ -1,0 +1,40 @@
+Pruebas del backend: mvn -q verify (unitarias con surefire, de integracion con failsafe)
+Fecha: 2026-11-21 21:38:07 -05
+Resultado: exit 0, sin fallas ni errores
+
+Pruebas unitarias (clases *Test, sin base de datos)
+co.enlaceexpress.datos.infraestructura.ConversorTiposTest	3 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.datos.infraestructura.TraductorErroresOracleTest	11 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.despacho.AsignacionDespachoTest	8 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.despacho.DespachoTest	6 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.despacho.NovedadTest	3 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.envio.EnvioTest	8 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.reclamacion.ReclamacionTest	6 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.referencia.CentroZonaTest	5 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.reglas.CicloDeVidaEnvioTest	6 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.dominio.solicitud.SolicitudRecoleccionTest	4 pruebas, 0 fallas, 0 errores
+Total unitarias: 60
+
+Pruebas de integracion (clases *IT: contra Oracle y por HTTP real)
+co.enlaceexpress.datos.mapeadores.CatalogoEstadosIT	2 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.datos.mapeadores.FlujoPrincipalIT	2 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.datos.mapeadores.InfraestructuraJdbcIT	11 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.presentacion.FlujoApiIT	3 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.presentacion.GestionMesaCentroIT	5 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.presentacion.OpenApiIT	3 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.presentacion.SaludIT	1 pruebas, 0 fallas, 0 errores
+co.enlaceexpress.presentacion.SeguridadIT	12 pruebas, 0 fallas, 0 errores
+Total de integracion: 39
+Total general: 99 pruebas, 0 fallas, 0 errores
+
+Modos de ejecucion de las pruebas de integracion (mediciones hechas con las 77 pruebas que habia entonces, 0 fallas en los tres; despues se agregaron OpenApiIT y las pruebas de la gestion de la mesa y del centro)
+Fecha de las mediciones: 2026-11-21 (America/Bogota)
+Modo normal (Oracle del compose arriba): mvn -q verify, 1 min 19 s
+Modo Testcontainers, con el Oracle del compose detenido: ENLACE_TESTCONTAINERS=true mvn -q verify, 2 min 6 s
+Modo Testcontainers por perfil de Maven, compose detenido: mvn -q verify -Ptestcontainers, 2 min 11 s
+CI local completa (ci/local.sh: frontend, backend en modo Testcontainers y cifras en modo estricto): 2 min 4 s
+  1. Compilar el frontend: 2 s
+  2. Backend: verify con Oracle en Testcontainers: 90 s
+  3. Cifras del documento en modo estricto: 32 s
+En modo Testcontainers cada corrida usa un solo contenedor de Oracle, instala el esquema con db/instalar.sh en
+modo estricto y genera contrasenas al azar (no se leen del .env).

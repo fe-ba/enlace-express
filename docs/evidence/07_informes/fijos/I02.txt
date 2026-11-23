@@ -1,0 +1,27 @@
+Informe: I02 (I02_seguimiento_envio.sql)  Modo: fijos
+Cuenta:  svc_cliente (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: EE0000000000003 1
+Fecha:   2026-11-21 16:59:25 -05
+Filas:   8
+
+I02. Seguimiento de la guia EE0000000000003 para el cliente 1
+
+FECHA_HORA		     ESTADO	  OBSERVACION					     RESPONSABLE
+---------------------------- ------------ -------------------------------------------------- ------------------------
+03-NOV-26 08.33.00.000000 AM REGISTRADO   Envío registrado en la mesa de servicio            Natalia Quintero Rojas
+03-NOV-26 10.33.00.000000 AM RECOLECTADO  Recogido en la sede del cliente                    Carlos Peña Morales
+03-NOV-26 02.03.00.000000 PM EN_CENTRO    Recibido y pesado en el centro de distribución     Diego Ramírez Torres
+03-NOV-26 04.03.00.000000 PM CLASIFICADO  Clasificado por zona de destino                    Diego Ramírez Torres
+04-NOV-26 08.43.00.000000 AM EN_RUTA      Sale en el despacho 11 (intento 1)                 Carlos Peña Morales
+04-NOV-26 11.11.00.000000 AM CON_NOVEDAD  Novedad: DESTINATARIO_AUSENTE                      Carlos Peña Morales
+05-NOV-26 08.43.00.000000 AM EN_RUTA      Sale en el despacho 12 (intento 2)                 Julián Cárdenas Vega
+05-NOV-26 10.11.00.000000 AM ENTREGADO    Entregado a Recepción del edificio                 Julián Cárdenas Vega
+
+8 rows selected.
+
+---- Misma guia con otro id_cliente (2): el portal no debe ver el envio ----
+Filas:   0
+
+I02. Seguimiento de la guia EE0000000000003 para el cliente 2
+
+no rows selected

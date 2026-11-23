@@ -1,0 +1,14 @@
+Informe: I04 (I04_cumplimiento_entregas.sql)  Modo: volumen
+Cuenta:  svc_gerencia (CURRENT_SCHEMA = BD_ENLACE_EXPRESS)
+Parametros: 1
+Fecha:   2026-11-21 17:00:31 -05
+Filas:   2
+
+I04. Cumplimiento de entregas del centro 1
+
+CENTRO ID_ZONA ZONA	      ENTREGADOS A_TIEMPO % A TIEMPO
+------ ------- -------------- ---------- -------- ----------
+     1	     1 Norte		  12,607   11,447	90.8
+     1	     2 Occidente	  12,540   11,390	90.8
+
+2 rows selected.

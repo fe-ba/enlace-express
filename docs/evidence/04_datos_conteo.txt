@@ -1,0 +1,41 @@
+Conteo de datos cargados (db/04_datos)
+Fecha: 2026-11-21 16:59:24 -05
+
+Filas por tabla
+TABLA			       FILAS
+---------------------------- -------
+ASIGNACION_DESPACHO		  27
+CENTRO_DISTRIBUCION		   2
+CLIENTE 			   4
+DESPACHO			  26
+DESTINATARIO			  14
+EMPLEADO			  12
+ENVIO				  29
+ESTADO_ENVIO			   9
+EVENTO_ENVIO			 160
+MENSAJERO			   7
+MODALIDAD			   3
+NOVEDAD 			   6
+PRUEBA_ENTREGA			  19
+RECLAMACION			   7
+SEDE_CLIENTE			   7
+SOLICITUD_RECOLECCION		  13
+TIPO_VEHICULO			   3
+VEHICULO			   9
+ZONA				   5
+Envios por estado actual (v_estado_actual_envio)
+ESTADO_ACTUAL	      ENVIOS
+-------------------- -------
+REGISTRADO		   1
+RECOLECTADO		   1
+EN_CENTRO		   1
+CLASIFICADO		   2
+EN_RUTA 		   2
+ENTREGADO		  18
+CON_NOVEDAD		   2
+DEVUELTO		   1
+ANULADO 		   1
+Total de envios
+ ENVIOS
+-------
+     29
