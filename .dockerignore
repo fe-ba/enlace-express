@@ -1,0 +1,16 @@
+# Contexto de construccion de la imagen de la aplicacion (deploy/Dockerfile): solo frontend/ y backend/
+.git
+.github
+.env
+.env.*
+docs
+database
+ci
+demo
+deploy
+backend/target
+backend/src/main/resources/static
+frontend/node_modules
+frontend/.npm
+frontend/dist
+**/*.log

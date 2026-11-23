@@ -1,41 +1,50 @@
-# Secretos
+# Secretos locales (se versiona solo .env.example)
 .env
-.env.*
 !.env.example
 
-# Java / Maven
+# Backend
 backend/target/
-*.class
-*.jar
-!.mvn/wrapper/maven-wrapper.jar
 
-# Salida compilada del frontend
+# Frontend
+node_modules/
 backend/src/main/resources/static/
 
-# Node / TypeScript
-node_modules/
-frontend/dist/
-*.tsbuildinfo
-
-# Oracle
+# Volcados y registros
 *.dmp
-*.trc
 *.log
 
-# LaTeX (auxiliares)
-docs/latex/*.aux
-docs/latex/*.toc
-docs/latex/*.lof
-docs/latex/*.lot
-docs/latex/*.out
-docs/latex/*.fls
-docs/latex/*.fdb_latexmk
-docs/latex/*.synctex.gz
+# Auxiliares de LaTeX
+*.aux
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.log
+*.bbl
+*.blg
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
 
-# Editores y sistema operativo
+# Editores
 .idea/
-*.iml
 .vscode/
+*.iml
+*.swp
+*~
+
+# Sistema operativo
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Frontend
+frontend/.npm/
+frontend/dist/
+
+# Documento
+docs/report/preview/*.pdf
