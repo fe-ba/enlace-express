@@ -1,0 +1,64 @@
+# Configuracion de Enlace Express. Ninguna contrasena va en este archivo: salen de las
+# variables de entorno SVC_<ROL>_PASSWORD o, en desarrollo, del .env de la raiz del
+# repositorio (spring.config.import lo lee como un archivo de propiedades KEY=valor;
+# si no existe se omite).
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 60m
+      cookie:
+        name: JSESSIONID
+        http-only: true
+        same-site: lax
+        # true cuando se sirva por HTTPS (despliegue con Caddy)
+        secure: ${ENLACE_COOKIE_SEGURA:false}
+
+spring:
+  application:
+    name: enlace-express
+  config:
+    import:
+      - "optional:file:../.env[.properties]"   # al ejecutar desde backend/ (mvn spring-boot:run)
+      - "optional:file:./.env[.properties]"    # al ejecutar el jar desde la raiz
+  main:
+    banner-mode: "off"
+
+enlace:
+  base-datos:
+    url: ${ENLACE_DB_URL:jdbc:oracle:thin:@//localhost:1521/FREEPDB1}
+    esquema: BD_ENLACE_EXPRESS
+    zona-horaria: America/Bogota
+    pool-minimo: 2
+    pool-maximo: 5
+    # una cuenta de servicio por rol (decision 12.1)
+    cuentas:
+      GERENCIA:
+        usuario: svc_gerencia
+        contrasena: ${SVC_GERENCIA_PASSWORD}
+      CENTRO:
+        usuario: svc_centro
+        contrasena: ${SVC_CENTRO_PASSWORD}
+      MESA:
+        usuario: svc_mesa
+        contrasena: ${SVC_MESA_PASSWORD}
+      MENSAJERO:
+        usuario: svc_mensajero
+        contrasena: ${SVC_MENSAJERO_PASSWORD}
+      CLIENTE:
+        usuario: svc_cliente
+        contrasena: ${SVC_CLIENTE_PASSWORD}
+
+  # Rastreo publico (decision D2): limite de consultas por direccion IP
+  rastreo:
+    limite-por-minuto: 30
+    # true solo detras de un proxy de confianza (Caddy): se toma la IP que ese proxy agrego a X-Forwarded-For
+    confiar-en-proxy: false
+
+# Documentacion de la API (decision E3): /v3/api-docs (JSON) y /swagger-ui.html
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    doc-expansion: none
