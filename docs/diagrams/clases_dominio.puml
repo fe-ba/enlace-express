@@ -1,0 +1,341 @@
+@startuml clases_dominio
+' Diagrama de clases del dominio - Modulo M1: Operacion de envios
+' <<Persistente>>: la clase tiene una tabla en BD_ENLACE_EXPRESS (19 en total)
+skinparam shadowing false
+skinparam dpi 130
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam linetype polyline
+skinparam nodesep 40
+skinparam ranksep 55
+skinparam class {
+  BackgroundColor #EAF4FF
+  BorderColor #1F5F99
+  ArrowColor #333333
+  BackgroundColor<<Persistente>> #EAF4FF
+  BackgroundColor<<enumeration>> #FFF6E0
+  BorderColor<<enumeration>> #A06A00
+  BackgroundColor<<Servicio de dominio>> #F0F0F0
+  BorderColor<<Servicio de dominio>> #555555
+}
+skinparam package {
+  BorderColor #7FA7CC
+  BackgroundColor #FCFDFF
+  FontStyle bold
+}
+hide empty members
+hide circle
+
+title Enlace Express - Módulo de operación de envíos\nDiagrama de clases del dominio
+
+package "Agregado Envío" {
+  class Envio <<Persistente>> {
+    - numeroGuia : String
+    - fechaRegistro : LocalDate
+    - direccionDestino : String
+    - pesoDeclarado : BigDecimal
+    - pesoReal : BigDecimal [0..1]
+    - contenido : String
+    - valorDeclarado : BigDecimal
+    - fragil : boolean
+    - altoValor : boolean
+    - valorFlete : BigDecimal [0..1]
+    - fechaCompromiso : LocalDate
+    + estadoActual() : EstadoEnvio
+    + registrarEvento(estado : EstadoEnvio, responsable : Empleado, observacion : String) : EventoEnvio
+    + clasificar(pesoReal : BigDecimal, flete : BigDecimal) : void
+    + anular(responsable : Empleado) : void
+    + exigeDocumentoDestinatario() : boolean
+    + intentosRealizados() : int
+  }
+  class EventoEnvio <<Persistente>> {
+    - idEvento : Long
+    - fechaHora : LocalDateTime
+    - observacion : String [0..1]
+  }
+  class Destinatario <<Persistente>> {
+    - idDestinatario : Long
+    - tipoDocumento : TipoDocumento
+    - numeroDocumento : String
+    - nombre : String
+    - telefono : String
+    - correo : String [0..1]
+  }
+}
+
+package "Agregado Despacho" {
+  class Despacho <<Persistente>> {
+    - idDespacho : Long
+    - fecha : LocalDate
+    - tipo : TipoDespacho
+    - horaSalida : LocalDateTime [0..1]
+    - horaCierre : LocalDateTime [0..1]
+    - estado : EstadoDespacho
+    + asignar(envio : Envio) : AsignacionDespacho
+    + salir(hora : LocalDateTime) : void
+    + cerrar(hora : LocalDateTime) : void
+    + estaAbierto() : boolean
+  }
+  class AsignacionDespacho <<Persistente>> {
+    - idAsignacion : Long
+    - numeroIntento : int {1..3}
+    - ordenVisita : int
+    - horaVisita : LocalDateTime [0..1]
+    - resultado : ResultadoVisita
+    + registrarEntrega(prueba : PruebaEntrega) : void
+    + registrarNovedad(novedad : Novedad) : void
+    + registrarDevolucion(prueba : PruebaEntrega) : void
+    + estaPendiente() : boolean
+  }
+  class PruebaEntrega <<Persistente>> {
+    - idPrueba : Long
+    - fechaHora : LocalDateTime
+    - nombreReceptor : String
+    - documentoReceptor : String
+    - tipoPrueba : TipoPrueba
+    - archivoSoporte : String [0..1]
+  }
+  class Novedad <<Persistente>> {
+    - idNovedad : Long
+    - tipoNovedad : TipoNovedad
+    - descripcion : String
+    - accion : AccionNovedad [0..1]
+    - solucion : String [0..1]
+    - estado : EstadoNovedad
+    + gestionar(accion : AccionNovedad, solucion : String) : void
+    + cerrar() : void
+  }
+}
+
+package "Solicitud y reclamación" {
+  class SolicitudRecoleccion <<Persistente>> {
+    - idSolicitud : Long
+    - fechaSolicitud : LocalDate
+    - fechaProgramada : LocalDate
+    - franjaHoraria : FranjaHoraria
+    - estado : EstadoSolicitud
+    + programar(despacho : Despacho) : void
+    + marcarAtendida() : void
+  }
+  class Reclamacion <<Persistente>> {
+    - idReclamacion : Long
+    - fechaRadicacion : LocalDateTime
+    - tipo : TipoReclamacion
+    - descripcion : String
+    - respuesta : String [0..1]
+    - fechaRespuesta : LocalDateTime [0..1]
+    - estado : EstadoReclamacion
+    + responder(texto : String, fecha : LocalDateTime) : void
+    + cerrar() : void
+  }
+}
+
+package "Datos de referencia" {
+  class CentroDistribucion <<Persistente>> {
+    - idCentro : Long
+    - nombre : String
+    - direccion : String
+    - telefono : String [0..1]
+    - estado : EstadoActivo
+  }
+  class Zona <<Persistente>> {
+    - idZona : Long
+    - nombre : String
+    - localidades : String
+  }
+  class Cliente <<Persistente>> {
+    - idCliente : Long
+    - nit : String
+    - razonSocial : String
+    - tipoCliente : TipoCliente
+    - telefono : String
+    - correo : String
+    - fechaVinculacion : LocalDate
+    - estado : EstadoActivo
+    + estaActivo() : boolean
+  }
+  class SedeCliente <<Persistente>> {
+    - idSede : Long
+    - nombre : String
+    - direccion : String
+    - contacto : String
+    - telefono : String
+  }
+  class Empleado <<Persistente>> {
+    - idEmpleado : Long
+    - documento : String
+    - nombres : String
+    - apellidos : String
+    - cargo : String
+    - telefono : String
+    - correo : String [0..1]
+    - fechaIngreso : LocalDate
+    - fechaRetiro : LocalDate [0..1]
+    - motivoRetiro : String [0..1]
+    - estado : EstadoEmpleado
+    + estaActivo() : boolean
+  }
+  class Mensajero <<Persistente>> {
+    + puedeConducir(tipo : TipoVehiculo) : boolean
+  }
+  class Vehiculo <<Persistente>> {
+    - idVehiculo : Long
+    - placa : String [0..1]
+    - marca : String
+    - modelo : String
+    - capacidadKg : BigDecimal
+    - electrico : boolean
+    - estado : EstadoVehiculo
+    + estaDisponible() : boolean
+  }
+}
+
+package "Catálogos" {
+  class Modalidad <<Persistente>> {
+    - idModalidad : int
+    - nombre : String
+    - plazoDiasHabiles : int
+    + fechaCompromiso(registro : LocalDate) : LocalDate
+  }
+  class TipoVehiculo <<Persistente>> {
+    - idTipoVehiculo : int
+    - nombre : String
+    - capacidadMaxKg : BigDecimal
+  }
+  class EstadoEnvio <<Persistente>> {
+    - idEstado : int
+    - nombre : String
+    - esFinal : boolean
+  }
+}
+
+package "Enumeraciones (valores controlados con CHECK; no son tablas)" as ENUMS {
+  enum EstadoActivo {
+    ACTIVO
+    INACTIVO
+  }
+  enum TipoCliente {
+    TIENDA_LINEA
+    DROGUERIA
+    OFICINA
+  }
+  enum EstadoEmpleado {
+    ACTIVO
+    RETIRADO
+  }
+  enum EstadoVehiculo {
+    DISPONIBLE
+    EN_MANTENIMIENTO
+    FUERA_SERVICIO
+  }
+  enum TipoDocumento {
+    CC
+    CE
+    NIT
+    PAS
+    TI
+  }
+  enum TipoDespacho {
+    RECOLECCION
+    ENTREGA
+  }
+  enum EstadoDespacho {
+    ARMADO
+    EN_RUTA
+    CERRADO
+  }
+  enum FranjaHoraria {
+    MANANA
+    TARDE
+  }
+  enum EstadoSolicitud {
+    PENDIENTE
+    PROGRAMADA
+    ATENDIDA
+    NO_ATENDIDA
+  }
+  enum ResultadoVisita {
+    PENDIENTE
+    ENTREGADO
+    NOVEDAD
+    DEVUELTO
+  }
+  enum TipoPrueba {
+    FIRMA
+    DOCUMENTO
+    FOTOGRAFIA
+  }
+  enum TipoNovedad {
+    DESTINATARIO_AUSENTE
+    DIRECCION_ERRADA
+    RECHAZADO
+    PAQUETE_AVERIADO
+    OTRA
+  }
+  enum AccionNovedad {
+    REINTENTO
+    DEVOLUCION
+  }
+  enum EstadoNovedad {
+    ABIERTA
+    CERRADA
+  }
+  enum TipoReclamacion {
+    ENTREGA
+    DANO
+    FACTURACION
+    OTRO
+  }
+  enum EstadoReclamacion {
+    ABIERTA
+    RESPONDIDA
+    CERRADA
+  }
+}
+
+class CicloDeVidaEnvio <<Servicio de dominio>> {
+  + puedePasar(desde : EstadoEnvio, hacia : EstadoEnvio) : boolean
+  + siguientesPermitidos(desde : EstadoEnvio) : List<EstadoEnvio>
+}
+
+' ---------------------------------------------------------- composiciones
+Envio *-- "1..*" EventoEnvio : historial
+Despacho *-- "0..*" AsignacionDespacho : asignaciones
+AsignacionDespacho *-- "0..1" PruebaEntrega
+AsignacionDespacho *-- "0..1" Novedad
+Cliente *-- "1..*" SedeCliente : sedes
+
+' ---------------------------------------------------------- asociaciones
+Envio "0..*" --> "1" Destinatario : se entrega a
+Envio "1..*" --> "1" SolicitudRecoleccion : se recoge en
+Envio "0..*" --> "1" Zona : zona destino
+Envio "0..*" --> "1" Modalidad
+AsignacionDespacho "0..3" --> "1" Envio : intento de
+EventoEnvio "0..*" --> "1" EstadoEnvio
+EventoEnvio "0..*" --> "1" Empleado : responsable
+SolicitudRecoleccion "0..*" --> "1" SedeCliente
+SolicitudRecoleccion "0..*" --> "0..1" Despacho : recolección
+Reclamacion "0..*" --> "1" Cliente
+Reclamacion "0..*" --> "0..1" Envio
+SedeCliente "0..*" --> "1" Zona
+Zona "1..*" --> "1" CentroDistribucion : cubierta por
+Despacho "0..*" --> "1" CentroDistribucion : sale de
+Despacho "0..*" --> "1" Vehiculo
+Despacho "0..*" --> "1" Mensajero
+Vehiculo "0..*" --> "1" CentroDistribucion
+Vehiculo "0..*" --> "1" TipoVehiculo
+Empleado "0..*" --> "1" CentroDistribucion : labora en
+Mensajero "0..*" --> "0..1" Zona : atiende
+Mensajero "0..*" --> "1" TipoVehiculo : conduce
+
+' ---------------------------------------------------------- herencia y dependencias
+Empleado <|-- Mensajero
+Envio ..> CicloDeVidaEnvio : valida transiciones
+EstadoEnvio <.. CicloDeVidaEnvio
+
+note top of CicloDeVidaEnvio
+  No es persistente: contiene la tabla
+  de transiciones del ciclo de vida (RN12).
+end note
+@enduml

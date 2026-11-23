@@ -1,0 +1,120 @@
+@startuml componentes_modulo_envios
+' Diagrama de componentes del prototipo (arquitectura en cuatro capas)
+' BD_ENLACE_EXPRESS - Modulo M1: Operacion de envios
+skinparam shadowing false
+skinparam dpi 160
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam componentStyle uml2
+skinparam ArrowColor #333333
+skinparam package {
+  BorderColor #1F5F99
+  BackgroundColor #FAFCFF
+  FontStyle bold
+}
+skinparam component {
+  BackgroundColor #EAF4FF
+  BorderColor #1F5F99
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #1F5F99
+}
+skinparam database {
+  BackgroundColor #FFF6E0
+  BorderColor #A06A00
+}
+
+title Enlace Express - Prototipo del módulo de operación de envíos\nDiagrama de componentes (arquitectura en cuatro capas)
+
+package "1. Presentación (equipos de los usuarios)" as P {
+  component "App web de operación\n(U2 Personal del centro)" as A_U2
+  component "App web de mesa de servicio\n(U3)" as A_U3
+  component "Tablero de indicadores\n(U1 Gerente)" as A_U1
+  component "App móvil del mensajero\n(U4, funciona sin conexión)" as A_U4
+  component "Portal de seguimiento\n(U9 Cliente)" as A_U9
+  component "Consola de administración\n(Administrador de la BD)" as A_ADM
+}
+
+package "Servidor de aplicaciones" as SA {
+  interface "API REST\n(JSON sobre HTTPS)" as API
+
+  package "2. Casos de uso" as CU {
+    component "Seguridad\n(autenticación y roles)" as SEG
+    component "Servicio de recolección\n(solicitudes, registro y anulación de envíos)" as S_REC
+    component "Servicio del centro\n(recepción, clasificación, despachos)" as S_CEN
+    component "Servicio de ruta\n(planilla, recolección, entrega,\nnovedad, devolución)" as S_RUT
+    component "Servicio al cliente\n(seguimiento, novedades, reclamaciones)" as S_CLI
+    component "Servicio de indicadores\n(solo lectura: cumplimiento,\nestados, reclamaciones)" as S_IND
+    component "Servicio de administración\n(datos de referencia, usuarios)" as S_ADM
+  }
+
+  package "3. Modelo de dominio" as DOM {
+    component "Agregado Envío\n(envío, eventos, destinatario,\nprueba de entrega, novedad)" as D_ENV
+    component "Agregado Despacho\n(despacho, asignaciones)" as D_DES
+    component "Solicitud y reclamación" as D_SOL
+    component "Datos de referencia\n(cliente, sede, zona, centro,\nvehículo, mensajero, catálogos)" as D_REF
+    component "Reglas del negocio\n(ciclo de vida, intentos,\nRN01-RN16)" as D_REG
+    interface "Repositorios\n(interfaces)" as REPO
+  }
+
+  package "4. Datos (acceso a datos)" as DAT {
+    component "Repositorios JDBC\n(envío, despacho, solicitud,\nreclamación, referencia)" as R_JDBC
+    component "Consultas e informes\n(consultas C1-C10 y vistas)" as R_CON
+    component "Conexión y transacciones\n(JDBC)" as R_TX
+  }
+}
+
+package "Servidor de base de datos" as SBD {
+  database "Oracle\nBD_ENLACE_EXPRESS\n(19 tablas, restricciones,\ndisparadores, vistas,\nprocedimiento, roles)" as ORA
+}
+component "Almacenamiento de archivos\n(fotos y firmas de las pruebas)" as FILES
+
+A_U2 --> API
+A_U3 --> API
+A_U1 --> API
+A_U4 --> API
+A_U9 --> API
+A_ADM --> API
+
+API -- SEG
+SEG ..> S_REC
+SEG ..> S_CEN
+SEG ..> S_RUT
+SEG ..> S_CLI
+SEG ..> S_IND
+SEG ..> S_ADM
+
+S_REC --> D_ENV
+S_REC --> D_SOL
+S_CEN --> D_ENV
+S_CEN --> D_DES
+S_RUT --> D_DES
+S_RUT --> D_ENV
+S_CLI --> D_SOL
+S_CLI --> D_ENV
+S_ADM --> D_REF
+S_IND --> R_CON : vistas de usuario
+
+D_ENV ..> D_REG
+D_DES ..> D_REG
+D_SOL ..> D_REG
+
+D_ENV ..> REPO
+D_DES ..> REPO
+D_SOL ..> REPO
+D_REF ..> REPO
+REPO <|.. R_JDBC
+
+R_JDBC --> R_TX
+R_CON --> R_TX
+R_TX --> ORA : JDBC
+S_RUT ..> FILES : guarda fotos\ny firmas
+
+note bottom of ORA
+  Verifica de nuevo las reglas
+  (restricciones y disparadores):
+  garantía final aunque se llegue
+  a la base de datos por otro camino.
+end note
+@enduml

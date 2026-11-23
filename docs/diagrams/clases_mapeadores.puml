@@ -1,0 +1,286 @@
+@startuml clases_mapeadores
+' Diagrama de clases de los mapeadores (patron Data Mapper sin ORM)
+' Conectan el modelo de dominio con BD_ENLACE_EXPRESS (Oracle) mediante JDBC y SQL explicito
+skinparam shadowing false
+skinparam dpi 130
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam linetype polyline
+skinparam nodesep 35
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #EAF4FF
+  BorderColor #1F5F99
+  ArrowColor #333333
+  BackgroundColor<<Persistente>> #FFFFFF
+  BorderColor<<Persistente>> #7FA7CC
+  BackgroundColor<<DTO>> #F0F0F0
+  BorderColor<<DTO>> #555555
+}
+skinparam package {
+  BorderColor #7FA7CC
+  BackgroundColor #FCFDFF
+  FontStyle bold
+}
+skinparam note {
+  BackgroundColor #FFFBE6
+  BorderColor #A06A00
+}
+hide circle
+hide empty members
+
+title Enlace Express - Módulo de operación de envíos\nDiagrama de clases de los mapeadores (acceso a datos por consultas SQL, sin ORM)
+
+package "Modelo de dominio (ver diagrama de clases del dominio)" as DOM {
+  class Envio <<Persistente>>
+  class Despacho <<Persistente>>
+  class SolicitudRecoleccion <<Persistente>>
+  class Reclamacion <<Persistente>>
+  class "Clases de referencia y catálogos" as Ref <<Persistente>>
+
+  interface RepositorioEnvio {
+    + buscarPorGuia(guia : String) : Optional<Envio>
+    + registrar(envio : Envio) : String
+    + agregarEvento(guia : String, evento : EventoEnvio) : void
+    + actualizarClasificacion(envio : Envio) : void
+    + clasificadosSinAsignar() : List<String>
+    + estadoActual(guia : String) : EstadoEnvio
+  }
+  interface RepositorioDespacho {
+    + buscarPorId(id : long) : Optional<Despacho>
+    + insertar(despacho : Despacho) : long
+    + guardarAsignacion(despacho : Despacho, a : AsignacionDespacho) : long
+    + guardarResultado(a : AsignacionDespacho) : void
+    + actualizarEstado(despacho : Despacho) : void
+    + vehiculosDisponibles(idMensajero : long) : List<Vehiculo>
+  }
+  interface RepositorioSolicitud {
+    + buscarPorId(id : long) : Optional<SolicitudRecoleccion>
+    + insertar(s : SolicitudRecoleccion) : long
+    + actualizarEstado(s : SolicitudRecoleccion) : void
+    + pendientes(fecha : LocalDate) : List<SolicitudRecoleccion>
+  }
+  interface RepositorioReclamacion {
+    + buscarPorId(id : long) : Optional<Reclamacion>
+    + insertar(r : Reclamacion) : long
+    + responder(r : Reclamacion) : void
+  }
+  interface RepositorioReferencia {
+    + cliente(id : long) : Cliente
+    + sede(id : long) : SedeCliente
+    + zona(id : long) : Zona
+    + empleado(id : long) : Empleado
+    + mensajero(id : long) : Mensajero
+    + vehiculo(id : long) : Vehiculo
+    + catalogos() : Catalogos
+  }
+}
+
+package "Casos de uso" as CU {
+  interface ConsultasInformes {
+    + planilla(idDespacho : long) : List<FilaPlanilla>
+    + seguimiento(guia : String, idCliente : Long) : List<FilaSeguimiento>
+    + novedadesAbiertas() : List<FilaNovedadAbierta>
+    + reclamacionesPendientes() : List<FilaReclamacion>
+    + enviosPorDespachar(idCentro : long) : List<FilaPorDespachar>
+    + enviosPorEstado(idCentro : long) : List<FilaConteo>
+    + cumplimiento(idCentro : long) : List<FilaCumplimiento>
+    + enviosPorZonaYModalidad(desde : LocalDate, hasta : LocalDate) : List<FilaConteo>
+    + mensajerosConNovedades(desde : LocalDate, hasta : LocalDate, minimo : int) : List<FilaConteo>
+    + clientesConTodasLasModalidades() : List<String>
+    + enviosQueRequierenGestion() : List<String>
+  }
+}
+
+package "Datos: mapeadores" as MAP {
+  abstract class MapeadorJdbc {
+    # uow : UnidadDeTrabajo
+    # consultar<T>(sql : String, params : Object[], fila : MapeadorFila<T>) : List<T>
+    # consultarUno<T>(sql : String, params : Object[], fila : MapeadorFila<T>) : Optional<T>
+    # ejecutar(sql : String, params : Object[]) : int
+    # insertarConClave(sql : String, params : Object[], columnaId : String) : long
+    # llamarProcedimiento(llamada : String, entradas : Object[]) : Object
+  }
+  interface "MapeadorFila<T>" as MapeadorFila {
+    + mapear(fila : ResultSet) : T
+  }
+
+  class EnvioMapper {
+    - SQL_POR_GUIA : String {C1}
+    - SQL_EVENTOS : String {C2}
+    - SQL_REGISTRAR : String {procedimiento de registro}
+    - SQL_INSERTAR_EVENTO : String
+    - SQL_ACTUALIZAR_CLASIFICACION : String
+    - SQL_SIN_ASIGNAR : String {C4}
+    - SQL_ESTADO_ACTUAL : String {C10}
+    - aEnvio(fila : ResultSet) : Envio
+    - aEvento(fila : ResultSet) : EventoEnvio
+  }
+  class DestinatarioMapper {
+    - SQL_POR_ID : String
+    - SQL_POR_DOCUMENTO : String
+    + buscarPorId(id : long) : Destinatario
+    + buscarPorDocumento(tipo : TipoDocumento, numero : String) : Optional<Destinatario>
+  }
+  class DespachoMapper {
+    - SQL_POR_ID : String
+    - SQL_INSERTAR : String
+    - SQL_ACTUALIZAR_ESTADO : String
+    - SQL_VEHICULOS_DISPONIBLES : String {C9}
+    - aDespacho(fila : ResultSet) : Despacho
+  }
+  class AsignacionMapper {
+    - SQL_POR_DESPACHO : String
+    - SQL_INSERTAR : String
+    - SQL_ACTUALIZAR_RESULTADO : String
+    + porDespacho(idDespacho : long) : List<AsignacionDespacho>
+    + insertar(idDespacho : long, a : AsignacionDespacho) : long
+    + actualizarResultado(a : AsignacionDespacho) : void
+  }
+  class PruebaEntregaMapper {
+    - SQL_POR_ASIGNACION : String
+    - SQL_INSERTAR : String
+    + porAsignacion(idAsignacion : long) : Optional<PruebaEntrega>
+    + insertar(idAsignacion : long, p : PruebaEntrega) : long
+  }
+  class NovedadMapper {
+    - SQL_POR_ASIGNACION : String
+    - SQL_INSERTAR : String
+    - SQL_ACTUALIZAR_GESTION : String
+    + porAsignacion(idAsignacion : long) : Optional<Novedad>
+    + insertar(idAsignacion : long, n : Novedad) : long
+    + actualizarGestion(n : Novedad) : void
+  }
+  class SolicitudMapper {
+    - SQL_POR_ID : String
+    - SQL_INSERTAR : String
+    - SQL_ACTUALIZAR_ESTADO : String
+    - SQL_PENDIENTES : String
+  }
+  class ReclamacionMapper {
+    - SQL_POR_ID : String
+    - SQL_INSERTAR : String
+    - SQL_RESPONDER : String
+  }
+  class ReferenciaMapper {
+    - SQL_CLIENTE : String
+    - SQL_SEDE : String
+    - SQL_ZONA : String
+    - SQL_EMPLEADO : String
+    - SQL_MENSAJERO : String {EMPLEADO join MENSAJERO}
+    - SQL_VEHICULO : String
+    - SQL_CATALOGOS : String
+    - cacheCatalogos : Catalogos
+  }
+  class InformesMapper {
+    - SQL_PLANILLA : String {v_planilla_despacho, C3}
+    - SQL_SEGUIMIENTO : String {v_seguimiento_envio}
+    - SQL_NOVEDADES : String {v_novedades_abiertas}
+    - SQL_RECLAMACIONES : String {v_reclamaciones_pendientes}
+    - SQL_POR_DESPACHAR : String {v_envios_por_despachar}
+    - SQL_POR_ESTADO : String {v_estado_actual_envio}
+    - SQL_CUMPLIMIENTO : String {v_cumplimiento_entregas}
+    - SQL_ZONA_MODALIDAD : String {C5}
+    - SQL_NOVEDADES_MENSAJERO : String {C6}
+    - SQL_TODAS_MODALIDADES : String {C8}
+    - SQL_REQUIEREN_GESTION : String {C7}
+  }
+}
+
+package "Datos: infraestructura JDBC" as INF {
+  class UnidadDeTrabajo {
+    - conexion : Connection
+    + iniciar(rol : Rol) : void
+    + confirmar() : void
+    + deshacer() : void
+    + conexion() : Connection
+  }
+  class FabricaConexiones {
+    - fuentes : Map<Rol, DataSource>
+    + obtener(rol : Rol) : Connection
+  }
+  class TraductorErroresOracle {
+    + traducir(e : SQLException) : RuntimeException
+  }
+  class ConversorTipos {
+    + aBoolean(valor : String) : boolean
+    + aSiNo(valor : boolean) : String
+    + aFecha(valor : Date) : LocalDate
+    + aInstante(valor : Timestamp) : LocalDateTime
+  }
+}
+
+package "Resultados de consultas e informes" as DTOS {
+  class FilaPlanilla <<DTO>> {
+    + ordenVisita : int
+    + numeroGuia : String
+    + destinatario : String
+    + telefono : String
+    + direccion : String
+    + resultado : ResultadoVisita
+  }
+  class FilaSeguimiento <<DTO>> {
+    + fechaHora : LocalDateTime
+    + estado : String
+    + observacion : String
+    + responsable : String
+  }
+  class "FilaCumplimiento, FilaConteo,\nFilaNovedadAbierta, FilaReclamacion,\nFilaPorDespachar" as OtrasFilas <<DTO>>
+}
+
+RepositorioSolicitud -[hidden]down- RepositorioEnvio
+RepositorioReclamacion -[hidden]down- RepositorioDespacho
+RepositorioReferencia -[hidden]down- Ref
+
+EnvioMapper --|> MapeadorJdbc
+DestinatarioMapper --|> MapeadorJdbc
+DespachoMapper --|> MapeadorJdbc
+AsignacionMapper --|> MapeadorJdbc
+PruebaEntregaMapper --|> MapeadorJdbc
+NovedadMapper --|> MapeadorJdbc
+SolicitudMapper --|> MapeadorJdbc
+ReclamacionMapper --|> MapeadorJdbc
+ReferenciaMapper --|> MapeadorJdbc
+InformesMapper --|> MapeadorJdbc
+
+RepositorioEnvio <|.. EnvioMapper
+RepositorioDespacho <|.. DespachoMapper
+RepositorioSolicitud <|.. SolicitudMapper
+RepositorioReclamacion <|.. ReclamacionMapper
+RepositorioReferencia <|.. ReferenciaMapper
+ConsultasInformes <|.. InformesMapper
+
+EnvioMapper --> DestinatarioMapper : usa
+DespachoMapper --> AsignacionMapper : usa
+AsignacionMapper --> PruebaEntregaMapper : usa
+AsignacionMapper --> NovedadMapper : usa
+
+Envio <.. EnvioMapper : crea y lee
+Despacho <.. DespachoMapper : crea y lee
+SolicitudRecoleccion <.. SolicitudMapper : crea y lee
+Reclamacion <.. ReclamacionMapper : crea y lee
+Ref <.. ReferenciaMapper : crea y lee
+DTOS <.. InformesMapper : crea
+
+MapeadorJdbc --> "1" UnidadDeTrabajo
+MapeadorJdbc ..> MapeadorFila
+MapeadorJdbc ..> TraductorErroresOracle
+MapeadorJdbc ..> ConversorTipos
+UnidadDeTrabajo --> "1" FabricaConexiones
+
+legend bottom
+  <b>Cómo acceden los mapeadores a Oracle (sin ORM)</b>
+  * Los métodos públicos de cada mapeador son los de la interfaz que implementa; en la clase solo se muestran sus sentencias SQL y conversiones.
+  * Cada método ejecuta una sentencia SQL fija, guardada como constante, con PreparedStatement y variables de enlace (?); nunca se concatenan valores.
+  * Las constantes marcadas {C1}...{C10} son las consultas de la sección 6.1; las de InformesMapper leen las vistas de usuario del capítulo 4.
+  * EnvioMapper.registrar() usa CallableStatement sobre el procedimiento de registro del capítulo 5 y devuelve el número de guía generado.
+  * Las demás inserciones obtienen la clave de la columna de identidad con getGeneratedKeys, indicando el nombre de la columna, como exige Oracle.
+  * El caso de uso abre la UnidadDeTrabajo con el rol del usuario (cuenta de servicio del rol) y autocommit desactivado:
+     todos los mapeadores de una transacción comparten la conexión, y se confirma o se deshace todo junto.
+  * TraductorErroresOracle: ORA-00001 valor único repetido -> DatoDuplicado; ORA-02290 CHECK -> DatoInvalido;
+     ORA-02291 padre inexistente -> ReferenciaInexistente; ORA-02292 registro con hijos -> RegistroEnUso;
+     ORA-20000 a ORA-20999 (disparadores de las reglas de negocio) -> ReglaNegocioException.
+  * ConversorTipos: CHAR(1) S/N <-> boolean; DATE <-> LocalDate; TIMESTAMP <-> LocalDateTime; NUMBER(p) <-> long; NUMBER(p,s) <-> BigDecimal.
+endlegend
+@enduml

@@ -1,0 +1,126 @@
+@startuml casos_uso_modulo_envios
+' Diagrama de casos de uso del prototipo
+' BD_ENLACE_EXPRESS - Modulo M1: Operacion de envios
+left to right direction
+skinparam shadowing false
+skinparam dpi 160
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 12
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #EAF4FF
+  BorderColor #1F5F99
+  ArrowColor #333333
+}
+skinparam rectangle {
+  BorderColor #1F5F99
+  FontStyle bold
+}
+skinparam package {
+  BorderColor #7FA7CC
+  BackgroundColor #FAFCFF
+  FontStyle bold
+}
+
+title Enlace Express - Prototipo del módulo de operación de envíos\nDiagrama de casos de uso
+
+actor "Gerente (U1)" as U1
+actor "Mesa de servicio (U3)" as U3
+actor "Cliente (U9)" as U9
+actor "Personal del centro (U2)" as U2
+actor "Mensajero (U4)" as U4
+actor "Administrador de la BD" as ADM
+
+rectangle "Sistema de operación de envíos" {
+
+  package "Indicadores" {
+    usecase "Consultar cumplimiento\nde entregas" as CU24
+    usecase "Consultar envíos\npor estado" as CU25
+    usecase "Consultar reclamaciones\npendientes" as CU26
+  }
+
+  package "Servicio al cliente" {
+    usecase "Consultar seguimiento\ndel envío" as CU20
+    usecase "Gestionar novedad" as CU21
+    usecase "Registrar reclamación" as CU22
+    usecase "Responder reclamación" as CU23
+  }
+
+  package "Recolección y registro" {
+    usecase "Registrar solicitud\nde recolección" as CU01
+    usecase "Registrar envío" as CU02
+    usecase "Generar número\nde guía" as CU03
+    usecase "Registrar destinatario" as CU04
+    usecase "Anular envío" as CU05
+  }
+
+  package "Centro de distribución" {
+    usecase "Recibir envío\nen el centro" as CU06
+    usecase "Clasificar envío\n(peso real y flete)" as CU07
+    usecase "Consultar envíos\npor despachar" as CU08
+    usecase "Armar despacho\nde entrega" as CU09
+    usecase "Asignar envíos\nal despacho" as CU10
+    usecase "Validar vehículo\ny mensajero" as CU11
+    usecase "Cerrar despacho" as CU12
+    usecase "Gestionar centros\ny zonas" as CU13
+  }
+
+  package "Ruta y entrega" {
+    usecase "Consultar planilla\nde ruta" as CU14
+    usecase "Registrar recolección" as CU15
+    usecase "Registrar entrega" as CU16
+    usecase "Registrar novedad" as CU17
+    usecase "Registrar devolución\n(tercer intento)" as CU18
+    usecase "Registrar prueba\nde entrega" as CU19
+  }
+
+  package "Administración" {
+    usecase "Gestionar datos\nde referencia" as CU27
+    usecase "Gestionar usuarios\ny roles" as CU28
+  }
+}
+
+U3 --> CU01
+U3 --> CU02
+U3 --> CU05
+U3 --> CU20
+U3 --> CU21
+U3 --> CU22
+U3 --> CU23
+
+U9 --> CU20
+
+U2 --> CU06
+U2 --> CU07
+U2 --> CU08
+U2 --> CU09
+U2 --> CU12
+U2 --> CU13
+
+U4 --> CU14
+U4 --> CU15
+U4 --> CU16
+U4 --> CU17
+U4 --> CU18
+
+U1 --> CU24
+U1 --> CU25
+U1 --> CU26
+
+ADM --> CU27
+ADM --> CU28
+
+CU02 ..> CU03 : <<include>>
+CU02 <.. CU04 : <<extend>>\n(destinatario nuevo)
+CU09 ..> CU10 : <<include>>
+CU09 ..> CU11 : <<include>>
+CU16 ..> CU19 : <<include>>
+CU18 ..> CU19 : <<include>>
+
+legend bottom left
+  U1, U2, U3 y U4 inician sesión con su usuario;
+  cada uno solo ve las opciones de su rol.
+  El cliente (U9) consulta por número de guía en el portal.
+endlegend
+@enduml

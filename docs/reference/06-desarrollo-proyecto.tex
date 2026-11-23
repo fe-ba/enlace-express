@@ -1,0 +1,561 @@
+%======================================================================
+%  Capitulo 6 - Desarrollo proyecto de bases de datos (generado por gen/cap6.py)
+%======================================================================
+
+\section{Desarrollo proyecto de bases de datos}
+
+Este capítulo define cómo se usará la base de datos del módulo de
+operación de envíos: expresa en álgebra relacional y en SQL las
+consultas que necesitan sus usuarios, y especifica las tablas,
+relaciones, transacciones e informes. Del prototipo funcional se define
+por ahora su arquitectura; su construcción, donde se crea la base de
+datos y se ejecutan las consultas, se desarrollará en la siguiente
+entrega.
+
+\subsection{Algebra relacional de consultas MySQL}
+\label{sec:algebra}
+
+El álgebra relacional describe una consulta como una secuencia de
+operaciones sobre relaciones, independiente del gestor de bases de
+datos; SQL es la forma de escribirla para que el gestor la ejecute. En
+esta sección se expresan en álgebra relacional y en SQL diez consultas
+que responden a necesidades de los usuarios del módulo
+(sección~\ref{sec:usuarios}). Entre todas usan las operaciones del
+álgebra que resume la tabla~\ref{tab:operadores}.
+
+La notación es la del texto guía del curso\footnote{A. Silberschatz,
+H. F. Korth y S. Sudarshan, \textit{Fundamentos de bases de datos},
+5.ª ed., McGraw-Hill, 2006, capítulos 2 y 3.}. Las relaciones se
+escriben con el nombre de su tabla en mayúsculas, como en el esquema
+relacional de la sección~\ref{sec:esquemarel}. La reunión natural
+($\bowtie$) combina dos relaciones por sus atributos de igual nombre;
+en este modelo esos atributos son las claves foráneas, que llevan el
+mismo nombre que la clave primaria a la que apuntan. Cuando dos
+relaciones comparten además otro atributo (por ejemplo, nombre o
+estado), se renombra o se proyecta antes de reunirlas, y cuando la
+clave foránea tiene otro nombre se usa una reunión theta. Para que las
+expresiones se lean con facilidad, se escriben por pasos: cada paso
+guarda un resultado intermedio con la asignación ($\leftarrow$) y el
+último da la respuesta.
+
+Cada consulta se escribe también en SQL estándar, válido tanto en
+MySQL, que nombra la plantilla del proyecto, como en Oracle, el gestor
+elegido en el capítulo 5. Los valores entre comillas (un número de
+guía, un despacho, un rango de fechas) son ejemplos de los datos de
+entrada que el usuario indica en cada caso. Su ejecución sobre la base
+de datos hace parte del prototipo funcional
+(sección~\ref{sec:prototipo}).
+
+{\singlespacing\small
+\begin{longtable}{L{2.4cm} L{2.4cm} L{5.6cm} L{4.0cm}}
+\caption{Operaciones del álgebra relacional usadas en las consultas.}
+\label{tab:operadores}\\
+\toprule
+\textbf{Notación} & \textbf{Operación} & \textbf{Resultado} & \textbf{Equivalente en SQL} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Notación} & \textbf{Operación} & \textbf{Resultado} & \textbf{Equivalente en SQL} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+$\sigma_{P}(r)$ & Selección & Tuplas de r que cumplen el predicado P & WHERE \\
+$\Pi_{A}(r)$ & Proyección & Atributos A de r, sin tuplas repetidas & SELECT A \\
+$r \bowtie s$ & Reunión natural & Combina las tuplas de r y s que coinciden en los atributos de igual nombre & JOIN \dots\ ON (atributos comunes) \\
+$r \bowtie_{\theta} s$ & Reunión theta & Combina las tuplas de r y s que cumplen la condición $\theta$ & JOIN \dots\ ON $\theta$ \\
+$r \cup s$ & Unión & Tuplas que están en r o en s & UNION \\
+$r - s$ & Diferencia & Tuplas de r que no están en s & NOT IN, NOT EXISTS, MINUS \\
+$r \div s$ & División & Valores de r que se combinan con todas las tuplas de s & GROUP BY con HAVING COUNT \\
+$_{G}\mathcal{G}_{F}(r)$ & Agregación & Agrupa r por los atributos G y calcula las funciones F (count, max, \dots) & GROUP BY, funciones de grupo \\
+$\rho_{x(A)}(E)$ & Renombre & El resultado de E con nombre x y atributos A & Alias (AS) \\
+$x \leftarrow E$ & Asignación & Guarda el resultado de E con el nombre x & Subconsulta o vista \\
+\end{longtable}
+\par}
+
+\subsubsection{C1. Datos de un envío}
+\label{q:C1}
+\textit{Usuarios:} U3. \textit{Operaciones:} selección y proyección. La mesa de servicio consulta los datos de un envío a partir de su número de guía.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}E \leftarrow \sigma_{\text{numero\_guia} = \text{'EE0000000000003'}}(\text{ENVIO}) \\[4pt] \Pi_{\text{numero\_guia, fecha\_registro, fecha\_compromiso, peso\_real, fragil, alto\_valor}}(E)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT numero_guia, fecha_registro, fecha_compromiso,
+       peso_real, fragil, alto_valor
+FROM   envio
+WHERE  numero_guia = 'EE0000000000003'
+\end{lstlisting}
+
+
+\subsubsection{C2. Recorrido de un envío}
+\label{q:C2}
+\textit{Usuarios:} U3, U9. \textit{Operaciones:} selección, reunión natural y proyección. Muestra los eventos de un envío en orden, con el nombre del estado y el empleado responsable.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}E \leftarrow \sigma_{\text{numero\_guia} = \text{'EE0000000000003'}}(\text{EVENTO\_ENVIO}) \\[4pt] R \leftarrow E \bowtie \text{ESTADO\_ENVIO} \bowtie \text{EMPLEADO} \\[4pt] \Pi_{\text{fecha\_hora, nombre, nombres, observacion}}(R)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT ev.fecha_hora, es.nombre AS estado,
+       em.nombres AS responsable, ev.observacion
+FROM   evento_envio ev
+JOIN   estado_envio es ON es.id_estado   = ev.id_estado
+JOIN   empleado em     ON em.id_empleado = ev.id_empleado
+WHERE  ev.numero_guia = 'EE0000000000003'
+ORDER  BY ev.fecha_hora
+\end{lstlisting}
+El orden (ORDER BY) no es una operación del álgebra relacional, porque una relación es un conjunto sin orden; se aplica al presentar el resultado.
+
+
+\subsubsection{C3. Planilla de un despacho}
+\label{q:C3}
+\textit{Usuarios:} U2, U4. \textit{Operaciones:} renombre, selección, reunión natural y proyección. Lista los envíos asignados a un despacho en el orden de visita, con el destinatario, la dirección y la zona.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}Z \leftarrow \rho_{\text{Z(id\_zona, id\_centro, zona, localidades)}}(\text{ZONA}) \\[4pt] R \leftarrow \sigma_{\text{id\_despacho} = \text{15}}(\text{ASIGNACION\_DESPACHO}) \bowtie \text{ENVIO} \bowtie \text{DESTINATARIO} \bowtie Z \\[4pt] \Pi_{\text{orden\_visita, numero\_guia, nombre, direccion\_destino, zona, resultado}}(R)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT a.orden_visita, a.numero_guia, d.nombre AS destinatario,
+       e.direccion_destino, z.nombre AS zona, a.resultado
+FROM   asignacion_despacho a
+JOIN   envio e        ON e.numero_guia     = a.numero_guia
+JOIN   destinatario d ON d.id_destinatario = e.id_destinatario
+JOIN   zona z         ON z.id_zona         = e.id_zona
+WHERE  a.id_despacho = 15
+ORDER  BY a.orden_visita
+\end{lstlisting}
+ZONA y DESTINATARIO tienen ambos un atributo nombre; si no se renombra uno de ellos, la reunión natural exigiría que fueran iguales. En SQL ese papel lo cumplen los alias.
+
+
+\subsubsection{C4. Envíos clasificados sin asignar}
+\label{q:C4}
+\textit{Usuarios:} U2. \textit{Operaciones:} selección, reunión natural, proyección y diferencia. Encuentra los envíos que ya fueron clasificados pero todavía no se han asignado a ningún despacho de entrega.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}C \leftarrow \Pi_{\text{numero\_guia}}(\text{EVENTO\_ENVIO} \bowtie \sigma_{\text{nombre} = \text{'CLASIFICADO'}}(\text{ESTADO\_ENVIO})) \\[4pt] S \leftarrow \Pi_{\text{numero\_guia}}(\text{ASIGNACION\_DESPACHO}) \\[4pt] C - S\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT ev.numero_guia
+FROM   evento_envio ev
+JOIN   estado_envio es ON es.id_estado = ev.id_estado
+WHERE  es.nombre = 'CLASIFICADO'
+AND    ev.numero_guia NOT IN (SELECT numero_guia
+                              FROM   asignacion_despacho)
+\end{lstlisting}
+La diferencia se escribe con NOT IN, que funciona igual en MySQL y en Oracle; Oracle también la ofrece con el operador MINUS.
+
+
+\subsubsection{C5. Envíos por zona y modalidad}
+\label{q:C5}
+\textit{Usuarios:} U1. \textit{Operaciones:} selección, renombre, reunión natural y agregación. Cuenta los envíos registrados en un periodo por zona de destino y modalidad.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}Z \leftarrow \rho_{\text{Z(id\_zona, id\_centro, zona, localidades)}}(\text{ZONA}) \\[4pt] M \leftarrow \rho_{\text{M(id\_modalidad, modalidad, plazo\_dias\_habiles)}}(\text{MODALIDAD}) \\[4pt] R \leftarrow \sigma_{\text{fecha\_registro} \geq \text{'2026-11-01'} \wedge \text{fecha\_registro} \leq \text{'2026-11-30'}}(\text{ENVIO}) \bowtie Z \bowtie M \\[4pt] {}_{\text{zona, modalidad}}\mathcal{G}_{\text{count}(\text{numero\_guia}) \text{ as } \text{envios}}(R)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT z.nombre AS zona, m.nombre AS modalidad,
+       COUNT(e.numero_guia) AS envios
+FROM   envio e
+JOIN   zona z      ON z.id_zona      = e.id_zona
+JOIN   modalidad m ON m.id_modalidad = e.id_modalidad
+WHERE  e.fecha_registro BETWEEN DATE '2026-11-01' AND DATE '2026-11-30'
+GROUP  BY z.nombre, m.nombre
+ORDER  BY z.nombre, m.nombre
+\end{lstlisting}
+ZONA y MODALIDAD también comparten el atributo nombre, por eso ambas se renombran antes de reunirlas.
+
+
+\subsubsection{C6. Mensajeros con varias novedades}
+\label{q:C6}
+\textit{Usuarios:} U1. \textit{Operaciones:} selección, reunión natural, reunión theta y agregación. Identifica los mensajeros que registraron dos o más novedades en un periodo, como alerta para revisar sus rutas.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}N \leftarrow \Pi_{\text{id\_novedad, id\_despacho}}(\text{NOVEDAD} \bowtie \text{ASIGNACION\_DESPACHO}) \\[4pt] D \leftarrow \Pi_{\text{id\_novedad, id\_mensajero}}(N \bowtie \sigma_{\text{fecha} \geq \text{'2026-11-01'} \wedge \text{fecha} \leq \text{'2026-11-30'}}(\text{DESPACHO})) \\[4pt] R \leftarrow D \bowtie_{\text{id\_mensajero = id\_empleado}} \text{EMPLEADO} \\[4pt] T \leftarrow {}_{\text{nombres, apellidos}}\mathcal{G}_{\text{count}(\text{id\_novedad}) \text{ as } \text{novedades}}(R) \\[4pt] \sigma_{\text{novedades} \geq 2}(T)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT em.nombres, em.apellidos,
+       COUNT(n.id_novedad) AS novedades
+FROM   novedad n
+JOIN   asignacion_despacho a ON a.id_asignacion = n.id_asignacion
+JOIN   despacho d            ON d.id_despacho   = a.id_despacho
+JOIN   empleado em           ON em.id_empleado  = d.id_mensajero
+WHERE  d.fecha BETWEEN DATE '2026-11-01' AND DATE '2026-11-30'
+GROUP  BY em.nombres, em.apellidos
+HAVING COUNT(n.id_novedad) >= 2
+\end{lstlisting}
+NOVEDAD y DESPACHO tienen ambos un atributo estado; por eso se proyecta antes de reunir. El mensajero se une con EMPLEADO mediante una reunión theta, porque los atributos tienen nombres distintos. La selección después de agrupar corresponde a HAVING; la de antes, a WHERE.
+
+
+\subsubsection{C7. Envíos que requieren gestión}
+\label{q:C7}
+\textit{Usuarios:} U3. \textit{Operaciones:} selección, reunión natural, proyección y unión. Reúne en una sola lista los envíos que tienen una novedad abierta o una reclamación abierta.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}N \leftarrow \Pi_{\text{numero\_guia}}(\sigma_{\text{estado} = \text{'ABIERTA'}}(\text{NOVEDAD}) \bowtie \text{ASIGNACION\_DESPACHO}) \\[4pt] Q \leftarrow \Pi_{\text{numero\_guia}}(\sigma_{\text{estado} = \text{'ABIERTA'} \wedge \neg\,\text{isnull}(\text{numero\_guia})}(\text{RECLAMACION})) \\[4pt] N \cup Q\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT a.numero_guia
+FROM   novedad n
+JOIN   asignacion_despacho a ON a.id_asignacion = n.id_asignacion
+WHERE  n.estado = 'ABIERTA'
+UNION
+SELECT numero_guia
+FROM   reclamacion
+WHERE  estado = 'ABIERTA'
+AND    numero_guia IS NOT NULL
+\end{lstlisting}
+La unión elimina los repetidos: un envío con novedad y reclamación abiertas aparece una sola vez.
+
+
+\subsubsection{C8. Clientes que usan todas las modalidades}
+\label{q:C8}
+\textit{Usuarios:} U1. \textit{Operaciones:} proyección, reunión natural y división. Encuentra los clientes que han enviado al menos un paquete en cada una de las modalidades del servicio.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}S \leftarrow \Pi_{\text{id\_sede, id\_modalidad}}(\text{ENVIO} \bowtie \text{SOLICITUD\_RECOLECCION}) \\[4pt] U \leftarrow \Pi_{\text{id\_cliente, id\_modalidad}}(S \bowtie \text{SEDE\_CLIENTE}) \\[4pt] D \leftarrow U \div \Pi_{\text{id\_modalidad}}(\text{MODALIDAD}) \\[4pt] \Pi_{\text{razon\_social}}(D \bowtie \text{CLIENTE})\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT c.razon_social
+FROM   cliente c
+JOIN   sede_cliente s          ON s.id_cliente   = c.id_cliente
+JOIN   solicitud_recoleccion r ON r.id_sede      = s.id_sede
+JOIN   envio e                 ON e.id_solicitud = r.id_solicitud
+GROUP  BY c.razon_social
+HAVING COUNT(DISTINCT e.id_modalidad) = (SELECT COUNT(*)
+                                         FROM   modalidad)
+\end{lstlisting}
+ENVIO y SEDE\_CLIENTE tienen ambos el atributo id\_zona (la zona de destino y la de la sede); por eso se proyecta S antes de reunirla con SEDE\_CLIENTE. SQL no tiene un operador de división; el resultado equivalente se obtiene comparando cuántas modalidades distintas usó cada cliente con el total de modalidades.
+
+
+\subsubsection{C9. Vehículos disponibles para un mensajero}
+\label{q:C9}
+\textit{Usuarios:} U2. \textit{Operaciones:} selección, reunión natural y proyección. Al armar un despacho, lista los vehículos disponibles del tipo que conduce el mensajero (regla RN11).
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}M \leftarrow \sigma_{\text{id\_empleado} = \text{7}}(\text{MENSAJERO}) \\[4pt] V \leftarrow \sigma_{\text{estado} = \text{'DISPONIBLE'}}(\text{VEHICULO}) \\[4pt] \Pi_{\text{id\_vehiculo, placa, marca, modelo}}(M \bowtie V)\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT v.id_vehiculo, v.placa, v.marca, v.modelo
+FROM   mensajero m
+JOIN   vehiculo v ON v.id_tipo_vehiculo = m.id_tipo_vehiculo
+WHERE  m.id_empleado = 7
+AND    v.estado = 'DISPONIBLE'
+\end{lstlisting}
+La reunión natural une M y V por su único atributo común, id\_tipo\_vehiculo.
+
+
+\subsubsection{C10. Estado actual de cada envío}
+\label{q:C10}
+\textit{Usuarios:} U1, U2, U3. \textit{Operaciones:} agregación, renombre, reunión natural, selección y proyección. Obtiene el estado actual de cada envío, que es el de su evento más reciente.
+
+\begin{center}\adjustbox{max width=\linewidth}{$\displaystyle\begin{array}{l}U \leftarrow \rho_{\text{U(numero\_guia, ultima)}}\big({}_{\text{numero\_guia}}\mathcal{G}_{\text{max}(\text{fecha\_hora})}(\text{EVENTO\_ENVIO})\big) \\[4pt] R \leftarrow \sigma_{\text{fecha\_hora} = \text{ultima}}(\text{EVENTO\_ENVIO} \bowtie U) \\[4pt] \Pi_{\text{numero\_guia, nombre}}(R \bowtie \text{ESTADO\_ENVIO})\end{array}$}\end{center}
+
+\begin{lstlisting}[style=sqlpro]
+SELECT ev.numero_guia, es.nombre AS estado_actual
+FROM   evento_envio ev
+JOIN   estado_envio es ON es.id_estado = ev.id_estado
+WHERE  ev.fecha_hora = (SELECT MAX(x.fecha_hora)
+                        FROM   evento_envio x
+                        WHERE  x.numero_guia = ev.numero_guia)
+ORDER  BY ev.numero_guia
+\end{lstlisting}
+El resultado intermedio U corresponde en SQL a una subconsulta correlacionada. Es la misma lógica de la vista v\_estado\_actual\_envio.
+
+
+\subsection{Tablas, Relaciones, Consultas, Informes}
+
+Esta sección especifica lo que contendrá la base de datos del módulo y
+cómo la usará cada grupo de usuarios: sus tablas, las relaciones entre
+ellas, las consultas y transacciones que se ejecutarán y los informes
+que se entregarán. Su construcción y ejecución corresponden al
+prototipo funcional (sección~\ref{sec:prototipo}).
+
+\subsubsection{Tablas}
+
+La base de datos del módulo tiene las 19 tablas del modelo relacional
+(figura~\ref{fig:dmrelacional}), con las columnas del diccionario de
+datos (tabla~\ref{tab:diccionario}) y los objetos físicos del
+capítulo 5. La tabla~\ref{tab:tablas6} las clasifica según su papel e
+indica quién registra sus datos. Los catálogos y las tablas de
+referencia los carga el administrador de la base de datos al
+instalarla, y los actualiza a solicitud de las áreas dueñas mientras se
+integran los módulos M2 a M4 (tabla~\ref{tab:interfaces}).
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{1.8cm} L{5.0cm} L{4.0cm}}
+\caption{Tablas de la base de datos del módulo.}
+\label{tab:tablas6}\\
+\toprule
+\textbf{Tabla} & \textbf{Tipo} & \textbf{Contenido} & \textbf{Quién registra los datos} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tabla} & \textbf{Tipo} & \textbf{Contenido} & \textbf{Quién registra los datos} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+centro\_distribucion & Maestra & Centro donde se reciben, clasifican y despachan los envíos. & Centro (U2) \\
+zona & Maestra & Sector de la ciudad atendido por un centro. & Centro (U2) \\
+cliente & Referencia & Empresa que contrata el servicio. & Administrador \\
+sede\_cliente & Referencia & Punto de recolección de un cliente. & Administrador \\
+modalidad & Catálogo & Tipo de servicio según el tiempo de entrega. & Administrador \\
+tipo\_vehiculo & Catálogo & Catálogo de tipos de vehículo. & Administrador \\
+vehiculo & Referencia & Vehículo de la flota. & Administrador \\
+empleado & Referencia & Persona vinculada a la empresa. & Administrador \\
+mensajero & Referencia & Empleado que sale a ruta (subtipo de EMPLEADO). & Administrador; el centro (U2) cambia su zona \\
+destinatario & Maestra & Persona que recibe los envíos. & Mesa de servicio (U3), al registrar el envío \\
+despacho & Operación & Salida de un mensajero con un vehículo. & Centro (U2) \\
+solicitud\_recoleccion & Operación & Pedido de recolección en una sede del cliente. & Mesa de servicio (U3); el mensajero (U4) la marca atendida \\
+envio & Operación & Paquete o documento identificado por su guía. & Mesa de servicio (U3); el centro (U2) agrega peso real y flete \\
+asignacion\_despacho & Operación & Cada intento de un envío en un despacho. & Centro (U2); el mensajero (U4) registra el resultado \\
+estado\_envio & Catálogo & Catálogo de estados del envío. & Administrador \\
+evento\_envio & Operación & Cada cambio de estado de un envío. & Centro (U2), mesa (U3) y mensajero (U4) \\
+prueba\_entrega & Operación & Constancia de recibo de una entrega o devolución. & Mensajero (U4) \\
+novedad & Operación & Situación que impidió la entrega en un intento. & Mensajero (U4); la mesa (U3) la gestiona \\
+reclamacion & Operación & Inconformidad de un cliente. & Mesa de servicio (U3) \\
+\end{longtable}
+\par}
+
+\textit{Catálogo}: valores fijos que usan las reglas y las vistas.
+\textit{Referencia}: datos maestros que mantendrán los módulos M2 a M4.
+\textit{Maestra}: datos propios del módulo que cambian poco.
+\textit{Operación}: registros que se crean a diario con el trabajo de la
+empresa.
+
+\subsubsection{Relaciones}
+
+Las relaciones del modelo son las 27 claves foráneas de la
+tabla~\ref{tab:conversion}. En la base de datos se implementan con
+restricciones de clave foránea, que el gestor verifica en cada
+operación:
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Al insertar o modificar} una fila hija, la fila padre a
+        la que apunta debe existir. Las claves foráneas son obligatorias,
+        salvo tres que admiten nulos porque la relación es opcional: la
+        zona del mensajero, el despacho de recolección de una solicitud
+        todavía no atendida y la guía de una reclamación que no trata
+        sobre un envío.
+  \item \textbf{Al intentar borrar} una fila padre que tiene filas
+        hijas, el gestor rechaza la operación (acción restrictiva). No se
+        usa el borrado en cascada, porque ningún registro se elimina: se
+        anula o se cierra por estado (RN16).
+  \item \textbf{Las claves primarias no se modifican}: las sustitutas
+        las genera el gestor y el número de guía no cambia una vez
+        impreso, así que no se necesita actualización en cascada.
+\end{itemize}
+
+La tabla~\ref{tab:relaciones6} muestra, para cada tabla, a qué tablas
+apunta y qué tablas apuntan a ella; es la guía para saber qué tablas
+reunir en una consulta.
+
+{\singlespacing\footnotesize
+\begin{longtable}{L{3.5cm} L{5.4cm} L{5.5cm}}
+\caption{Relaciones de cada tabla (entre paréntesis, la clave foránea).}
+\label{tab:relaciones6}\\
+\toprule
+\textbf{Tabla} & \textbf{Apunta a (tablas padre)} & \textbf{Es referenciada por (tablas hijas)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tabla} & \textbf{Apunta a (tablas padre)} & \textbf{Es referenciada por (tablas hijas)} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+centro\_distribucion & -- & zona (id\_centro); vehiculo (id\_centro); empleado (id\_centro); despacho (id\_centro) \\
+zona & centro\_distribucion (id\_centro) & sede\_cliente (id\_zona); mensajero (id\_zona); envio (id\_zona) \\
+cliente & -- & sede\_cliente (id\_cliente); reclamacion (id\_cliente) \\
+sede\_cliente & cliente (id\_cliente); zona (id\_zona) & solicitud\_recoleccion (id\_sede) \\
+modalidad & -- & envio (id\_modalidad) \\
+tipo\_vehiculo & -- & vehiculo (id\_tipo\_vehiculo); mensajero (id\_tipo\_vehiculo) \\
+vehiculo & centro\_distribucion (id\_centro); tipo\_vehiculo (id\_tipo\_vehiculo) & despacho (id\_vehiculo) \\
+empleado & centro\_distribucion (id\_centro) & mensajero (id\_empleado); evento\_envio (id\_empleado) \\
+mensajero & empleado (id\_empleado); zona (id\_zona); tipo\_vehiculo (id\_tipo\_vehiculo) & despacho (id\_mensajero) \\
+destinatario & -- & envio (id\_destinatario) \\
+despacho & centro\_distribucion (id\_centro); vehiculo (id\_vehiculo); mensajero (id\_mensajero) & solicitud\_recoleccion (id\_despacho); asignacion\_despacho (id\_despacho) \\
+solicitud\_recoleccion & sede\_cliente (id\_sede); despacho (id\_despacho) & envio (id\_solicitud) \\
+envio & solicitud\_recoleccion (id\_solicitud); destinatario (id\_destinatario); zona (id\_zona); modalidad (id\_modalidad) & asignacion\_despacho (numero\_guia); evento\_envio (numero\_guia); reclamacion (numero\_guia) \\
+asignacion\_despacho & envio (numero\_guia); despacho (id\_despacho) & prueba\_entrega (id\_asignacion); novedad (id\_asignacion) \\
+estado\_envio & -- & evento\_envio (id\_estado) \\
+evento\_envio & envio (numero\_guia); estado\_envio (id\_estado); empleado (id\_empleado) & -- \\
+prueba\_entrega & asignacion\_despacho (id\_asignacion) & -- \\
+novedad & asignacion\_despacho (id\_asignacion) & -- \\
+reclamacion & cliente (id\_cliente); envio (numero\_guia) & -- \\
+\end{longtable}
+\par}
+
+\subsubsection{Consultas}
+
+La tabla~\ref{tab:consultas6} resume las consultas de la
+sección~\ref{sec:algebra}: quién las usa, qué datos indica y con qué
+frecuencia. A ellas se suman las consultas de las vistas de usuario
+(tabla~\ref{tab:vistas}), que alimentan los informes.
+
+{\singlespacing\footnotesize
+\begin{longtable}{L{0.7cm} L{2.9cm} L{1.2cm} L{1.9cm} L{4.4cm} L{2.2cm}}
+\caption{Catálogo de consultas del módulo.}
+\label{tab:consultas6}\\
+\toprule
+\textbf{Id} & \textbf{Consulta} & \textbf{Usu.} & \textbf{Datos de entrada} & \textbf{Tablas} & \textbf{Frecuencia} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Id} & \textbf{Consulta} & \textbf{Usu.} & \textbf{Datos de entrada} & \textbf{Tablas} & \textbf{Frecuencia} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+C1 & Datos de un envío & U3 & Número de guía & ENVIO & Cada llamada de un cliente \\
+C2 & Recorrido de un envío & U3, U9 & Número de guía & EVENTO\_ENVIO,\allowbreak\ ESTADO\_ENVIO,\allowbreak\ EMPLEADO & Cada consulta de seguimiento \\
+C3 & Planilla de un despacho & U2, U4 & Despacho & ASIGNACION\_DESPACHO,\allowbreak\ ENVIO,\allowbreak\ DESTINATARIO,\allowbreak\ ZONA & Al salir y al cerrar cada despacho \\
+C4 & Envíos clasificados sin asignar & U2 & Ninguna & EVENTO\_ENVIO,\allowbreak\ ESTADO\_ENVIO,\allowbreak\ ASIGNACION\_DESPACHO & Al armar las rutas \\
+C5 & Envíos por zona y modalidad & U1 & Fecha inicial y final & ENVIO,\allowbreak\ ZONA,\allowbreak\ MODALIDAD & Semanal y mensual \\
+C6 & Mensajeros con varias novedades & U1 & Fecha inicial y final & NOVEDAD,\allowbreak\ ASIGNACION\_DESPACHO,\allowbreak\ DESPACHO,\allowbreak\ EMPLEADO & Mensual \\
+C7 & Envíos que requieren gestión & U3 & Ninguna & NOVEDAD,\allowbreak\ ASIGNACION\_DESPACHO,\allowbreak\ RECLAMACION & Diaria \\
+C8 & Clientes que usan todas las modalidades & U1 & Ninguna & ENVIO,\allowbreak\ SOLICITUD\_RECOLECCION,\allowbreak\ SEDE\_CLIENTE,\allowbreak\ MODALIDAD,\allowbreak\ CLIENTE & Trimestral \\
+C9 & Vehículos disponibles para un mensajero & U2 & Mensajero & MENSAJERO,\allowbreak\ VEHICULO & Al armar cada despacho \\
+C10 & Estado actual de cada envío & U1, U2, U3 & Ninguna & EVENTO\_ENVIO,\allowbreak\ ESTADO\_ENVIO & Permanente (tableros) \\
+\end{longtable}
+\par}
+
+Además de consultar, los usuarios registran la operación mediante las
+transacciones de la tabla~\ref{tab:transacciones}. Cada una agrupa
+varias inserciones y actualizaciones que se ejecutan como una unidad:
+si alguna falla, por ejemplo porque un disparador detecta que se
+incumple una regla de negocio, se deshacen todas, y la base de datos
+queda como estaba (atomicidad y consistencia de las transacciones).
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{1.0cm} L{7.2cm} L{2.6cm}}
+\caption{Transacciones del módulo.}
+\label{tab:transacciones}\\
+\toprule
+\textbf{Transacción} & \textbf{Usu.} & \textbf{Operaciones sobre las tablas} & \textbf{Reglas verificadas} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Transacción} & \textbf{Usu.} & \textbf{Operaciones sobre las tablas} & \textbf{Reglas verificadas} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Registrar solicitud de recolección & U3 & Inserta SOLICITUD\_RECOLECCION. & RN15 \\
+Registrar envío & U3 & Inserta DESTINATARIO si no existe, ENVIO y su EVENTO\_ENVIO REGISTRADO (procedimiento de registro). & RN01 a RN04, RN12 \\
+Recolectar & U4 & Actualiza la SOLICITUD\_RECOLECCION a ATENDIDA e inserta el evento RECOLECTADO de cada envío. & RN12 \\
+Recibir y clasificar & U2 & Inserta los eventos EN\_CENTRO y CLASIFICADO y actualiza en ENVIO el peso real y el flete. & RN03, RN12 \\
+Armar el despacho de entrega & U2 & Inserta DESPACHO, una ASIGNACION\_DESPACHO por envío y el evento EN\_RUTA de cada uno. & RN07, RN09 a RN12 \\
+Registrar una entrega & U4 & Inserta PRUEBA\_ENTREGA, actualiza el resultado de la asignación e inserta el evento ENTREGADO. & RN05, RN06, RN08, RN12 \\
+Registrar una novedad & U4 & Inserta NOVEDAD, actualiza el resultado de la asignación e inserta el evento CON\_NOVEDAD. & RN07, RN08, RN12 \\
+Registrar una devolución & U4 & Igual que una entrega, en el tercer intento y con resultado y evento DEVUELTO. & RN05, RN07, RN12 \\
+Cerrar el despacho & U2 & Actualiza en DESPACHO la hora de cierre y el estado CERRADO. & -- \\
+Gestionar una novedad & U3 & Actualiza en NOVEDAD la acción, la solución y el estado. & -- \\
+Registrar y responder una reclamación & U3 & Inserta RECLAMACION y luego actualiza su respuesta, fecha de respuesta y estado. & RN14 \\
+Anular un envío & U3 & Inserta el evento ANULADO (solo antes de salir a ruta). & RN12, RN16 \\
+\end{longtable}
+\par}
+
+\subsubsection{Informes}
+
+Los informes son las salidas que cada usuario necesita para su trabajo
+(sección~\ref{sec:eps}). Cada uno se obtiene de una vista de usuario
+(tabla~\ref{tab:vistas}), que ya contiene las reuniones entre tablas,
+filtrada y ordenada según el caso. La tabla~\ref{tab:informes} define
+el contenido de cada informe.
+
+{\singlespacing\footnotesize
+\begin{longtable}{L{2.2cm} L{1.0cm} L{2.9cm} L{3.4cm} L{2.0cm} L{1.8cm}}
+\caption{Informes del módulo.}
+\label{tab:informes}\\
+\toprule
+\textbf{Informe} & \textbf{Usu.} & \textbf{Vista de origen} & \textbf{Contenido} & \textbf{Filtro y orden} & \textbf{Frecuencia} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Informe} & \textbf{Usu.} & \textbf{Vista de origen} & \textbf{Contenido} & \textbf{Filtro y orden} & \textbf{Frecuencia} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Planilla de ruta & U4, U2 & v\_planilla\_despacho & Orden de visita, guía, destinatario, teléfono, dirección, zona, frágil, alto valor y resultado. & Un despacho; por orden de visita. & Cada despacho \\
+Seguimiento del envío & U9, U3 & v\_seguimiento\_envio & Fecha y hora, estado, observación y responsable de cada evento. & Una guía (U9: solo las de su empresa); por fecha. & Cada consulta \\
+Envíos por estado & U1, U2 & v\_estado\_actual\_envio & Estado actual y número de envíos. & Por centro o zona; agrupado por estado. & Diaria \\
+Cumplimiento de entregas & U1 & v\_cumplimiento\_entregas & Centro, zona, entregados, entregados a tiempo y porcentaje a tiempo. & Un centro; de menor a mayor porcentaje. & Semanal y mensual \\
+Envíos por despachar & U2 & v\_envios\_por\_despachar & Guía, zona, modalidad, fecha de compromiso, peso, frágil y alto valor. & Un centro; por fecha de compromiso. & Antes de cada salida \\
+Novedades abiertas & U3 & v\_novedades\_abiertas & Guía, intento, tipo y descripción de la novedad, destinatario, cliente y teléfonos. & Todas; por hora de la visita. & Diaria \\
+Reclamaciones pendientes & U1, U3 & v\_reclamaciones\_pendientes & Fecha de radicación, cliente, guía, tipo y descripción. & Todas; de la más antigua a la más reciente. & Diaria \\
+\end{longtable}
+\par}
+
+\subsection{Prototipo funcional de la Base de Datos}
+\label{sec:prototipo}
+
+\subsubsection{Arquitectura del prototipo}
+\label{sec:arquitectura}
+
+El prototipo se organiza como una arquitectura en cuatro capas lógicas.
+Cada capa tiene una sola responsabilidad y solo usa la capa que está
+debajo de ella:
+
+\begin{enumerate}[itemsep=2pt]
+  \item \textbf{Presentación.} Las aplicaciones de la
+        tabla~\ref{tab:aplicaciones}: muestran formularios, planillas e
+        informes, capturan los datos y validan solo su formato. No
+        deciden reglas del negocio.
+  \item \textbf{Casos de uso.} Un servicio por cada grupo de casos de
+        uso del módulo (recolección, centro, ruta, servicio al cliente,
+        indicadores y administración). Cada operación verifica el rol
+        del usuario, abre la transacción, pide al dominio que aplique las
+        reglas, manda guardar y confirma o deshace todo
+        (tabla~\ref{tab:transacciones}).
+  \item \textbf{Modelo de dominio.} Las entidades del modelo conceptual
+        convertidas en clases con comportamiento, agrupadas alrededor
+        del envío (con sus eventos, destinatario, prueba y novedades) y
+        del despacho (con sus asignaciones). Aquí se aplican las reglas
+        de negocio de la tabla~\ref{tab:reglasnegocio}, como las
+        transiciones de estado (tabla~\ref{tab:transiciones}) o el
+        máximo de intentos, antes de tocar la base de datos.
+  \item \textbf{Datos.} Los repositorios que leen y guardan las entidades
+        mediante JDBC, con las consultas de la sección~\ref{sec:algebra}
+        y las vistas de usuario, y la base de datos Oracle con las
+        restricciones, disparadores, índices y roles del capítulo 5.
+\end{enumerate}
+
+La presentación se ejecuta en los equipos de los usuarios; las capas de
+casos de uso, dominio y acceso a datos, en el servidor de aplicaciones;
+y la base de datos, en su propio servidor (sección~\ref{sec:almacenamiento}).
+Las reglas de negocio se verifican dos veces: en el dominio, para
+explicar al usuario qué falló antes de intentar guardar, y en la base de
+datos, como garantía final aunque alguien llegue a ella por otro camino.
+
+\textbf{Por qué no Oracle REST Data Services.} Oracle ofrece una
+herramienta, Oracle REST Data Services (ORDS), que publica directamente
+las tablas, vistas y procedimientos de la base de datos como servicios
+web, sin escribir un servidor de aplicaciones. Se descartó como base del
+prototipo porque las aplicaciones hablarían directamente con la base de
+datos y se saltarían las capas de casos de uso y de dominio, lo que trae
+estos problemas:
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Transacciones incompletas.} Operaciones como registrar
+        una entrega insertan la prueba, actualizan la asignación e
+        insertan el evento. Sin una capa que las agrupe, la aplicación
+        tendría que hacer varias llamadas independientes; si la conexión
+        del mensajero se cae en medio, la operación queda a medias.
+  \item \textbf{Reglas repartidas.} Para dar mensajes claros, cada
+        aplicación (web, móvil y portal) tendría que repetir las reglas
+        de negocio por su cuenta, con el riesgo de que difieran entre sí
+        y de la base de datos.
+  \item \textbf{Aplicaciones atadas a las tablas.} Los servicios
+        reflejarían la estructura de las tablas, así que cualquier cambio
+        del esquema, como las columnas que se agregarán al integrar el
+        módulo de facturación, obligaría a cambiar todas las
+        aplicaciones.
+  \item \textbf{Control de acceso más pobre.} Los permisos quedarían a
+        nivel de tabla y no de caso de uso: es difícil expresar, por
+        ejemplo, que un mensajero solo puede registrar resultados en sus
+        propios despachos, y quedaría expuesta a internet una superficie
+        mayor de la base de datos.
+\end{itemize}
+
+ORDS podría usarse más adelante para publicar consultas de solo lectura,
+como el seguimiento del portal, sin afectar esta arquitectura.
+
+El resto del prototipo se desarrollará en la siguiente entrega: se
+creará la base de datos del módulo en el gestor, con los objetos físicos
+del capítulo 5; se cargarán datos de prueba; y se ejecutarán las
+consultas de la sección~\ref{sec:algebra}, las transacciones de la
+tabla~\ref{tab:transacciones} y los informes de la
+tabla~\ref{tab:informes}, para mostrar sus resultados.
