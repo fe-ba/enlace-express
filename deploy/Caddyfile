@@ -1,0 +1,16 @@
+# Proxy inverso con HTTPS automatico (decision G3). DOMINIO es el nombre publico, por ejemplo
+# enlace.duckdns.org: Caddy obtiene y renueva el certificado solo (Let's Encrypt). Con DOMINIO=localhost
+# usa su certificado interno, para probarlo en el equipo.
+{$DOMINIO:localhost} {
+    encode zstd gzip
+
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options nosniff
+        -Server
+    }
+
+    # Caddy escribe en X-Forwarded-For la IP real de quien se conecta (reemplaza lo que traiga la peticion);
+    # la aplicacion, con enlace.rastreo.confiar-en-proxy=true, usa esa IP para el limite del rastreo publico.
+    reverse_proxy app:8080
+}

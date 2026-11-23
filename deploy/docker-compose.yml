@@ -1,0 +1,76 @@
+# Despliegue de Enlace Express (decisiones 12.6, G1, G2 y G3): Oracle 23c Free, la aplicacion y Caddy con HTTPS.
+# Las contrasenas y el dominio salen de un .env (ver .env.example y deploy/README.md); nunca se escriben aqui.
+#
+#   docker compose --env-file .env -f deploy/docker-compose.yml up -d
+#
+# Oracle no publica el puerto 1521: solo la aplicacion lo alcanza por la red interna. Hacia afuera solo
+# salen los puertos de Caddy.
+name: enlace-prod
+
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: enlace-prod-oracle
+    restart: unless-stopped
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:?defina ORACLE_PASSWORD en .env}
+      TZ: America/Bogota
+    volumes:
+      - oradata:/opt/oracle/oradata
+      # scripts del proyecto, solo lectura, para deploy/install-schema.sh
+      - ../database:/opt/enlace/database:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
+
+  app:
+    # IMAGEN_APP: la que publica el CD en GHCR (ghcr.io/<usuario>/implementacionproyectodb:latest) o, en el
+    # equipo, la que construye "docker compose build app".
+    image: ${IMAGEN_APP:-enlace-express:local}
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: enlace-prod-app
+    restart: unless-stopped
+    depends_on:
+      oracle:
+        condition: service_healthy
+    environment:
+      ENLACE_DB_URL: jdbc:oracle:thin:@//oracle:1521/FREEPDB1
+      SVC_GERENCIA_PASSWORD: ${SVC_GERENCIA_PASSWORD:?defina SVC_GERENCIA_PASSWORD en .env}
+      SVC_CENTRO_PASSWORD: ${SVC_CENTRO_PASSWORD:?defina SVC_CENTRO_PASSWORD en .env}
+      SVC_MESA_PASSWORD: ${SVC_MESA_PASSWORD:?defina SVC_MESA_PASSWORD en .env}
+      SVC_MENSAJERO_PASSWORD: ${SVC_MENSAJERO_PASSWORD:?defina SVC_MENSAJERO_PASSWORD en .env}
+      SVC_CLIENTE_PASSWORD: ${SVC_CLIENTE_PASSWORD:?defina SVC_CLIENTE_PASSWORD en .env}
+      # detras de Caddy (HTTPS): cookies solo por HTTPS y limite del rastreo por la IP que agrega el proxy
+      ENLACE_COOKIE_SEGURA: "true"
+      ENLACE_RASTREO_CONFIAR_EN_PROXY: "true"
+      TZ: America/Bogota
+    expose:
+      - "8080"
+
+  caddy:
+    image: caddy:2.8.4
+    container_name: enlace-prod-caddy
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      DOMINIO: ${DOMINIO:-localhost}
+    ports:
+      # por defecto 80 y 443; en pruebas locales se cambian (por ejemplo 8081 y 8443)
+      - "${PUERTO_HTTP:-80}:80"
+      - "${PUERTO_HTTPS:-443}:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-datos:/data
+      - caddy-config:/config
+
+volumes:
+  oradata:
+  caddy-datos:
+  caddy-config:
