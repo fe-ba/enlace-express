@@ -1,0 +1,10 @@
+{
+  "name": "enlace-express-e2e",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prueba de punta a punta del flujo principal con capturas (Playwright, imagen v1.49.1)",
+  "dependencies": {
+    "playwright-core": "1.49.1"
+  }
+}
