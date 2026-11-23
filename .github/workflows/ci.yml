@@ -1,0 +1,73 @@
+# Integracion continua (decision 12.6): en cada cambio a main compila el frontend y el backend, instala el
+# esquema en un Oracle de contenedor y corre las pruebas. No usa secretos: las contrasenas de Oracle se
+# generan al azar en cada corrida. Los mismos pasos se pueden ejecutar en el equipo con ci/local.sh.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  construir-y-probar:
+    name: Compilar y probar (Oracle con Testcontainers)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Compilar el frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      # Las pruebas de integracion (*IT) levantan un Oracle gvenzl/oracle-free:23-slim con Testcontainers,
+      # instalan el esquema con database/install.sh y verifican las cifras del documento en modo estricto.
+      - name: Compilar el backend y correr las pruebas (unitarias e integracion)
+        working-directory: backend
+        env:
+          ENLACE_TESTCONTAINERS: "true"
+        run: mvn -B verify
+
+      - name: Guardar los informes de las pruebas si algo falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informes-de-pruebas
+          path: |
+            backend/target/surefire-reports
+            backend/target/failsafe-reports
+          if-no-files-found: ignore
+
+  cifras-del-documento:
+    name: Verificar las cifras del documento (modo estricto)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      # Oracle desechable: instala el esquema y falla si alguna de las cifras del documento no coincide
+      # (19 tablas, 130 columnas, 59 indices, 6 disparadores, etc.).
+      - name: Instalar el esquema y verificar las cifras
+        run: ci/verify-figures.sh
