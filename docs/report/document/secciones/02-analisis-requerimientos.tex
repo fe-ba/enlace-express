@@ -1,0 +1,469 @@
+%======================================================================
+%  Capitulo 2 - Analisis de requerimientos de informacion
+%======================================================================
+
+\section{Análisis de requerimientos de información}
+
+Como la empresa todavía no opera, el análisis parte de los procesos del
+capítulo 1 y de cómo se espera que trabaje cada área. El resultado es el
+conjunto de elementos de información que debe guardar la base de datos y
+la forma en que se agrupan.
+
+%-----------------------------------------------------------------------
+\subsection{Metodología de Análisis Descendente (Top-Down)}
+
+El análisis va de lo general a lo particular: la organización se divide
+en niveles cada vez más detallados hasta llegar a los datos
+(figura~\ref{fig:topdown}), de modo que cada dato se puede rastrear
+hasta el área y el proceso que lo necesita. Se usa la codificación AF1
+a AF4 para las áreas, P1 a P8 para los procesos, SP\textit{x.y} para los
+subprocesos, A\textit{x.y.z} para las actividades y E01 a E21 para las
+entidades.
+
+{\singlespacing
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0.45cm]
+\node[caja,text width=7.5cm,minimum height=0.9cm] (n1) {Organización: Enlace Express S.A.S.\\(capítulo 1)};
+\node[caja,text width=6.6cm,minimum height=0.9cm,below=of n1] (n2) {Áreas funcionales (AF)};
+\node[caja,text width=5.7cm,minimum height=0.9cm,below=of n2] (n3) {Procesos (P) y subprocesos (SP)};
+\node[caja,text width=4.8cm,minimum height=0.9cm,below=of n3] (n4) {Actividades o tareas (A)};
+\node[caja,text width=3.9cm,minimum height=0.9cm,below=of n4] (n5) {Entidades o elementos\\de información (E)};
+\node[caja,text width=3.0cm,minimum height=0.9cm,below=of n5] (n6) {Matriz de afinidad\\de datos};
+\foreach \a/\b in {n1/n2,n2/n3,n3/n4,n4/n5,n5/n6}{ \draw[flecha] (\a) -- (\b); }
+\node[right=0.4cm of n2, font=\small, align=left] {2.1.1};
+\node[right=0.4cm of n3, font=\small, align=left] {2.1.2};
+\node[right=0.4cm of n4, font=\small, align=left] {2.1.3};
+\node[right=0.4cm of n5, font=\small, align=left] {2.1.4};
+\node[right=0.4cm of n6, font=\small, align=left] {2.1.5};
+\end{tikzpicture}
+\caption{Niveles del análisis descendente aplicado a Enlace Express S.A.S.}
+\label{fig:topdown}
+\end{figure}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Áreas funcionales (Intención y Función)}
+
+Las áreas funcionales son las cuatro del organigrama. Para cada una se
+indica su \textit{intención} (para qué existe) y su \textit{función}
+(qué hace para lograrlo). La Gerencia General no es un área adicional
+porque no genera datos de la operación: los consume en el proceso de
+indicadores (P8).
+
+{\singlespacing
+\begin{longtable}{L{2.6cm} L{5.4cm} L{6.4cm}}
+\caption{Áreas funcionales de Enlace Express S.A.S.}
+\label{tab:areas}\\
+\toprule
+\textbf{Área} & \textbf{Intención} & \textbf{Función} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Área} & \textbf{Intención} & \textbf{Función} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{AF1.} Operaciones &
+Que cada envío llegue a su destinatario dentro del tiempo pactado y que
+en todo momento se sepa dónde está y quién lo tiene. &
+Recibir las solicitudes de recolección, registrar los envíos,
+recogerlos, clasificarlos por zona, armar los despachos, entregar,
+gestionar las novedades y devoluciones y atender las consultas y
+reclamaciones de los clientes. \\
+\midrule
+\textbf{AF2.} Flota y Mantenimiento &
+Que siempre haya vehículos disponibles y con sus documentos al día
+para salir a ruta. &
+Registrar los vehículos, controlar el vencimiento de sus documentos,
+programar y registrar los mantenimientos e informar qué vehículos están
+disponibles cada día. \\
+\midrule
+\textbf{AF3.} Comercial y Financiera &
+Conseguir y conservar clientes con tarifas acordes a su volumen y
+cobrar correctamente los servicios prestados. &
+Vincular clientes y sus sedes, pactar contratos y tarifas, generar la
+facturación mensual, registrar los pagos y controlar la cartera. \\
+\midrule
+\textbf{AF4.} Talento Humano &
+Contar con personal vinculado formalmente, capacitado y habilitado para
+el trabajo que realiza. &
+Registrar el ingreso y el retiro de los empleados, asignarlos a un
+centro y a una zona, controlar las licencias de conducción de los
+mensajeros y registrar las capacitaciones. \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Identificación de Procesos y/o Subprocesos (Caracterización)}
+
+La tabla~\ref{tab:procesos} identifica los procesos y subprocesos de
+cada área a partir del mapa de procesos, y la
+tabla~\ref{tab:caracterizacion} los caracteriza. Las reglas de esta
+última vienen de las políticas del capítulo 1 y más adelante se
+convierten en restricciones de la base de datos.
+
+{\singlespacing
+\begin{longtable}{L{3.2cm} L{4.3cm} L{6.9cm}}
+\caption{Procesos y subprocesos por área funcional.}
+\label{tab:procesos}\\
+\toprule
+\textbf{Área} & \textbf{Proceso} & \textbf{Subprocesos} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Área} & \textbf{Proceso} & \textbf{Subprocesos} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+AF1. Operaciones & P1. Recolección y clasificación &
+SP1.1 Solicitud y registro de envíos\newline
+SP1.2 Programación y ejecución de la recolección\newline
+SP1.3 Recepción y clasificación en el centro \\
+\cmidrule{2-3}
+ & P2. Distribución y entrega &
+SP2.1 Zonificación y asignación de mensajeros\newline
+SP2.2 Armado de despachos\newline
+SP2.3 Entrega y prueba de entrega\newline
+SP2.4 Cierre de ruta \\
+\cmidrule{2-3}
+ & P3. Novedades y devoluciones &
+SP3.1 Gestión de novedades\newline
+SP3.2 Devoluciones\newline
+SP3.3 Atención de consultas y reclamaciones \\
+\midrule
+AF3. Comercial y Financiera & P4. Gestión comercial &
+SP4.1 Vinculación de clientes y sedes\newline
+SP4.2 Contratos y tarifas \\
+\cmidrule{2-3}
+ & P5. Facturación y cartera &
+SP5.1 Facturación mensual\newline
+SP5.2 Recaudo y cartera \\
+\midrule
+AF2. Flota y Mantenimiento & P6. Gestión de flota &
+SP6.1 Registro de vehículos\newline
+SP6.2 Control documental\newline
+SP6.3 Mantenimiento \\
+\midrule
+AF4. Talento Humano & P7. Gestión del talento humano &
+SP7.1 Vinculación y retiro de personal\newline
+SP7.2 Control de licencias y capacitaciones \\
+\midrule
+Gerencia General & P8. Gestión de indicadores &
+SP8.1 Cálculo y seguimiento de indicadores \\
+\end{longtable}
+\par}
+
+{\singlespacing\small
+\begin{longtable}{L{2.6cm} L{3.3cm} L{4.2cm} L{4.3cm}}
+\caption{Caracterización de los procesos.}
+\label{tab:caracterizacion}\\
+\toprule
+\textbf{Proceso y responsable} & \textbf{Objetivo} & \textbf{Entradas $\rightarrow$ salidas} & \textbf{Reglas de la empresa} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Proceso y responsable} & \textbf{Objetivo} & \textbf{Entradas $\rightarrow$ salidas} & \textbf{Reglas de la empresa} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\textbf{P1. Recolección y clasificación}\newline\textit{Coordinador de centro, con la mesa de servicio} &
+Recibir las solicitudes, recoger los paquetes, registrarlos con su guía e ingresarlos al centro clasificados por zona. &
+Solicitud de recolección; datos de remitente, destinatario y paquete; contrato y tarifas $\rightarrow$ guías; paquetes recogidos, pesados y clasificados; eventos con fecha y responsable. &
+Solo clientes con contrato vigente; no se registran envíos incompletos; el valor se liquida con la tarifa vigente según zona, peso y modalidad. \\
+\midrule
+\textbf{P2. Distribución y entrega}\newline\textit{Coordinador de centro} &
+Llevar cada envío a su destinatario en el plazo de la modalidad y dejar constancia de la entrega. &
+Envíos clasificados; mensajeros y vehículos disponibles; vigencias $\rightarrow$ despachos; envíos entregados con prueba o con novedad. &
+No salen vehículos con documentos vencidos ni mensajeros sin licencia vigente o sin capacitación anual; no hay entrega sin prueba; frágiles y de alto valor solo al destinatario. \\
+\midrule
+\textbf{P3. Novedades y devoluciones}\newline\textit{Jefe de mesa de servicio} &
+Resolver los envíos no entregados y atender consultas y reclamaciones. &
+Novedades; consultas y reclamaciones $\rightarrow$ reintentos; devoluciones al remitente; reclamaciones respondidas. &
+Máximo dos intentos de entrega; si el segundo falla, el envío se devuelve. Las reclamaciones se responden en máximo cuatro horas (OE2). \\
+\midrule
+\textbf{P4. Gestión comercial}\newline\textit{Asesores comerciales} &
+Vincular clientes y pactar las condiciones del servicio. &
+Datos del cliente y sus sedes; volumen y zonas estimadas $\rightarrow$ clientes, sedes, contratos y tarifas por zona, rango de peso y modalidad. &
+Todo servicio con contrato vigente; en un contrato no hay dos tarifas para la misma zona, modalidad y rango de peso. \\
+\midrule
+\textbf{P5. Facturación y cartera}\newline\textit{Facturación y Cartera} &
+Cobrar mensualmente los envíos prestados y seguir los pagos. &
+Envíos entregados o devueltos con su valor; pagos $\rightarrow$ facturas por cliente y periodo; estado de cartera. &
+La factura sale de los envíos registrados, sin digitar valores; cada envío se factura una vez; se facturan entregados y devueltos, no anulados. \\
+\midrule
+\textbf{P6. Gestión de flota}\newline\textit{Coordinador de flota} &
+Mantener los vehículos disponibles, en buen estado y con documentos al día. &
+Vehículos; documentos (SOAT, revisión técnico-mecánica, póliza); fallas $\rightarrow$ vehículos con estado; alertas de vencimiento; historial de mantenimiento. &
+Un vehículo en mantenimiento o fuera de servicio no sale a despacho; los vencimientos se revisan con quince días de anticipación. \\
+\midrule
+\textbf{P7. Gestión del talento humano}\newline\textit{Talento Humano y SST} &
+Vincular, habilitar y hacer seguimiento al personal. &
+Hojas de vida; licencias; capacitaciones $\rightarrow$ empleados asignados a centro y zona; licencias y capacitaciones vigentes; retiros. &
+Todo empleado vinculado formalmente; un mensajero queda habilitado solo con licencia vigente y capacitación anual aprobada. \\
+\midrule
+\textbf{P8. Gestión de indicadores}\newline\textit{Gerencia General} &
+Medir el cumplimiento de las metas para decidir con datos. &
+Datos de los demás procesos $\rightarrow$ indicadores de cumplimiento, novedades, reclamaciones, rotación y flota eléctrica. &
+Los indicadores se calculan sobre la base de datos, no sobre reportes hechos a mano. \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Descripción de las Actividades y/o tareas}
+
+Cada subproceso se descompone en actividades, con su responsable y la
+información que usa o genera; esta última columna es la que permite
+identificar las entidades. La tabla~\ref{tab:actividades} presenta las
+actividades de los procesos de operación (P1 a P3), que forman el
+módulo priorizado; las de los procesos P4 a P8 están en el
+anexo~\ref{anx:analisis} (tabla~\ref{tab:actividadesotros}).
+
+{\singlespacing\small
+\begin{longtable}{L{1.3cm} L{6.3cm} L{2.9cm} L{3.9cm}}
+\caption{Actividades de los procesos de operación (P1 a P3).}
+\label{tab:actividades}\\
+\toprule
+\textbf{Código} & \textbf{Actividad} & \textbf{Responsable} & \textbf{Información que usa o genera} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Código} & \textbf{Actividad} & \textbf{Responsable} & \textbf{Información que usa o genera} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{4}{l}{\textit{SP1.1 Solicitud y registro de envíos}} \\*
+A1.1.1 & Recibir la solicitud de recolección del cliente con la sede, la fecha y la franja horaria. & Auxiliar de mesa de servicio & Cliente, sede del cliente, solicitud de recolección \\
+A1.1.2 & Verificar que el cliente tenga un contrato vigente. & Auxiliar de mesa de servicio & Contrato \\
+A1.1.3 & Registrar cada envío: destinatario, dirección, zona de destino, modalidad, peso declarado, contenido y marcas de frágil o alto valor. & Auxiliar de mesa de servicio & Envío, zona, modalidad \\
+A1.1.4 & Generar el número de guía y registrar el evento \textit{Registrado}. & Auxiliar de mesa de servicio & Envío, evento de seguimiento \\
+\midrule
+\multicolumn{4}{l}{\textit{SP1.2 Programación y ejecución de la recolección}} \\*
+A1.2.1 & Agrupar las solicitudes del día por zona y armar el despacho de recolección. & Coordinador de centro & Solicitud de recolección, sede del cliente, despacho \\
+A1.2.2 & Asignar mensajero y vehículo al despacho, verificando documentos, licencia y capacitación. & Coordinador de centro & Despacho, empleado, vehículo, documento del vehículo, capacitación \\
+A1.2.3 & Recoger los paquetes en la sede del cliente y registrar el evento \textit{Recolectado}. & Mensajero & Envío, evento de seguimiento \\
+A1.2.4 & Reportar las solicitudes que no se pudieron atender. & Mensajero & Solicitud de recolección \\
+\midrule
+\multicolumn{4}{l}{\textit{SP1.3 Recepción y clasificación en el centro}} \\*
+A1.3.1 & Recibir los paquetes en el centro y registrar el evento \textit{En centro}. & Auxiliar de centro & Envío, evento de seguimiento \\
+A1.3.2 & Verificar el peso real y el estado del paquete. & Auxiliar de centro & Envío \\
+A1.3.3 & Liquidar el valor del envío con la tarifa vigente del contrato. & Auxiliar de centro & Tarifa, contrato, envío \\
+A1.3.4 & Ubicar el envío en la zona de destino y registrar el evento \textit{Clasificado}. & Auxiliar de centro & Envío, zona, evento de seguimiento \\
+\midrule
+\multicolumn{4}{l}{\textit{SP2.1 Zonificación y asignación de mensajeros}} \\*
+A2.1.1 & Definir los centros de distribución y las zonas que atiende cada uno. & Jefe de operaciones & Centro de distribución, zona \\
+A2.1.2 & Asignar mensajeros fijos a cada zona. & Jefe de operaciones & Empleado, zona \\
+\midrule
+\multicolumn{4}{l}{\textit{SP2.2 Armado de despachos}} \\*
+A2.2.1 & Seleccionar los envíos clasificados de una zona, dando prioridad por modalidad y fecha de compromiso. & Coordinador de centro & Envío, modalidad, zona \\
+A2.2.2 & Asignar mensajero y vehículo verificando documentos del vehículo, licencia y capacitación del mensajero. & Coordinador de centro & Despacho, vehículo, documento del vehículo, empleado, capacitación \\
+A2.2.3 & Registrar el despacho con sus envíos y el orden de visita, y registrar el evento \textit{En ruta}. & Coordinador de centro & Despacho, envío, evento de seguimiento \\
+\midrule
+\multicolumn{4}{l}{\textit{SP2.3 Entrega y prueba de entrega}} \\*
+A2.3.1 & Entregar el envío al destinatario, o a un tercero cuando el envío no es frágil ni de alto valor. & Mensajero & Envío \\
+A2.3.2 & Registrar la prueba de entrega (firma, documento o fotografía) y el evento \textit{Entregado}. & Mensajero & Prueba de entrega, evento de seguimiento \\
+A2.3.3 & Registrar la novedad cuando no se puede entregar. & Mensajero & Novedad, evento de seguimiento \\
+\midrule
+\multicolumn{4}{l}{\textit{SP2.4 Cierre de ruta}} \\*
+A2.4.1 & Recibir los envíos no entregados y registrar el evento \textit{En centro}. & Auxiliar de centro & Envío, evento de seguimiento \\
+A2.4.2 & Registrar la hora de cierre del despacho y el resultado de cada envío. & Coordinador de centro & Despacho \\
+\midrule
+\multicolumn{4}{l}{\textit{SP3.1 Gestión de novedades}} \\*
+A3.1.1 & Revisar las novedades del día y contactar al destinatario o al cliente. & Auxiliar de mesa de servicio & Novedad, envío, cliente, sede del cliente \\
+A3.1.2 & Programar un reintento de entrega o decidir la devolución. & Auxiliar de mesa de servicio & Novedad, envío \\
+A3.1.3 & Cerrar la novedad con la solución aplicada. & Auxiliar de mesa de servicio & Novedad \\
+\midrule
+\multicolumn{4}{l}{\textit{SP3.2 Devoluciones}} \\*
+A3.2.1 & Incluir el envío en un despacho con destino a la sede del cliente que lo envió. & Coordinador de centro & Despacho, envío, sede del cliente \\
+A3.2.2 & Entregar el paquete en la sede del cliente, registrar la prueba y el evento \textit{Devuelto}. & Mensajero & Envío, prueba de entrega, evento de seguimiento \\
+\midrule
+\multicolumn{4}{l}{\textit{SP3.3 Atención de consultas y reclamaciones}} \\*
+A3.3.1 & Consultar el estado y el recorrido de un envío por su número de guía. & Auxiliar de mesa de servicio, cliente & Envío, evento de seguimiento \\
+A3.3.2 & Registrar la reclamación del cliente sobre un envío o una factura. & Auxiliar de mesa de servicio & Reclamación, cliente, envío, factura \\
+A3.3.3 & Responder la reclamación y registrar la respuesta con su fecha. & Auxiliar de mesa de servicio & Reclamación \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Entidades o Elementos de Información}
+
+Al reunir la información de las actividades de todos los procesos y
+eliminar repeticiones se obtienen las 21 entidades de la
+tabla~\ref{tab:entidades}; el primer atributo de cada una es su
+identificador.
+
+{\singlespacing\small
+\begin{longtable}{L{0.9cm} L{3.4cm} L{4.2cm} L{5.6cm}}
+\caption{Entidades o elementos de información identificados.}
+\label{tab:entidades}\\
+\toprule
+\textbf{Cód.} & \textbf{Entidad} & \textbf{Descripción} & \textbf{Atributos principales} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Cód.} & \textbf{Entidad} & \textbf{Descripción} & \textbf{Atributos principales} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+E01 & CENTRO\_\allowbreak DISTRIBUCION & Instalación donde se reciben, clasifican y despachan los envíos. & id\_centro, nombre, dirección, teléfono, estado \\
+E02 & ZONA & Sector de la ciudad atendido por un centro de distribución. & id\_zona, nombre, localidades que cubre \\
+E03 & CLIENTE & Empresa que contrata el servicio (tienda en línea, droguería u oficina). & id\_cliente, NIT, razón social, tipo de cliente, teléfono, correo, fecha de vinculación, estado \\
+E04 & SEDE\_\allowbreak CLIENTE & Punto donde se recogen los envíos de un cliente. & id\_sede, nombre, dirección, persona de contacto, teléfono \\
+E05 & CONTRATO & Acuerdo que ampara los servicios prestados a un cliente. & id\_contrato, fecha de inicio, fecha de fin, plazo de pago en días, estado \\
+E06 & MODALIDAD & Tipo de servicio según el tiempo de entrega: mismo día, día siguiente o estándar. & id\_modalidad, nombre, plazo en días hábiles \\
+E07 & TARIFA & Valor pactado en un contrato para una zona, una modalidad y un rango de peso. & id\_tarifa, peso mínimo, peso máximo, valor \\
+E08 & SOLICITUD\_\allowbreak RECOLECCION & Pedido del cliente para que se recojan envíos en una de sus sedes. & id\_solicitud, fecha de solicitud, fecha programada, franja horaria, estado \\
+E09 & ENVIO & Paquete o documento que se transporta, identificado por su número de guía. & número de guía, fecha de registro, nombre, documento y teléfono del destinatario, dirección de destino, peso declarado, peso real, contenido, valor declarado, frágil, alto valor, valor del flete, fecha de compromiso, estado actual \\
+E10 & EVENTO\_\allowbreak ENVIO & Cada cambio de estado de un envío durante su recorrido. & id\_evento, fecha y hora, estado, observación \\
+E11 & DESPACHO & Salida de un mensajero con un vehículo para recoger o entregar envíos. & id\_despacho, fecha, tipo (recolección o entrega), hora de salida, hora de cierre, estado \\
+E12 & PRUEBA\_\allowbreak ENTREGA & Constancia de que un envío fue recibido. & id\_prueba, fecha y hora, nombre y documento de quien recibe, tipo de prueba, archivo de soporte \\
+E13 & NOVEDAD & Situación que impide entregar un envío. & id\_novedad, fecha y hora, tipo de novedad, descripción, solución, estado \\
+E14 & RECLAMACION & Inconformidad de un cliente sobre un envío o una factura. & id\_reclamación, fecha de radicación, tipo, descripción, respuesta, fecha de respuesta, estado \\
+E15 & FACTURA & Cobro mensual de los envíos prestados a un cliente. & id\_factura, número, periodo, fecha de emisión, fecha de vencimiento, subtotal, IVA, total, estado \\
+E16 & PAGO & Abono recibido para cancelar una factura. & id\_pago, fecha, valor, medio de pago, referencia \\
+E17 & VEHICULO & Motocicleta, furgoneta o bicicleta eléctrica de la flota. & id\_vehículo, placa, tipo, marca, modelo, capacidad en kg, eléctrico, estado \\
+E18 & DOCUMENTO\_\allowbreak VEHICULO & Documento obligatorio de un vehículo (SOAT, revisión técnico-mecánica, póliza). & id\_documento, tipo de documento, número, fecha de expedición, fecha de vencimiento \\
+E19 & MANTENIMIENTO & Intervención preventiva o correctiva sobre un vehículo. & id\_mantenimiento, tipo, fecha programada, fecha de realización, kilometraje, descripción, costo \\
+E20 & EMPLEADO & Persona vinculada a la empresa. & id\_empleado, documento, nombres, apellidos, cargo, teléfono, correo, fecha de ingreso, fecha de retiro, motivo de retiro, zona asignada, número, categoría y vencimiento de la licencia, estado \\
+E21 & CAPACITACION & Jornada de formación dictada a los empleados. & id\_capacitación, nombre, tema, fecha, duración en horas \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Mecanismos de afinidad de Datos (Matriz de Afinidad de Datos)}
+
+La matriz de afinidad (tabla~\ref{tab:matrizafinidad}) indica qué hace
+cada subproceso con cada entidad: la crea (C), la lee (L) o la actualiza
+(A). Las columnas se ordenaron para que queden juntas las entidades que
+mantienen los mismos procesos; las líneas verticales separan los grupos
+de afinidad resultantes (tabla~\ref{tab:grupos}).
+
+
+{\singlespacing
+\begin{longtable}{L{3.4cm} L{4.2cm} L{2.3cm} L{4.5cm}}
+\caption{Grupos de afinidad de datos.}
+\label{tab:grupos}\\
+\toprule
+\textbf{Grupo} & \textbf{Entidades} & \textbf{Procesos que lo mantienen} & \textbf{Principales procesos que lo consultan} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Grupo} & \textbf{Entidades} & \textbf{Procesos que lo mantienen} & \textbf{Principales procesos que lo consultan} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+G1. Estructura operativa & E01 Centro de distribución, E02 Zona & P2 & P1, P4, P6, P7, P8 \\
+\midrule
+G2. Clientes y condiciones comerciales & E03 Cliente, E04 Sede del cliente, E05 Contrato, E06 Modalidad, E07 Tarifa & P4 & P1, P2, P3, P5, P8 \\
+\midrule
+G3. Operación de envíos & E08 Solicitud, E09 Envío, E10 Evento, E11 Despacho, E12 Prueba de entrega, E13 Novedad, E14 Reclamación & P1, P2, P3 (P5 marca los envíos facturados) & P5, P8 \\
+\midrule
+G4. Facturación & E15 Factura, E16 Pago & P5 & P3, P8 \\
+\midrule
+G5. Flota & E17 Vehículo, E18 Documento del vehículo, E19 Mantenimiento & P6 & P1, P2, P8 \\
+\midrule
+G6. Personal & E20 Empleado, E21 Capacitación & P7 (P2 asigna la zona) & P1, P2, P8 \\
+\end{longtable}
+\par}
+
+
+De la matriz se concluye que:
+
+\begin{itemize}[leftmargin=1.2cm,itemsep=2pt]
+  \item \textbf{El envío es el centro de la base de datos.} ENVIO lo usan
+        11 de los 20 subprocesos y lo actualizan 6, y EVENTO\_ENVIO lo
+        crean 8.
+  \item \textbf{Los grupos no son independientes.} El armado de
+        despachos (SP1.2 y SP2.2) lee a la vez operación, flota y
+        personal, y la facturación (SP5.1) lee envíos y contratos; con
+        archivos separados no se podrían validar vencimientos ni
+        facturar desde la operación. Esto justifica una base de datos
+        integrada.
+  \item \textbf{Cada entidad tiene un proceso dueño.} Toda columna tiene
+        al menos una C, y la mayoría de entidades la crea un solo
+        proceso, lo que orienta los permisos de cada usuario.
+  \item \textbf{Las entidades de configuración cambian poco.} Centro,
+        zona, modalidad y tarifa se crean pocas veces y se leen mucho;
+        envío, evento y despacho crecen todos los días.
+  \item \textbf{Los grupos definen los módulos del sistema.} Agrupando
+        los grupos de afinidad por el área que los mantiene resultan
+        cuatro módulos (tabla~\ref{tab:modulos}), que son las unidades
+        entre las que se elige la prioridad en la
+        sección~\ref{sec:modulo}.
+\end{itemize}
+
+{\singlespacing
+\begin{longtable}{L{3.6cm} L{2.4cm} L{3.4cm} L{5.0cm}}
+\caption{Módulos del sistema según los grupos de afinidad.}
+\label{tab:modulos}\\
+\toprule
+\textbf{Módulo} & \textbf{Grupos} & \textbf{Procesos} & \textbf{Entidades del prediseño} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Módulo} & \textbf{Grupos} & \textbf{Procesos} & \textbf{Entidades del prediseño} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+M1. Operación de envíos & G1, G3 & P1, P2, P3 (AF1) & E01, E02, E08 a E14 \\
+M2. Comercial y facturación & G2, G4 & P4, P5 (AF3) & E03 a E07, E15, E16 \\
+M3. Flota & G5 & P6 (AF2) & E17 a E19 \\
+M4. Talento humano & G6 & P7 (AF4) & E20, E21 \\
+\end{longtable}
+\par}
+
+\begin{landscape}
+{\singlespacing
+\begin{table}[p]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{1.9pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l l |c c |c c c c c |c c c c c c c |c c |c c c |c c}
+\toprule
+\multicolumn{2}{l}{\textbf{Subproceso}} & \textbf{E01} & \textbf{E02} & \textbf{E03} & \textbf{E04} & \textbf{E05} & \textbf{E06} & \textbf{E07} & \textbf{E08} & \textbf{E09} & \textbf{E10} & \textbf{E11} & \textbf{E12} & \textbf{E13} & \textbf{E14} & \textbf{E15} & \textbf{E16} & \textbf{E17} & \textbf{E18} & \textbf{E19} & \textbf{E20} & \textbf{E21} \\
+\midrule
+SP1.1 & Solicitud y registro de envíos &  & L & L & L & L & L &  & C & C & C &  &  &  &  &  &  &  &  &  &  &  \\
+SP1.2 & Programación y recolección &  &  &  & L &  &  &  & A & L & C & C &  &  &  &  &  & L & L &  & L & L \\
+SP1.3 & Recepción y clasificación &  & L &  &  & L & L & L &  & A & C &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+SP2.1 & Zonificación & C & C &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & A &  \\
+SP2.2 & Armado de despachos &  & L &  &  &  & L &  &  & L & C & C &  &  &  &  &  & L & L &  & L & L \\
+SP2.3 & Entrega y prueba de entrega &  &  &  &  &  &  &  &  & A & C & L & C & C &  &  &  &  &  &  &  &  \\
+SP2.4 & Cierre de ruta &  &  &  &  &  &  &  &  & L & C & A &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+SP3.1 & Gestión de novedades &  &  & L & L &  &  &  &  & A & C &  &  & A &  &  &  &  &  &  &  &  \\
+SP3.2 & Devoluciones &  &  &  & L &  &  &  &  & A & C & L & C &  &  &  &  &  &  &  &  &  \\
+SP3.3 & Consultas y reclamaciones &  &  & L &  &  &  &  &  & L & L &  &  &  & C & L &  &  &  &  &  &  \\
+\midrule
+SP4.1 & Vinculación de clientes &  & L & C & C &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+SP4.2 & Contratos y tarifas &  & L & L &  & C & C & C &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+\midrule
+SP5.1 & Facturación mensual &  &  & L &  & L &  &  &  & A &  &  &  &  &  & C &  &  &  &  &  &  \\
+SP5.2 & Recaudo y cartera &  &  & L &  &  &  &  &  &  &  &  &  &  & L & A & C &  &  &  &  &  \\
+\midrule
+SP6.1 & Registro de vehículos & L &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & C &  &  &  &  \\
+SP6.2 & Control documental &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & L & C &  &  &  \\
+SP6.3 & Mantenimiento &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & A &  & C &  &  \\
+\midrule
+SP7.1 & Vinculación y retiro & L & L &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & C &  \\
+SP7.2 & Licencias y capacitaciones &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & A & C \\
+\midrule
+SP8.1 & Cálculo de indicadores & L & L & L &  &  & L &  &  & L & L &  &  & L & L & L &  & L &  &  & L &  \\
+\midrule
+\multicolumn{2}{l}{\textit{Subprocesos que crean o actualizan}} & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 2 & 6 & 8 & 3 & 2 & 2 & 1 & 2 & 1 & 2 & 1 & 1 & 3 & 1 \\
+\multicolumn{2}{l}{\textit{Subprocesos que la usan (C, L o A)}} & 4 & 8 & 8 & 5 & 4 & 5 & 2 & 2 & 11 & 10 & 5 & 2 & 3 & 3 & 4 & 1 & 6 & 3 & 1 & 6 & 3 \\
+\bottomrule
+\end{tabular}
+\caption{Matriz de afinidad de datos: subprocesos frente a entidades (C: crea, L: lee, A: actualiza).}
+\label{tab:matrizafinidad}
+\end{table}
+\par}
+\end{landscape}

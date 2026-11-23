@@ -1,0 +1,150 @@
+%======================================================================
+%  Anexo A - Analisis de los modulos no priorizados
+%======================================================================
+
+\section{Análisis de los módulos no priorizados}
+\label{anx:analisis}
+
+Este anexo conserva el análisis de requerimientos de los módulos M2
+(comercial y facturación), M3 (flota) y M4 (talento humano), que se
+implementarán después del módulo de operación.
+
+\subsection{Actividades de los procesos P4 a P8}
+
+{\singlespacing\small
+\begin{longtable}{L{1.3cm} L{6.3cm} L{2.9cm} L{3.9cm}}
+\caption{Actividades de los procesos P4 a P8.}
+\label{tab:actividadesotros}\\
+\toprule
+\textbf{Código} & \textbf{Actividad} & \textbf{Responsable} & \textbf{Información que usa o genera} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Código} & \textbf{Actividad} & \textbf{Responsable} & \textbf{Información que usa o genera} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{4}{l}{\textit{SP4.1 Vinculación de clientes y sedes}} \\*
+A4.1.1 & Registrar los datos del cliente: NIT, razón social, tipo de cliente y contacto. & Asesor comercial & Cliente \\
+A4.1.2 & Registrar las sedes de recolección del cliente con su zona. & Asesor comercial & Sede del cliente, zona \\
+A4.1.3 & Actualizar o inactivar clientes. & Asesor comercial & Cliente \\
+\midrule
+\multicolumn{4}{l}{\textit{SP4.2 Contratos y tarifas}} \\*
+A4.2.1 & Definir las modalidades del servicio y su plazo de entrega. & Jefe comercial & Modalidad \\
+A4.2.2 & Registrar el contrato con sus fechas de vigencia y plazo de pago. & Asesor comercial & Contrato, cliente \\
+A4.2.3 & Pactar las tarifas por zona, rango de peso y modalidad. & Asesor comercial & Tarifa, zona, modalidad \\
+A4.2.4 & Renovar o terminar contratos. & Asesor comercial & Contrato \\
+\midrule
+\multicolumn{4}{l}{\textit{SP5.1 Facturación mensual}} \\*
+A5.1.1 & Seleccionar los envíos entregados o devueltos del mes que aún no han sido facturados. & Auxiliar de facturación & Envío, cliente \\
+A5.1.2 & Generar la factura con el valor de cada envío, el subtotal, el IVA y el total. & Auxiliar de facturación & Factura, envío, contrato \\
+A5.1.3 & Anular una factura con errores y registrar el motivo. & Auxiliar de facturación & Factura \\
+\midrule
+\multicolumn{4}{l}{\textit{SP5.2 Recaudo y cartera}} \\*
+A5.2.1 & Registrar los pagos recibidos y actualizar el estado de la factura. & Auxiliar de cartera & Pago, factura \\
+A5.2.2 & Consultar la cartera por cliente, separando las facturas con reclamación abierta. & Auxiliar de cartera & Factura, pago, cliente, reclamación \\
+\midrule
+\multicolumn{4}{l}{\textit{SP6.1 Registro de vehículos}} \\*
+A6.1.1 & Registrar el vehículo: tipo, placa, marca, capacidad, si es eléctrico y centro asignado. & Coordinador de flota & Vehículo, centro de distribución \\
+\midrule
+\multicolumn{4}{l}{\textit{SP6.2 Control documental}} \\*
+A6.2.1 & Registrar los documentos de cada vehículo con su fecha de vencimiento. & Auxiliar de control documental & Documento del vehículo, vehículo \\
+A6.2.2 & Consultar los documentos próximos a vencer. & Auxiliar de control documental & Documento del vehículo \\
+\midrule
+\multicolumn{4}{l}{\textit{SP6.3 Mantenimiento}} \\*
+A6.3.1 & Programar los mantenimientos preventivos. & Coordinador de flota & Mantenimiento, vehículo \\
+A6.3.2 & Registrar el mantenimiento realizado y cambiar el estado del vehículo. & Técnico de taller & Mantenimiento, vehículo \\
+\midrule
+\multicolumn{4}{l}{\textit{SP7.1 Vinculación y retiro de personal}} \\*
+A7.1.1 & Registrar al empleado con su cargo, centro, zona (si es mensajero) y fecha de ingreso. & Analista de talento humano & Empleado, centro de distribución, zona \\
+A7.1.2 & Registrar el retiro del empleado con fecha y motivo. & Analista de talento humano & Empleado \\
+\midrule
+\multicolumn{4}{l}{\textit{SP7.2 Control de licencias y capacitaciones}} \\*
+A7.2.1 & Registrar la licencia de conducción de los mensajeros: número, categoría y vencimiento. & Analista de talento humano & Empleado \\
+A7.2.2 & Programar capacitaciones y registrar la asistencia y el resultado de cada empleado. & Analista de SST & Capacitación, empleado \\
+\midrule
+\multicolumn{4}{l}{\textit{SP8.1 Cálculo y seguimiento de indicadores}} \\*
+A8.1.1 & Calcular el porcentaje de entregas a tiempo y de envíos con novedad por centro, zona y periodo. & Gerente general & Envío, evento de seguimiento, novedad, modalidad \\
+A8.1.2 & Calcular el tiempo de respuesta a reclamaciones y el porcentaje de facturas con reclamo. & Gerente general & Reclamación, factura, cliente \\
+A8.1.3 & Calcular la rotación de mensajeros y la participación de vehículos eléctricos. & Gerente general & Empleado, vehículo, centro de distribución \\
+\end{longtable}
+\par}
+
+\subsection{Entradas, procesos y salidas de sus usuarios}
+
+{\singlespacing\small
+\begin{longtable}{L{1.9cm} L{3.9cm} L{4.6cm} L{3.9cm}}
+\caption{Entradas, procesos y salidas de los usuarios de los módulos no priorizados.}
+\label{tab:epsotros}\\
+\toprule
+\textbf{Usuario} & \textbf{Entradas} & \textbf{Procesos} & \textbf{Salidas} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Usuario} & \textbf{Entradas} & \textbf{Procesos} & \textbf{Salidas} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+U5 Flota y mantenimiento &
+Datos de vehículos; documentos con fechas de vencimiento; mantenimientos
+programados y realizados. &
+Cambiar el estado del vehículo al entrar y salir de mantenimiento;
+detectar documentos que vencen en los próximos 15 días. &
+Vehículos disponibles por centro; alertas de vencimiento; historial y
+costo de mantenimiento por vehículo. \\
+\midrule
+U6 Asesor comercial &
+Datos de clientes y sedes; contratos; modalidades; tarifas por zona,
+modalidad y rango de peso. &
+Validar que no haya rangos de peso superpuestos en un mismo contrato,
+zona y modalidad; controlar la vigencia de los contratos. &
+Tarifario por cliente; contratos próximos a vencer; volumen de envíos
+por cliente y zona. \\
+\midrule
+U7 Facturación y cartera &
+Periodo a facturar; pagos recibidos; anulaciones de factura. &
+Agrupar los envíos entregados o devueltos no facturados; calcular
+subtotal, IVA y total; impedir que un envío se facture dos veces;
+actualizar el saldo de la factura con cada pago. &
+Facturas del periodo; estado de cartera por edades; facturas con
+reclamación abierta. \\
+\midrule
+U8 Talento humano &
+Datos de empleados; retiros; licencias; capacitaciones y asistencia. &
+Calcular la vigencia de la capacitación anual; detectar licencias
+vencidas o próximas a vencer. &
+Mensajeros habilitados para salir a ruta; rotación de personal;
+cumplimiento del plan de capacitación. \\
+\end{longtable}
+\par}
+
+\subsection{Permisos de todos los usuarios}
+
+{\singlespacing
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{1.3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{l l c c c c c c c c c c c c c c c c c c c c c}
+\toprule
+\multicolumn{2}{l}{\textbf{Usuario}} & \rotatebox{90}{\textbf{E01}} & \rotatebox{90}{\textbf{E02}} & \rotatebox{90}{\textbf{E03}} & \rotatebox{90}{\textbf{E04}} & \rotatebox{90}{\textbf{E05}} & \rotatebox{90}{\textbf{E06}} & \rotatebox{90}{\textbf{E07}} & \rotatebox{90}{\textbf{E08}} & \rotatebox{90}{\textbf{E09}} & \rotatebox{90}{\textbf{E10}} & \rotatebox{90}{\textbf{E11}} & \rotatebox{90}{\textbf{E12}} & \rotatebox{90}{\textbf{E13}} & \rotatebox{90}{\textbf{E14}} & \rotatebox{90}{\textbf{E15}} & \rotatebox{90}{\textbf{E16}} & \rotatebox{90}{\textbf{E17}} & \rotatebox{90}{\textbf{E18}} & \rotatebox{90}{\textbf{E19}} & \rotatebox{90}{\textbf{E20}} & \rotatebox{90}{\textbf{E21}} \\
+\midrule
+U1 & Gerente general & L & L & L &  & L & L &  &  & L & L & L &  & L & L & L & L & L &  &  & L &  \\
+U2 & Personal de centro & CA & CA &  & L & L & L & L & A & A & C & CA &  &  &  &  &  & L & L &  & A & L \\
+U3 & Mesa de servicio &  & L & L & L & L & L &  & C & CA & CL &  &  & A & CA & L &  &  &  &  &  &  \\
+U4 & Mensajero &  &  &  & L &  &  &  & A & A & C & L & C & C &  &  &  &  &  &  &  &  \\
+U5 & Flota y mantenimiento & L &  &  &  &  &  &  &  &  &  & L &  &  &  &  &  & CA & CA & CA &  &  \\
+U6 & Asesor comercial &  & L & CA & CA & CA & CA & CA &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+U7 & Facturación y cartera &  &  & L &  & L &  &  &  & A &  &  &  &  & L & CA & C &  &  &  &  &  \\
+U8 & Talento humano & L & L &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & CA & CA \\
+U9 & Cliente (externo) &  &  &  &  &  &  &  &  & L & L &  &  &  &  &  &  &  &  &  &  &  \\
+\bottomrule
+\end{tabular}
+\caption{Operaciones de todos los usuarios sobre las 21 entidades del prediseño global (C: crear, L: leer, A: actualizar).}
+\label{tab:permisosglobal}
+\end{table}
+\par}
+

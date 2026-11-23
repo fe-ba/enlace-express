@@ -1,0 +1,155 @@
+
+\documentclass[12pt,letterpaper]{article}
+
+%---------------------- Codificacion e idioma -------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot,es-noquoting,es-noshorthands,es-tabla,es-nosectiondot]{babel}
+\usepackage{lmodern}
+
+%---------------------- Geometria y espaciado -------------------------
+\usepackage[letterpaper,top=2.5cm,bottom=2.5cm,left=3cm,right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+%---------------------- Tablas, listas y graficos ---------------------
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{adjustbox}
+% Listados de consultas SQL (capitulo 6)
+\usepackage{listings}
+\lstdefinestyle{sqlpro}{language=SQL, basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries, columns=fullflexible, keepspaces=true,
+  frame=single, framerule=0.3pt, rulecolor=\color{gray},
+  xleftmargin=6pt, xrightmargin=6pt, aboveskip=6pt, belowskip=6pt,
+  morekeywords={JOIN,ON,HAVING,UNION,REPLACE,VIEW}, literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1 {ñ}{{\~n}}1}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta,backgrounds,shapes.geometric}
+
+\usepackage[hidelinks]{hyperref}
+
+% La plantilla llega hasta el cuarto nivel (p. ej. 3.3.2.1)
+\setcounter{secnumdepth}{4}
+% Tabla de contenido hasta el tercer nivel (p. ej. 2.1.1)
+\setcounter{tocdepth}{3}
+
+\usepackage{titlesec}
+\titleformat{\paragraph}[hang]
+  {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{1.5ex plus 1ex minus .2ex}{1ex plus .2ex}
+
+% Titulos de seccion en el mismo tamano que el texto
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection}{1em}{\MakeUppercase}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+\pagestyle{plain}
+
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+% Estilos comunes de los diagramas: misma familia tipografica del texto
+\tikzset{
+  caja/.style   = {rectangle, draw=black, align=center,
+                   inner sep=4pt, font=\small},
+  cajaf/.style  = {caja, very thick},
+  etiqueta/.style = {align=center, rotate=90, font=\small},
+  flecha/.style = {-{Stealth[length=2.5mm]}, draw=black},
+  linea/.style  = {draw=black}
+}
+
+% Permite cortar la linea despues de un guion bajo en nombres largos
+\DeclareRobustCommand{\_}{\textunderscore\allowbreak}
+
+% Notacion del esquema relacional: PK subrayada, FK en cursiva
+\newcommand{\pk}[1]{\underline{#1}}
+\newcommand{\fk}[1]{\textit{#1}}
+
+%=======================================================================
+\begin{document}
+
+%---------------------------- PORTADA ---------------------------------
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+
+PROYECTO FINAL\par
+FUNDAMENTOS DE BASES DE DATOS
+
+\vspace{3cm}
+
+Diseño e implementación de una base de datos relacional\par
+para una empresa de mensajería y paquetería urbana
+
+\vspace{4cm}
+
+Ferney Eduardo Ballesta Avila\par
+20231020141
+
+\vfill
+
+Universidad Distrital Francisco José de Caldas\par
+Facultad de Ingeniería\par
+Proyecto Curricular de Ingeniería de Sistemas\par
+Bogotá D.C.\par
+\the\year
+\end{titlepage}
+
+%------------------------ TABLA DE CONTENIDO --------------------------
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\input{secciones/01-conocimiento-organizacion}
+\newpage
+
+\input{secciones/02-analisis-requerimientos}
+\newpage
+
+\input{secciones/03-diseno-conceptual}
+\newpage
+
+\input{secciones/04-diseno-logico}
+\newpage
+
+\input{secciones/05-diseno-fisico}
+\newpage
+
+\input{secciones/06-desarrollo-proyecto}
+\newpage
+
+%------------------------------- ANEXOS --------------------------------
+\appendix
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{ANEXO \thesection.}{1em}{\MakeUppercase}
+\addtocontents{toc}{\protect\vspace{0.6em}\noindent\textbf{ANEXOS}\par}
+
+\input{secciones/A-analisis-modulos-no-priorizados}
+\newpage
+
+\input{secciones/B-modelo-conceptual-global}
+\newpage
+
+\input{secciones/C-implementacion-global-case}
+\newpage
+
+\input{secciones/D-diccionario-datamodeler}
+\newpage
+
+\input{secciones/E-diagramas-modulo-chen}
+
+\end{document}

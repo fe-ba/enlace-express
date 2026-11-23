@@ -1,0 +1,1052 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="2225" height="1100" viewBox="0 0 2225 1100">
+<defs id="dmw_defs">
+<svg id="fk_sym" viewBox="0 0 48.665 48.665" style="enable-background:new 0 0 48.665 48.665;">
+<g>
+<path d="M40.332,31.592c-2.377,0-4.515,1-6.033,2.598l-17.737-8.686c0.061-0.406,0.103-0.82,0.103-1.246    c0-0.414-0.04-0.818-0.098-1.215l17.711-8.589c1.519,1.609,3.666,2.619,6.054,2.619c4.603,0,8.333-3.731,8.333-8.333    c0-4.603-3.73-8.333-8.333-8.333s-8.333,3.73-8.333,8.333c0,0.414,0.04,0.817,0.098,1.215l-17.709,8.589    c-1.519-1.609-3.666-2.619-6.054-2.619C3.73,15.925,0,19.656,0,24.258c0,4.603,3.73,8.333,8.333,8.333    c2.377,0,4.515-1,6.033-2.596l17.736,8.685c-0.062,0.406-0.104,0.82-0.104,1.245c0,4.604,3.73,8.333,8.333,8.333    s8.333-3.729,8.333-8.333C48.665,35.322,44.935,31.592,40.332,31.592z" fill="#13bf3b"/>
+</g>
+</svg>
+<svg id="pk_sym" viewBox="0 0 480.509 480.509" style="enable-background:new 0 0 480.509 480.509;">
+<g>
+<path d="M418.119,331.046c4.094,4.374,7.766,8.186,10.996,11.416c3.237,3.238,6.714,6.376,10.427,9.422   c3.71,3.042,6.427,4.568,8.135,4.568c3.241,0,9.517-4.661,18.843-13.99c9.328-9.321,13.989-15.604,13.989-18.842   c0-1.523-2.714-5.421-8.138-11.704c-5.421-6.276-12.364-13.702-20.838-22.271c-8.473-8.565-16.703-16.744-24.694-24.55   c-8.001-7.81-15.8-15.373-23.417-22.703c-7.611-7.327-11.992-11.56-13.135-12.703c-1.902-1.902-4.093-2.853-6.563-2.853   c-3.237,0-9.521,4.661-18.843,13.988c-9.328,9.322-13.989,15.605-13.989,18.843c0,1.711,1.522,4.421,4.568,8.138   c3.046,3.71,6.188,7.187,9.421,10.424c3.23,3.23,7.047,6.899,11.42,10.992c4.377,4.093,6.848,6.423,7.423,6.995l-27.408,27.404   L254.954,222.268c24.94-33.498,37.408-68.236,37.408-104.211c0-31.024-9.761-56.293-29.263-75.801   c-19.512-19.511-44.778-29.265-75.805-29.265c-30.454,0-60.244,9.042-89.363,27.119c-29.121,18.083-52.727,41.686-70.808,70.808   C9.042,140.038,0,169.828,0,200.28c0,31.029,9.753,56.286,29.265,75.803c19.511,19.517,44.777,29.27,75.801,29.27   c35.976,0,70.71-12.467,104.212-37.407l191.574,191.579c5.332,5.328,11.796,7.994,19.417,7.994c7.991,0,15.704-3.72,23.12-11.14   c7.426-7.426,11.143-15.129,11.143-23.127c0-7.617-2.666-14.092-7.994-19.417l-62.811-62.811l27.405-27.404   C411.699,324.195,414.033,326.666,418.119,331.046z M221.556,161.458c-10.656,10.657-23.601,15.987-38.828,15.987   c-7.996,0-15.896-1.812-23.7-5.43c3.617,7.808,5.426,15.706,5.426,23.7c0,15.229-5.327,28.171-15.987,38.828   c-10.66,10.655-23.606,15.986-38.831,15.986c-15.227,0-28.168-5.325-38.828-15.986c-10.657-10.657-15.987-23.599-15.987-38.828   c0-15.227,5.327-28.171,15.987-38.828C81.464,146.23,94.409,140.9,109.636,140.9c7.992,0,15.893,1.809,23.695,5.424   c-3.616-7.804-5.424-15.706-5.424-23.699c0-15.227,5.327-28.171,15.987-38.828c10.66-10.657,23.604-15.987,38.831-15.987   c15.227,0,28.171,5.327,38.828,15.987c10.657,10.66,15.987,23.601,15.987,38.828C237.539,137.852,232.209,150.797,221.556,161.458z   " fill="#ff8345"/>
+</g>
+</svg>
+<svg id="uk_sym" viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;">
+<g>
+	<polygon points="236.99,11.41 0,246.348 236.99,478.678 236.99,350.609 129.864,245 236.99,139.391  " fill="#0064fb"/>
+<polygon points="253.01,478.59 490,243.651 253.01,11.322 253.01,139.391 360.136,245 253.01,350.609  " fill="#0064fb"/>
+</g>
+</svg>
+<svg id="link_sym" viewBox="0 0 1000 900" style="enable-background:new 0 0 1000 900;">
+<g>
+<path fill="black" d="M660.224 422.656c6.976 16.192-0.512 35.008-16.768 42.048-16.128 6.976-34.944-0.448-41.984-16.768-8.448-19.776-20.736-37.696-36.224-53.248-64.64-64.64-177.344-64.64-241.92 0l-145.216 145.28c-66.688 66.688-66.688 175.232 0 241.984 66.688 66.688 175.104 66.752 241.92 0l92.8-92.864c12.48-12.48 32.768-12.48 45.248 0s12.48 32.768 0 45.248l-92.8 92.864c-91.648 91.648-240.832 91.52-332.416 0-91.712-91.648-91.712-240.832 0-332.48l145.216-145.28c44.352-44.416 103.424-68.864 166.272-68.864s121.792 24.448 166.208 68.864c21.248 21.312 38.016 45.952 49.664 73.216zM891.136 401.344l-145.216 145.216c-88.768 88.832-243.712 88.832-332.416 0-21.312-21.312-38.080-45.952-49.728-73.216-7.040-16.256 0.448-35.072 16.704-42.048 16.064-6.784 35.008 0.512 41.984 16.768 8.512 19.776 20.8 37.696 36.288 53.248 64.64 64.64 177.344 64.64 241.92 0l145.216-145.216c66.688-66.688 66.688-175.232 0-241.984-66.752-66.624-175.168-66.688-241.92 0l-92.8 92.864c-12.48 12.48-32.768 12.48-45.248 0s-12.48-32.768 0-45.248l92.8-92.864c45.824-45.824 105.984-68.736 166.208-68.736s120.448 22.912 166.272 68.736c91.584 91.648 91.584 240.768-0.064 332.48z"/>
+</g>
+</svg>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath6_0_">
+<rect x="0" y="0" width="219" height="248"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath7_0_">
+<rect x="0" y="0" width="219" height="318"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath25_0_">
+<rect x="0" y="0" width="215" height="140"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath24_0_">
+<rect x="0" y="0" width="238" height="364"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath8_0_">
+<rect x="0" y="0" width="200" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath10_0_">
+<rect x="0" y="0" width="227" height="136"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath3_0_">
+<rect x="0" y="0" width="219" height="172"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath18_0_">
+<rect x="0" y="0" width="205" height="220"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath17_0_">
+<rect x="0" y="0" width="205" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath4_0_">
+<rect x="0" y="0" width="221" height="220"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath12_0_">
+<rect x="0" y="0" width="221" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath1_0_">
+<rect x="0" y="0" width="295" height="206"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath2_0_">
+<rect x="0" y="0" width="179" height="130"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath15_0_">
+<rect x="0" y="0" width="181" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath9_0_">
+<rect x="0" y="0" width="202" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath5_0_">
+<rect x="0" y="0" width="354" height="144"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath19_0_">
+<rect x="0" y="0" width="190" height="136"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath22_0_">
+<rect x="0" y="0" width="235" height="294"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath23_0_">
+<rect x="0" y="0" width="238" height="280"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath26_0_">
+<rect x="0" y="0" width="235" height="196"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath16_0_">
+<rect x="0" y="0" width="218" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath11_0_">
+<rect x="0" y="0" width="218" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath21_0_">
+<rect x="0" y="0" width="235" height="196"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath14_0_">
+<rect x="0" y="0" width="215" height="206"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath20_0_">
+<rect x="0" y="0" width="232" height="140"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath13_0_">
+<rect x="0" y="0" width="234" height="178"/>
+</clipPath>
+</defs>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M650 103 L472 103"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M295 103 L472 103"/>
+<path stroke-dasharray="none" d="M295.0 97.0 L307.0 103.0 L295.0 109.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1710 124 L1416 124"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1122 124 L1416 124"/>
+<path stroke-dasharray="none" d="M1122.0 118.0 L1134.0 124.0 L1122.0 130.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M219 774 L429 774"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M640 774 L429 774"/>
+<path stroke-dasharray="none" d="M640.0 780.0 L628.0 774.0 L640.0 768.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M267 870 L267 538"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M267 206 L267 538"/>
+<path stroke-dasharray="none" d="M273.0 206.0 L267.0 218.0 L261.0 206.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1874 318 L1874 432"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1874 547 L1874 432"/>
+<path stroke-dasharray="none" d="M1868.0 541.0 L1880.0 541.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M2010 985 L1235 985"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M461 985 L1235 985"/>
+<path stroke-dasharray="none" d="M461.0 979.0 L473.0 985.0 L461.0 991.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1820 641 L1140 797"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M461 954 L1140 797"/>
+<path stroke-dasharray="none" d="M460.0 949.0 L471.0 952.0 L462.0 959.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M501 340 L575 287"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M650 235 L575 287"/>
+<path stroke-dasharray="none" d="M653.0 239.0 L642.0 241.0 L647.0 231.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M754 380 L754 349"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M754 318 L754 349"/>
+<path stroke-dasharray="none" d="M760.0 318.0 L754.0 330.0 L748.0 318.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M730 600 L730 579"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M730 558 L730 579"/>
+<path stroke-dasharray="none" d="M736.0 558.0 L730.0 570.0 L724.0 558.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1149 644 L1429 456"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1710 267 L1429 456"/>
+<path stroke-dasharray="none" d="M1713.0 271.0 L1702.0 273.0 L1707.0 263.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M2117 462 L2117 656"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M2117 850 L2117 656"/>
+<path stroke-dasharray="none" d="M2111.0 850.0 L2117.0 838.0 L2123.0 850.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M2033 462 L2033 504"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M2033 547 L2033 504"/>
+<path stroke-dasharray="none" d="M2027.0 547.0 L2033.0 535.0 L2039.0 547.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M869 89 L894 89"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M920 89 L894 89"/>
+<path stroke-dasharray="none" d="M920.0 95.0 L908.0 89.0 L920.0 83.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1270 51 L1196 51"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1122 51 L1196 51"/>
+<path stroke-dasharray="none" d="M1122.0 45.0 L1134.0 51.0 L1122.0 57.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M219 771 L269 733"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M320 694 L269 733"/>
+<path stroke-dasharray="none" d="M323.0 698.0 L312.0 700.0 L317.0 690.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1059 640 L1059 613"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1059 586 L1059 613"/>
+<path stroke-dasharray="none" d="M1065.0 586.0 L1059.0 598.0 L1053.0 586.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M295 163 L312 163"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M330 163 L312 163"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M127 206 L127 353"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M127 500 L127 353"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1160 566 L1820 566"/>
+<path stroke-dasharray="none" d="M1820.0 572.0 L1808.0 566.0 L1820.0 560.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M970 566 L895 604"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M821 642 L895 604"/>
+<path stroke-dasharray="none" d="M819.0 637.0 L831.0 638.0 L823.0 647.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M650 308 L502 509"/>
+<path stroke-dasharray="none" d="M498.0 506.0 L508.0 501.0 L506.0 512.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1149 726 L1579 830"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M2010 935 L1579 830"/>
+<path stroke-dasharray="none" d="M2009.0 940.0 L2000.0 933.0 L2011.0 930.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M970 739 L715 838"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M461 937 L715 838"/>
+<path stroke-dasharray="none" d="M459.0 932.0 L471.0 933.0 L463.0 942.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1150 254 L1009 254"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M869 254 L1009 254"/>
+<path stroke-dasharray="none" d="M869.0 248.0 L881.0 254.0 L869.0 260.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M436 870 L679 558"/>
+<path stroke-dasharray="none" d="M683.0 561.0 L673.0 566.0 L675.0 555.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1007 450 L938 368"/>
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M869 287 L938 368"/>
+<path stroke-dasharray="none" d="M873.0 284.0 L875.0 295.0 L865.0 290.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath1_0_)" transform="translate(0,0)">
+<rect x="0" y="0" width="294" height="205" rx="20" ry="20"/>
+<text id="8F0E960C-BAE6DC12581D" x="95" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion despacho
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id asignacion
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero intento
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+orden visita
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora visita
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+resultado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath7_0_)" transform="translate(650,0)">
+<rect x="0" y="0" width="218" height="317" rx="20" ry="20"/>
+<text id="0811438D-A1F106681E75" x="95" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+envio
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero guia
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha registro
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion destino
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+peso declarado
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+peso real
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+contenido
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+valor declarado
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fragil
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+alto valor
+</text>
+<text x="15" y="158" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="158" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+valor flete
+</text>
+<text x="15" y="172" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="172" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha compromiso
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath6_0_)" transform="translate(1710,70)">
+<rect x="0" y="0" width="218" height="247" rx="20" ry="20"/>
+<text id="05F776B5-90B2A811CA31" x="85" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+empleado
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id empleado
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+documento
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombres
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+apellidos
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+cargo
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha ingreso
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha retiro
+</text>
+<text x="15" y="158" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="158" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+motivo retiro
+</text>
+<text x="15" y="172" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="172" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath16_0_)" transform="translate(640,380)">
+<rect x="0" y="0" width="217" height="177" rx="20" ry="20"/>
+<text id="DBA4E90F-760A91CB458E" x="58" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+solicitud recoleccion
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id solicitud
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha solicitud
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha programada
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+franja horaria
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath15_0_)" transform="translate(640,600)">
+<rect x="0" y="0" width="180" height="177" rx="20" ry="20"/>
+<text id="B2ADF764-AA513243CE9C" x="60" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+sede cliente
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id sede
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+contacto
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath17_0_)" transform="translate(2020,360)">
+<rect x="0" y="0" width="204" height="101" rx="20" ry="20"/>
+<text id="666BF921-54E30A779410" x="70" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+tipo vehiculo
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id tipo vehiculo
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+capacidad max kg
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath12_0_)" transform="translate(330,120)">
+<rect x="0" y="0" width="220" height="177" rx="20" ry="20"/>
+<text id="8A27C64B-882A93083EA0" x="89" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+novedad
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id novedad
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo novedad
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+descripcion
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+accion
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+solucion
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath11_0_)" transform="translate(320,340)">
+<rect x="0" y="0" width="217" height="101" rx="20" ry="20"/>
+<text id="E73C22D5-AA83353995EC" x="83" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+modalidad
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id modalidad
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+plazo dias habiles
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath3_0_)" transform="translate(0,770)">
+<rect x="0" y="0" width="218" height="171" rx="20" ry="20"/>
+<text id="3AA93DEB-E5358F011246" x="92" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+cliente
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id cliente
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nit
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+razon social
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo cliente
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha vinculacion
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath4_0_)" transform="translate(240,870)">
+<rect x="0" y="0" width="220" height="219" rx="20" ry="20"/>
+<text id="76239D40-61A29C021144" x="87" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+despacho
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id despacho
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora salida
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora cierre
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath9_0_)" transform="translate(920,0)">
+<rect x="0" y="0" width="201" height="177" rx="20" ry="20"/>
+<text id="B54F26D1-CD5AD303E85F" x="68" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+evento envio
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id evento
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha hora
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+observacion
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath8_0_)" transform="translate(1270,0)">
+<rect x="0" y="0" width="199" height="101" rx="20" ry="20"/>
+<text id="25852527-41477486FE77" x="68" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+estado envio
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id estado
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+es final
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath5_0_)" transform="translate(1150,190)">
+<rect x="0" y="0" width="353" height="143" rx="20" ry="20"/>
+<text id="C1D857F5-E02BE966D218" x="147" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+destinatario
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id destinatario
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo documento
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero documento
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath19_0_)" transform="translate(970,450)">
+<rect x="0" y="0" width="189" height="135" rx="20" ry="20"/>
+<text id="C3FFFEC8-4CCCACA81C58" x="83" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+zona
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id zona
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+localidades
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath2_0_)" transform="translate(970,640)">
+<rect x="0" y="0" width="178" height="129" rx="20" ry="20"/>
+<text id="A325D5C3-F654C197A9D4" x="42" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+centro distribucion
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id centro
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath18_0_)" transform="translate(2010,850)">
+<rect x="0" y="0" width="204" height="219" rx="20" ry="20"/>
+<text id="3EB5BBE3-5611F812235A" x="81" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id vehiculo
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+placa
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+marca
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+modelo
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+capacidad kg
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+electrico
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath13_0_)" transform="translate(10,500)">
+<rect x="0" y="0" width="233" height="177" rx="20" ry="20"/>
+<text id="F23CA7BD-E799B1726D33" x="78" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+prueba entrega
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id prueba
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha hora
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre receptor
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+documento receptor
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo prueba
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+archivo soporte
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath14_0_)" transform="translate(320,509)">
+<rect x="0" y="0" width="214" height="205" rx="20" ry="20"/>
+<text id="E8DC1131-360DFFBD4CCD" x="77" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+reclamacion
+</text>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id reclamacion
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha radicacion
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+descripcion
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+respuesta
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+o
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha respuesta
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+</g>
+<g fill="rgb(164,225,255)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath10_0_)" transform="translate(1820,547)">
+<rect x="0" y="0" width="226" height="135" rx="20" ry="20"/>
+<text id="31287261-D46973EAE8A7" x="87" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero
+</text>
+</g>
+</svg>

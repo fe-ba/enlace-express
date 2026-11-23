@@ -1,0 +1,57 @@
+%======================================================================
+%  Anexo D - Diccionario de datos generado en la herramienta CASE
+%======================================================================
+
+\section{Diccionario de datos generado en la herramienta CASE}
+\label{anx:dmdiccionario}
+
+Este anexo es la evidencia de que el diccionario de datos de la
+sección~\ref{sec:diccionario} coincide con el modelo implementado en
+Oracle SQL Developer Data Modeler. El reporte se generó con
+\textit{File $\rightarrow$ Reports}, con una plantilla personalizada
+(\textit{Diccionario}) de cuatro secciones por tabla: nombre y
+\textit{Comment in RDBMS}, restricciones de verificación de la tabla,
+claves primaria y únicas con sus columnas, y claves foráneas con la
+columna referenciada.
+
+El reporte se comparó con el modelo relacional del capítulo 4. Coinciden las
+19 tablas, la descripción de cada una, las 32 claves primarias y únicas
+(19 y 13) con sus columnas, las 27 claves foráneas con la columna que
+referencian y las 7 restricciones de verificación que involucran varias
+columnas. Las 26 restricciones de una sola columna (listas de valores y
+rangos) la herramienta las guarda en la propia columna, por eso no
+aparecen en la tabla~\ref{tab:dmdiccionario}. El detalle de cada
+columna (tipo, nulos, valor por defecto y descripción) está en la
+tabla~\ref{tab:diccionario}.
+
+{\scriptsize
+\begin{longtable}{|L{3.0cm}|L{3.9cm}|L{3.8cm}|L{3.6cm}|}
+\caption{Reporte de tablas del módulo generado en Data Modeler.}
+\label{tab:dmdiccionario}\\
+\hline
+\textbf{Tabla y descripción} & \textbf{Claves primaria y únicas (columnas)} & \textbf{Claves foráneas (columna referenciada)} & \textbf{Restricciones de verificación} \\ \hline
+\endfirsthead
+\hline
+\textbf{Tabla y descripción} & \textbf{Claves primaria y únicas (columnas)} & \textbf{Claves foráneas (columna referenciada)} & \textbf{Restricciones de verificación} \\ \hline
+\endhead
+\textbf{ASIGNACION\_DESPACHO} \newline Cada intento de un envío en un despacho. & \textbf{ASIGNACION\_PK} (ID\_ASIGNACION) \newline \textbf{ASIGNACION\_ENVIO\_DESP\_UK} (NUMERO\_GUIA, ID\_DESPACHO) \newline \textbf{ASIGNACION\_INTENTO\_UK} (NUMERO\_GUIA, NUMERO\_INTENTO) & ASIGNACION\_DESPACHO\_FK (ID\_DESPACHO) \newline ASIGNACION\_ENVIO\_FK (NUMERO\_GUIA) & -- \\ \hline
+\textbf{CENTRO\_DISTRIBUCION} \newline Centro donde se reciben, clasifican y despachan los envíos. & \textbf{CENTRO\_PK} (ID\_CENTRO) \newline \textbf{CENTRO\_NOMBRE\_UK} (NOMBRE) & -- & -- \\ \hline
+\textbf{CLIENTE} \newline Empresa que contrata el servicio. & \textbf{CLIENTE\_PK} (ID\_CLIENTE) \newline \textbf{CLIENTE\_NIT\_UK} (NIT) & -- & -- \\ \hline
+\textbf{DESPACHO} \newline Salida de un mensajero con un vehículo. & \textbf{DESPACHO\_PK} (ID\_DESPACHO) & DESPACHO\_CENTRO\_FK (ID\_CENTRO) \newline DESPACHO\_MENSAJERO\_FK (ID\_EMPLEADO) \newline DESPACHO\_VEHICULO\_FK (ID\_VEHICULO) & DESPACHO\_HORAS\_CK: la hora de cierre, si existe, es posterior a la de salida \\ \hline
+\textbf{DESTINATARIO} \newline Persona que recibe los envíos. & \textbf{DESTINATARIO\_PK} (ID\_DESTINATARIO) \newline \textbf{DESTINATARIO\_DOCUMENTO\_UK} (TIPO\_DOCUMENTO, NUMERO\_DOCUMENTO) & -- & -- \\ \hline
+\textbf{EMPLEADO} \newline Persona vinculada a la empresa. & \textbf{EMPLEADO\_PK} (ID\_EMPLEADO) \newline \textbf{EMPLEADO\_DOCUMENTO\_UK} (DOCUMENTO) & EMPLEADO\_CENTRO\_FK (ID\_CENTRO) & EMPLEADO\_RETIRO\_CK: la fecha de retiro, si existe, no es anterior a la de ingreso \\ \hline
+\textbf{ENVIO} \newline Paquete o documento identificado por su guía. & \textbf{ENVIO\_PK} (NUMERO\_GUIA) & ENVIO\_DESTINATARIO\_FK (ID\_DESTINATARIO) \newline ENVIO\_MODALIDAD\_FK (ID\_MODALIDAD) \newline ENVIO\_SOLICITUD\_FK (ID\_SOLICITUD) \newline ENVIO\_ZONA\_FK (ID\_ZONA) & ENVIO\_COMPROMISO\_CK: la fecha de compromiso no es anterior a la de registro \newline ENVIO\_PESOS\_CK: el peso declarado y el peso real, si existe, son mayores que 0 \newline ENVIO\_VALOR\_CK: el valor declarado no es negativo y el flete, si existe, es mayor que 0 \\ \hline
+\textbf{ESTADO\_ENVIO} \newline Catálogo de estados del envío. & \textbf{ESTADO\_ENVIO\_PK} (ID\_ESTADO) \newline \textbf{ESTADO\_ENVIO\_NOMBRE\_UK} (NOMBRE) & -- & -- \\ \hline
+\textbf{EVENTO\_ENVIO} \newline Cada cambio de estado de un envío. & \textbf{EVENTO\_PK} (ID\_EVENTO) & EVENTO\_EMPLEADO\_FK (ID\_EMPLEADO) \newline EVENTO\_ENVIO\_FK (NUMERO\_GUIA) \newline EVENTO\_ESTADO\_FK (ID\_ESTADO) & -- \\ \hline
+\textbf{MENSAJERO} \newline Empleado que sale a ruta (subtipo de EMPLEADO). & \textbf{MENSAJERO\_PK} (ID\_EMPLEADO) & MENSAJERO\_EMPLEADO\_FK (ID\_EMPLEADO) \newline MENSAJERO\_TIPO\_VEH\_FK (ID\_TIPO\_VEHICULO) \newline MENSAJERO\_ZONA\_FK (ID\_ZONA) & -- \\ \hline
+\textbf{MODALIDAD} \newline Tipo de servicio según el tiempo de entrega. & \textbf{MODALIDAD\_PK} (ID\_MODALIDAD) \newline \textbf{MODALIDAD\_NOMBRE\_UK} (NOMBRE) & -- & -- \\ \hline
+\textbf{NOVEDAD} \newline Situación que impidió la entrega en un intento. & \textbf{NOVEDAD\_PK} (ID\_NOVEDAD) \newline \textbf{NOVEDAD\_ASIGNACION\_UK} (ID\_ASIGNACION) & NOVEDAD\_ASIGNACION\_FK (ID\_ASIGNACION) & -- \\ \hline
+\textbf{PRUEBA\_ENTREGA} \newline Constancia de recibo de una entrega o devolución. & \textbf{PRUEBA\_PK} (ID\_PRUEBA) \newline \textbf{PRUEBA\_ASIGNACION\_UK} (ID\_ASIGNACION) & PRUEBA\_ASIGNACION\_FK (ID\_ASIGNACION) & -- \\ \hline
+\textbf{RECLAMACION} \newline Inconformidad de un cliente. & \textbf{RECLAMACION\_PK} (ID\_RECLAMACION) & RECLAMACION\_CLIENTE\_FK (ID\_CLIENTE) \newline RECLAMACION\_ENVIO\_FK (NUMERO\_GUIA) & RECLAMACION\_RESP\_CK: la fecha de respuesta, si existe, no es anterior a la de radicación \\ \hline
+\textbf{SEDE\_CLIENTE} \newline Punto de recolección de un cliente. & \textbf{SEDE\_PK} (ID\_SEDE) & SEDE\_CLIENTE\_FK (ID\_CLIENTE) \newline SEDE\_ZONA\_FK (ID\_ZONA) & -- \\ \hline
+\textbf{SOLICITUD\_RECOLECCION} \newline Pedido de recolección en una sede del cliente. & \textbf{SOLICITUD\_PK} (ID\_SOLICITUD) & SOLICITUD\_DESPACHO\_FK (ID\_DESPACHO) \newline SOLICITUD\_SEDE\_FK (ID\_SEDE) & SOLICITUD\_FECHAS\_CK: la fecha programada no es anterior a la de solicitud \\ \hline
+\textbf{TIPO\_VEHICULO} \newline Catálogo de tipos de vehículo. & \textbf{TIPO\_VEHICULO\_PK} (ID\_TIPO\_VEHICULO) \newline \textbf{TIPO\_VEHICULO\_NOMBRE\_UK} (NOMBRE) & -- & -- \\ \hline
+\textbf{VEHICULO} \newline Vehículo de la flota. & \textbf{VEHICULO\_PK} (ID\_VEHICULO) \newline \textbf{VEHICULO\_PLACA\_UK} (PLACA) & VEHICULO\_CENTRO\_FK (ID\_CENTRO) \newline VEHICULO\_TIPO\_FK (ID\_TIPO\_VEHICULO) & -- \\ \hline
+\textbf{ZONA} \newline Sector de la ciudad atendido por un centro. & \textbf{ZONA\_PK} (ID\_ZONA) \newline \textbf{ZONA\_NOMBRE\_UK} (NOMBRE) & ZONA\_CENTRO\_FK (ID\_CENTRO) & -- \\ \hline
+\end{longtable}
+}

@@ -1,0 +1,318 @@
+%======================================================================
+%  Capitulo 1 - Conocimiento general de la organizacion
+%======================================================================
+
+\section{Conocimiento general de la organización}
+
+%-----------------------------------------------------------------------
+\subsection{Constitución de la Empresa: Nombre, actividad económica, antecedentes.}
+
+Enlace Express S.A.S. es una empresa de mensajería y paquetería urbana
+que se planea constituir en Bogotá D.C. como sociedad por acciones
+simplificada. Su servicio consiste en recoger paquetes y documentos en
+las instalaciones del cliente, llevarlos al centro de distribución,
+clasificarlos por zona de destino y entregarlos al destinatario. Ofrece
+tres modalidades según el tiempo de entrega (mismo día, día siguiente y
+estándar de dos días hábiles), y cobra según el peso, la zona de destino
+y la modalidad.
+
+Sus clientes serán tiendas en línea, droguerías y oficinas que envían
+documentos. Para mantener una operación acotada en los primeros años, no
+atenderá público ocasional en mostrador ni hará envíos fuera de la
+ciudad. Iniciará con un centro de distribución y una flota reducida de
+motocicletas, furgonetas y bicicletas eléctricas, y planea abrir más
+centros, por lo que su sistema de información debe soportar desde el
+comienzo varios centros.
+
+\textbf{Antecedentes del sector.} El crecimiento de las compras por
+internet en Colombia multiplicó las empresas pequeñas y medianas de
+mensajería urbana. La mayoría nació de forma improvisada y nunca ajustó
+su manejo de la información, lo que produce cinco problemas recurrentes:
+
+\begin{enumerate}[label=\alph*),leftmargin=1.2cm,itemsep=0pt]
+  \item Cada sede lleva su propio archivo de Excel, así que no se sabe
+        cuánto envía en total un cliente atendido desde dos sedes.
+  \item No se sabe en qué estado va un envío: hay que llamar al
+        mensajero.
+  \item La facturación se arma juntando a mano los archivos de cada
+        sede, lo que tarda días y genera errores que los clientes
+        reclaman.
+  \item Los documentos de los vehículos y las licencias se controlan
+        aparte de los despachos, y es fácil que salga a ruta un vehículo
+        con documentos vencidos.
+  \item No hay indicadores confiables de cumplimiento, y se decide por
+        percepción.
+\end{enumerate}
+
+Estos problemas vienen de crecer sin un sistema único, y corregirlos
+después es costoso porque obliga a migrar datos incompletos y a cambiar
+hábitos de trabajo. Por eso Enlace Express S.A.S. arrancará desde el
+primer día con una base de datos centralizada que los resuelva; ese es
+el propósito de este proyecto.
+
+%-----------------------------------------------------------------------
+\subsection{Misión de la Empresa}
+
+Prestar un servicio de mensajería y paquetería urbana rápido y confiable
+a los comercios y empresas de Bogotá, cumpliendo los tiempos de entrega
+acordados y cuidando la mercancía que se nos confía, con personal
+capacitado, una flota eficiente y un manejo ordenado de la información.
+
+%-----------------------------------------------------------------------
+\subsection{Visión de la Empresa}
+
+Para el año 2032, Enlace Express S.A.S. será una empresa de mensajería
+urbana reconocida en Bogotá por su cumplimiento y por la trazabilidad de
+sus envíos, con varios centros de distribución, una flota
+mayoritariamente eléctrica y un sistema propio que permita a los
+clientes consultar el estado de sus envíos en cualquier momento.
+
+%-----------------------------------------------------------------------
+\subsection{Objetivos de la Empresa}
+
+\textbf{Objetivo general.} Prestar un servicio de mensajería urbana que
+cumpla los tiempos de entrega pactados con cada cliente, garantizando la
+integridad de la mercancía y el seguimiento completo del envío desde su
+recolección hasta su entrega.
+
+\textbf{Objetivos específicos.}
+
+\begin{enumerate}[label=\textbf{OE\arabic*.},leftmargin=1.4cm,itemsep=0pt]
+  \item Cumplir los tiempos de entrega ofrecidos y mantener baja la
+        cantidad de envíos con novedades.
+  \item Informar oportunamente a los clientes el estado de sus envíos y
+        responder rápido sus reclamaciones.
+  \item Construir una base de clientes estable, con tarifas ajustadas a
+        su volumen y a las zonas que más usan.
+  \item Operar desde el primer día sobre un único sistema de
+        información, capaz de soportar nuevos centros sin reprocesos.
+  \item Mantener un equipo de mensajeros capacitado, vinculado
+        formalmente y con poca rotación.
+  \item Incorporar progresivamente vehículos eléctricos a la flota.
+\end{enumerate}
+
+%-----------------------------------------------------------------------
+\subsection{Metas de la Empresa}
+
+Como la empresa aún no opera, las metas se comparan con los valores
+habituales en empresas del sector de tamaño similar
+(tabla~\ref{tab:metas}).
+
+{\singlespacing
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{L{1.2cm} X L{2.4cm} L{2.4cm}}
+\toprule
+\textbf{Obj.} & \textbf{Meta} & \textbf{Referencia del sector} & \textbf{Meta de Enlace Express} \\
+\midrule
+OE1 & Entregar a tiempo los envíos & 85\% & 95\% \\
+OE1 & Mantener bajos los envíos con novedad & 9\% & 5\% \\
+OE2 & Responder las reclamaciones & 24 horas & 4 horas \\
+OE2 & Ofrecer consulta del estado del envío & Poco frecuente & Desde el primer día \\
+OE3 & Alcanzar una base de clientes estable & --- & 120 clientes \\
+OE3 & Mantener bajas las facturas con reclamo & 6\% & 1\% \\
+OE4 & Operar sobre un sistema único & Archivos por sede & 1 sistema \\
+OE5 & Mantener baja la rotación de mensajeros & 38\% & 20\% \\
+OE5 & Evitar despachos con documentos vencidos & Sin control & 0 casos \\
+OE6 & Incorporar vehículos eléctricos & 10\% & 35\% \\
+\bottomrule
+\end{tabularx}
+\caption{Metas de la empresa frente a los valores de referencia del sector.}
+\label{tab:metas}
+\end{table}
+\par}
+
+%-----------------------------------------------------------------------
+\subsection{Políticas de la Empresa}
+
+\begin{itemize}[leftmargin=1.2cm,itemsep=2pt]
+  \item \textbf{Calidad del servicio.} Todo envío se registra con los
+        datos completos del remitente, el destinatario y el paquete
+        antes de despacharse, y ninguno se marca como entregado sin
+        prueba de entrega (firma, número de documento o fotografía del
+        destinatario).
+  \item \textbf{Seguridad vial.} Ningún vehículo sale a un despacho con
+        un documento obligatorio vencido, y ningún mensajero sale a ruta
+        con la licencia vencida o sin la capacitación anual en seguridad
+        vial.
+  \item \textbf{Manejo de la mercancía.} El responsable del envío es el
+        empleado que lo tiene asignado, y todo cambio de responsable
+        queda registrado. Los envíos frágiles o de alto valor solo se
+        entregan al destinatario.
+  \item \textbf{Datos personales.} Los datos de remitentes,
+        destinatarios y empleados se tratan según la Ley 1581 de 2012 y
+        solo para prestar el servicio.
+  \item \textbf{Acceso a la información.} Cada empleado accede solo a la
+        información que necesita, y las creaciones, modificaciones y
+        anulaciones importantes quedan registradas.
+  \item \textbf{Tarifas.} Todo servicio está amparado por un contrato
+        vigente con tarifas por zona, peso y modalidad, y se cobra con
+        la tarifa vigente en la fecha del envío.
+\end{itemize}
+
+%-----------------------------------------------------------------------
+\subsection{Estrategias de la Empresa}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.2cm,itemsep=0pt]
+  \item \textbf{Zonificación:} dividir Bogotá en zonas asignadas a un
+        centro, con mensajeros fijos por zona.
+  \item \textbf{Seguimiento por eventos:} registrar cada cambio de
+        estado del envío con su fecha y responsable.
+  \item \textbf{Consulta en línea:} permitir al cliente consultar su
+        envío con el número de guía.
+  \item \textbf{Tarifas por perfil:} fijar tarifas según el volumen y
+        las zonas de cada cliente.
+  \item \textbf{Facturación automática:} facturar directamente desde
+        los envíos registrados.
+  \item \textbf{Sistema único desde el inicio:} una base de datos
+        centralizada, con reglas que impidan registros incompletos y que
+        soporte nuevos centros.
+  \item \textbf{Control de vencimientos:} validar los documentos del
+        vehículo y del mensajero al armar el despacho.
+  \item \textbf{Renovación de la flota:} incorporar vehículos eléctricos
+        en las zonas de recorridos cortos.
+\end{enumerate}
+
+%-----------------------------------------------------------------------
+\subsection{Estructura Organizacional de la Empresa (Organigrama)}
+
+La estructura es funcional y tiene tres niveles: la Gerencia General,
+cuatro áreas y sus unidades operativas
+(figura~\ref{fig:organigrama}). En el primer año varias unidades estarán
+a cargo de una sola persona, pero se definen desde ahora porque son
+funciones que el sistema debe diferenciar.
+
+{\singlespacing
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=0pt]
+
+% --- Nivel 3: unidades operativas ---
+\node[caja,text width=3.6cm,minimum height=1.2cm] (cdf)  at (10.6,  0.00) {Centros de\\Distribución};
+\node[caja,text width=3.6cm,minimum height=1.2cm] (mesa) at (10.6, -1.45) {Mesa de Servicio};
+\node[caja,text width=3.6cm,minimum height=1.2cm] (men)  at (10.6, -2.90) {Mensajeros};
+
+\node[caja,text width=3.6cm,minimum height=1.2cm] (tal)  at (10.6, -4.60) {Taller y\\Mantenimiento};
+\node[caja,text width=3.6cm,minimum height=1.2cm] (doc)  at (10.6, -6.05) {Control Documental};
+
+\node[caja,text width=3.6cm,minimum height=1.2cm] (ase)  at (10.6, -7.75) {Asesores Comerciales};
+\node[caja,text width=3.6cm,minimum height=1.2cm] (fac)  at (10.6, -9.20) {Facturación y Cartera};
+
+\node[caja,text width=3.6cm,minimum height=1.2cm] (sel)  at (10.6,-10.90) {Contratación};
+\node[caja,text width=3.6cm,minimum height=1.2cm] (sst)  at (10.6,-12.35) {Seguridad y Salud\\en el Trabajo};
+
+% --- Nivel 2: areas ---
+\node[caja,text width=3.2cm,minimum height=1.2cm] (op)  at (4.8, -1.45) {Área de\\Operaciones};
+\node[caja,text width=3.2cm,minimum height=1.2cm] (flo) at (4.8, -5.32) {Área de Flota y\\Mantenimiento};
+\node[caja,text width=3.2cm,minimum height=1.2cm] (com) at (4.8, -8.47) {Área Comercial\\y Financiera};
+\node[caja,text width=3.2cm,minimum height=1.2cm] (th)  at (4.8,-11.62) {Área de Talento\\Humano};
+
+% --- Nivel 1: gerencia ---
+\node[cajaf,text width=3.2cm,minimum height=1.2cm] (ger) at (0, -6.53) {Gerencia General};
+
+% --- Conectores gerencia -> areas ---
+\draw[linea] (ger.east) -- (2.6,-6.53);
+\foreach \a in {op,flo,com,th}{ \draw[linea] (2.6,-6.53) |- (\a.west); }
+
+% --- Conectores areas -> unidades ---
+\foreach \a/\hijos in {op/{cdf,mesa,men}, flo/{tal,doc},
+                       com/{ase,fac}, th/{sel,sst}}{
+  \draw[linea] (\a.east) -- ++(0.8,0);
+  \foreach \h in \hijos { \draw[linea] ($(\a.east)+(0.8,0)$) |- (\h.west); }
+}
+
+\end{tikzpicture}
+\caption{Organigrama previsto para Enlace Express S.A.S.}
+\label{fig:organigrama}
+\end{figure}
+\par}
+
+{\singlespacing\small
+\begin{longtable}{L{4.2cm} L{10.2cm}}
+\caption{Responsabilidades de las unidades de la organización.}
+\label{tab:responsabilidades}\\
+\toprule
+\textbf{Unidad} & \textbf{Responsabilidad} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Unidad} & \textbf{Responsabilidad} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Gerencia General & Dirige y representa la empresa; aprueba políticas y presupuesto. \\
+Área de Operaciones & Planea y controla la recolección, clasificación, despacho y entrega. \\
+\quad Centros de Distribución & Reciben, clasifican, arman los despachos y cierran las rutas. \\
+\quad Mesa de Servicio & Atiende consultas, registra novedades y gestiona reintentos y devoluciones. \\
+\quad Mensajeros & Recogen y entregan los envíos y registran las pruebas de entrega. \\
+Área de Flota y Mantenimiento & Mantiene los vehículos disponibles, programa mantenimientos y controla vencimientos de documentos. \\
+Área Comercial y Financiera & Consigue y retiene clientes, define tarifas y maneja facturación y cartera. \\
+Área de Talento Humano & Selección, contratación, capacitación y seguridad en el trabajo. \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsection{Estructura funcional (Enfoque sistémico o Mapa de procesos).}
+
+Vista como sistema, la empresa transforma solicitudes de envío en
+entregas efectivas. Sus \textbf{entradas} son las solicitudes de
+recolección, la mercancía, los contratos y tarifas, y los vehículos y el
+personal disponibles; sus \textbf{procesos}, el registro, la
+clasificación, el enrutamiento, el despacho, la entrega y la
+facturación; sus \textbf{salidas}, los envíos entregados con prueba, las
+devoluciones, las facturas y los indicadores; y su
+\textbf{retroalimentación}, las novedades, reclamaciones e indicadores
+que sirven para ajustar zonas y recursos. Los procesos se agrupan en
+estratégicos, misionales y de apoyo (figura~\ref{fig:mapaprocesos}).
+
+{\singlespacing
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+% --- Marcos de las bandas ---
+\begin{scope}[on background layer]
+  \draw[dashed] (0, 7.6) rectangle (15.8, 11.0);
+  \draw[dashed] (0, 3.8) rectangle (15.8,  7.2);
+  \draw[dashed] (0, 0.0) rectangle (15.8,  3.4);
+\end{scope}
+
+% --- Etiquetas de banda ---
+\node[etiqueta] at (0.6, 9.3) {PROCESOS\\ESTRATÉGICOS};
+\node[etiqueta] at (0.6, 5.5) {PROCESOS\\MISIONALES};
+\node[etiqueta] at (0.6, 1.7) {PROCESOS\\DE APOYO};
+
+% --- Procesos estrategicos ---
+\node[caja,text width=3.4cm,minimum height=1.5cm] at ( 3.15,9.3) {Direccionamiento\\estratégico};
+\node[caja,text width=3.4cm,minimum height=1.5cm] at ( 8.45,9.3) {Gestión de calidad\\y mejora continua};
+\node[caja,text width=3.4cm,minimum height=1.5cm] at (13.75,9.3) {Gestión de\\indicadores};
+
+% --- Procesos misionales ---
+\node[caja,text width=2.8cm,minimum height=1.5cm] (m1) at ( 2.85,5.5) {Gestión\\comercial};
+\node[caja,text width=2.8cm,minimum height=1.5cm] (m2) at ( 6.58,5.5) {Recolección y\\clasificación};
+\node[caja,text width=2.8cm,minimum height=1.5cm] (m3) at (10.32,5.5) {Distribución\\y entrega};
+\node[caja,text width=2.8cm,minimum height=1.5cm] (m4) at (14.05,5.5) {Novedades y\\devoluciones};
+
+\foreach \a/\b in {m1/m2, m2/m3, m3/m4}{ \draw[flecha] (\a) -- (\b); }
+
+% --- Procesos de apoyo ---
+\node[caja,text width=2.8cm,minimum height=1.5cm] at ( 2.85,1.7) {Gestión de\\flota};
+\node[caja,text width=2.8cm,minimum height=1.5cm] at ( 6.58,1.7) {Talento\\humano};
+\node[caja,text width=2.8cm,minimum height=1.5cm] at (10.32,1.7) {Tecnología};
+\node[caja,text width=2.8cm,minimum height=1.5cm] at (14.05,1.7) {Facturación\\y cartera};
+
+\end{tikzpicture}
+\caption{Mapa de procesos previsto para Enlace Express S.A.S.}
+\label{fig:mapaprocesos}
+\end{figure}
+\par}
+
+Los procesos misionales de operación (recolección y clasificación,
+distribución y entrega, y novedades y devoluciones) son el centro del
+negocio y los que más datos generan; flota y talento humano aportan la
+información para validar los despachos, y la facturación usa el
+resultado de la operación. Esta relación define las áreas funcionales
+del capítulo 2 y es la base para elegir el módulo que se prioriza en la
+sección~\ref{sec:modulo}.

@@ -1,0 +1,1977 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="2139" height="1178" viewBox="0 0 2139 1178">
+<defs id="dmw_defs">
+<svg id="fk_sym" viewBox="0 0 48.665 48.665" style="enable-background:new 0 0 48.665 48.665;">
+<g>
+<path d="M40.332,31.592c-2.377,0-4.515,1-6.033,2.598l-17.737-8.686c0.061-0.406,0.103-0.82,0.103-1.246    c0-0.414-0.04-0.818-0.098-1.215l17.711-8.589c1.519,1.609,3.666,2.619,6.054,2.619c4.603,0,8.333-3.731,8.333-8.333    c0-4.603-3.73-8.333-8.333-8.333s-8.333,3.73-8.333,8.333c0,0.414,0.04,0.817,0.098,1.215l-17.709,8.589    c-1.519-1.609-3.666-2.619-6.054-2.619C3.73,15.925,0,19.656,0,24.258c0,4.603,3.73,8.333,8.333,8.333    c2.377,0,4.515-1,6.033-2.596l17.736,8.685c-0.062,0.406-0.104,0.82-0.104,1.245c0,4.604,3.73,8.333,8.333,8.333    s8.333-3.729,8.333-8.333C48.665,35.322,44.935,31.592,40.332,31.592z" fill="#13bf3b"/>
+</g>
+</svg>
+<svg id="pk_sym" viewBox="0 0 480.509 480.509" style="enable-background:new 0 0 480.509 480.509;">
+<g>
+<path d="M418.119,331.046c4.094,4.374,7.766,8.186,10.996,11.416c3.237,3.238,6.714,6.376,10.427,9.422   c3.71,3.042,6.427,4.568,8.135,4.568c3.241,0,9.517-4.661,18.843-13.99c9.328-9.321,13.989-15.604,13.989-18.842   c0-1.523-2.714-5.421-8.138-11.704c-5.421-6.276-12.364-13.702-20.838-22.271c-8.473-8.565-16.703-16.744-24.694-24.55   c-8.001-7.81-15.8-15.373-23.417-22.703c-7.611-7.327-11.992-11.56-13.135-12.703c-1.902-1.902-4.093-2.853-6.563-2.853   c-3.237,0-9.521,4.661-18.843,13.988c-9.328,9.322-13.989,15.605-13.989,18.843c0,1.711,1.522,4.421,4.568,8.138   c3.046,3.71,6.188,7.187,9.421,10.424c3.23,3.23,7.047,6.899,11.42,10.992c4.377,4.093,6.848,6.423,7.423,6.995l-27.408,27.404   L254.954,222.268c24.94-33.498,37.408-68.236,37.408-104.211c0-31.024-9.761-56.293-29.263-75.801   c-19.512-19.511-44.778-29.265-75.805-29.265c-30.454,0-60.244,9.042-89.363,27.119c-29.121,18.083-52.727,41.686-70.808,70.808   C9.042,140.038,0,169.828,0,200.28c0,31.029,9.753,56.286,29.265,75.803c19.511,19.517,44.777,29.27,75.801,29.27   c35.976,0,70.71-12.467,104.212-37.407l191.574,191.579c5.332,5.328,11.796,7.994,19.417,7.994c7.991,0,15.704-3.72,23.12-11.14   c7.426-7.426,11.143-15.129,11.143-23.127c0-7.617-2.666-14.092-7.994-19.417l-62.811-62.811l27.405-27.404   C411.699,324.195,414.033,326.666,418.119,331.046z M221.556,161.458c-10.656,10.657-23.601,15.987-38.828,15.987   c-7.996,0-15.896-1.812-23.7-5.43c3.617,7.808,5.426,15.706,5.426,23.7c0,15.229-5.327,28.171-15.987,38.828   c-10.66,10.655-23.606,15.986-38.831,15.986c-15.227,0-28.168-5.325-38.828-15.986c-10.657-10.657-15.987-23.599-15.987-38.828   c0-15.227,5.327-28.171,15.987-38.828C81.464,146.23,94.409,140.9,109.636,140.9c7.992,0,15.893,1.809,23.695,5.424   c-3.616-7.804-5.424-15.706-5.424-23.699c0-15.227,5.327-28.171,15.987-38.828c10.66-10.657,23.604-15.987,38.831-15.987   c15.227,0,28.171,5.327,38.828,15.987c10.657,10.66,15.987,23.601,15.987,38.828C237.539,137.852,232.209,150.797,221.556,161.458z   " fill="#ff8345"/>
+</g>
+</svg>
+<svg id="uk_sym" viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;">
+<g>
+	<polygon points="236.99,11.41 0,246.348 236.99,478.678 236.99,350.609 129.864,245 236.99,139.391  " fill="#0064fb"/>
+<polygon points="253.01,478.59 490,243.651 253.01,11.322 253.01,139.391 360.136,245 253.01,350.609  " fill="#0064fb"/>
+</g>
+</svg>
+<svg id="link_sym" viewBox="0 0 1000 900" style="enable-background:new 0 0 1000 900;">
+<g>
+<path fill="black" d="M660.224 422.656c6.976 16.192-0.512 35.008-16.768 42.048-16.128 6.976-34.944-0.448-41.984-16.768-8.448-19.776-20.736-37.696-36.224-53.248-64.64-64.64-177.344-64.64-241.92 0l-145.216 145.28c-66.688 66.688-66.688 175.232 0 241.984 66.688 66.688 175.104 66.752 241.92 0l92.8-92.864c12.48-12.48 32.768-12.48 45.248 0s12.48 32.768 0 45.248l-92.8 92.864c-91.648 91.648-240.832 91.52-332.416 0-91.712-91.648-91.712-240.832 0-332.48l145.216-145.28c44.352-44.416 103.424-68.864 166.272-68.864s121.792 24.448 166.208 68.864c21.248 21.312 38.016 45.952 49.664 73.216zM891.136 401.344l-145.216 145.216c-88.768 88.832-243.712 88.832-332.416 0-21.312-21.312-38.080-45.952-49.728-73.216-7.040-16.256 0.448-35.072 16.704-42.048 16.064-6.784 35.008 0.512 41.984 16.768 8.512 19.776 20.8 37.696 36.288 53.248 64.64 64.64 177.344 64.64 241.92 0l145.216-145.216c66.688-66.688 66.688-175.232 0-241.984-66.752-66.624-175.168-66.688-241.92 0l-92.8 92.864c-12.48 12.48-32.768 12.48-45.248 0s-12.48-32.768 0-45.248l92.8-92.864c45.824-45.824 105.984-68.736 166.208-68.736s120.448 22.912 166.272 68.736c91.584 91.648 91.584 240.768-0.064 332.48z"/>
+</g>
+</svg>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath14_0_">
+<rect x="0" y="0" width="215" height="206"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath8_0_">
+<rect x="0" y="0" width="200" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath1_0_">
+<rect x="0" y="0" width="295" height="206"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath19_0_">
+<rect x="0" y="0" width="190" height="136"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath21_0_">
+<rect x="0" y="0" width="235" height="196"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath18_0_">
+<rect x="0" y="0" width="205" height="220"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath13_0_">
+<rect x="0" y="0" width="234" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath17_0_">
+<rect x="0" y="0" width="205" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath5_0_">
+<rect x="0" y="0" width="354" height="144"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath16_0_">
+<rect x="0" y="0" width="218" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath10_0_">
+<rect x="0" y="0" width="227" height="136"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath11_0_">
+<rect x="0" y="0" width="218" height="102"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath26_0_">
+<rect x="0" y="0" width="235" height="196"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath9_0_">
+<rect x="0" y="0" width="202" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath15_0_">
+<rect x="0" y="0" width="181" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath7_0_">
+<rect x="0" y="0" width="219" height="318"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath3_0_">
+<rect x="0" y="0" width="219" height="172"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath4_0_">
+<rect x="0" y="0" width="221" height="220"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath22_0_">
+<rect x="0" y="0" width="235" height="294"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath20_0_">
+<rect x="0" y="0" width="232" height="140"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath2_0_">
+<rect x="0" y="0" width="179" height="130"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath12_0_">
+<rect x="0" y="0" width="221" height="178"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath6_0_">
+<rect x="0" y="0" width="219" height="248"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath25_0_">
+<rect x="0" y="0" width="215" height="140"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath23_0_">
+<rect x="0" y="0" width="238" height="280"/>
+</clipPath>
+<clipPath clipPathUnits="userSpaceOnUse" id="clipPath24_0_">
+<rect x="0" y="0" width="238" height="364"/>
+</clipPath>
+</defs>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1245 388 L1101 388 L1101 189 L1019 189"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1245 388 1239 391 1239 385" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1019.0 183.0 L1031.0 189.0 L1019.0 195.0 M1031.5999994277954 183.0 L1031.5999994277954 195.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M539 385 L590 385 L590 627 L661 627"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="539 385 545 382 545 388" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M661.0 633.0 L649.0 627.0 L661.0 621.0 M648.4000005722046 633.0 L648.4000005722046 621.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M109 270 L109 259 L101 259 L101 178"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="109 270 106 264 112 264" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M107.0 178.0 L101.0 190.0 L95.0 178.0 M107.0 190.5999994277954 L95.0 190.5999994277954" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M930 813 L852 813 L852 1079 L734 1079"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="930 813 924 816 924 810" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M740.0 1073.0 L740.0 1085.0 M745.3999996185303 1073.0 L745.3999996185303 1085.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M376 696 L280 696 L280 698 L227 698"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="376 696 370 699 370 693" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M227.0 692.0 L239.0 698.0 L227.0 704.0 M239.5999994277954 692.0 L239.5999994277954 704.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M113 756 L113 783 L120 783 L120 830"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="113 756 116 762 110 762" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M114.0 830.0 L120.0 818.0 L126.0 830.0 M114.0 817.4000005722046 L126.0 817.4000005722046" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M909 318 L909 509 L1077 509 L1077 700"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="909 318 912 324 906 324" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1071.0 700.0 L1077.0 688.0 L1083.0 700.0 M1071.0 687.4000005722046 L1083.0 687.4000005722046" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M221 950 L1061 950 L1061 794 L1921 794"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="221 950 227 947 227 953" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1921.0 800.0 L1909.0 794.0 L1921.0 788.0 M1908.4000005722046 800.0 L1908.4000005722046 788.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M800 159 L509 159 L509 79 L202 79"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="800 159 794 162 794 156" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M202.0 73.0 L214.0 79.0 L202.0 85.0 M214.5999994277954 73.0 L214.5999994277954 85.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1245 531 L1189 531 L1189 169 L1019 169"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1245 531 1239 534 1239 528" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1019.0 163.0 L1031.0 169.0 L1019.0 175.0 M1031.5999994277954 163.0 L1031.5999994277954 175.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1841 1067 L1881 1067 L1881 1042 L1921 1042"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1841 1067 1847 1064 1847 1070" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1921.0 1048.0 L1909.0 1042.0 L1921.0 1036.0 M1908.4000005722046 1048.0 L1908.4000005722046 1036.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M280 161 L230 161 L230 99 L202 99"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="280 161 274 164 274 158" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M202.0 93.0 L214.0 99.0 L202.0 105.0 M214.5999994277954 93.0 L214.5999994277954 105.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1019 109 L1320 109 L1320 818 L1622 818"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1019 109 1025 106 1025 112" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1622.0 824.0 L1610.0 818.0 L1622.0 812.0 M1609.4000005722046 824.0 L1609.4000005722046 812.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M449 440 L449 635 L100 635 L100 830"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="449 440 452 446 446 446" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M94.0 830.0 L100.0 818.0 L106.0 830.0 M94.0 817.4000005722046 L106.0 817.4000005722046" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1921 814 L1459 814 L1459 149 L1019 149"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1921 814 1915 817 1915 811" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1019.0 143.0 L1031.0 149.0 L1019.0 155.0 M1031.5999994277954 143.0 L1031.5999994277954 155.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M360 375 L269 375 L269 394 L219 394"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="360 375 354 378 354 372" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M219.0 388.0 L231.0 394.0 L219.0 400.0 M231.5999994277954 388.0 L231.5999994277954 400.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-dasharray="8,8" stroke-width="1" d="M1930 618 L1050 618 L1050 678 L227 678"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1930 618 1924 621 1924 615" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M227.0 672.0 L239.0 678.0 L227.0 684.0 M239.5999994277954 672.0 L239.5999994277954 684.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M109 518 L109 569 L113 569 L113 620"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="109 518 112 524 106 524" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M107.0 614.0 L119.0 614.0 M107.0 608.6000003814697 L119.0 608.6000003814697" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1731 981 L1731 934 L1729 934 L1729 921"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1731 981 1728 975 1734 975" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1735.0 921.0 L1729.0 933.0 L1723.0 921.0 M1735.0 933.5999994277954 L1723.0 933.5999994277954" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M2025 676 L2025 814 L2001 814 L2001 953"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="2025 676 2028 682 2022 682" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1995.0 953.0 L2001.0 941.0 L2007.0 953.0 M1995.0 940.4000005722046 L2007.0 940.4000005722046" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M581 696 L621 696 L621 627 L661 647"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="581 696 587 693 587 699" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M659.0 652.0 L651.0 643.0 L663.0 642.0 M648.5 647.8000001907349 L652.5 637.8000001907349" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M2021 953 L2011 923 L2030 923 L2030 893"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="2021 953 2018 948 2022 948" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M2036.0 893.0 L2030.0 905.0 L2024.0 893.0 M2036.0 905.5999994277954 L2024.0 905.5999994277954" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1225 803 L1273 803 L1273 804 L1321 804"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1225 803 1231 800 1231 806" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1315.0 810.0 L1315.0 798.0 M1309.6000003814697 810.0 L1309.6000003814697 798.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M221 910 L585 910 L585 793 L930 793"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="221 910 227 907 227 913" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M930.0 799.0 L918.0 793.0 L930.0 787.0 M917.4000005722046 799.0 L917.4000005722046 787.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M661 607 L443 607 L443 930 L221 930"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="661 607 655 610 655 604" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M221.0 924.0 L233.0 930.0 L221.0 936.0 M233.5999994277954 924.0 L233.5999994277954 936.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M539 365 L1244 365 L1244 598 L1930 598"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="539 365 545 362 545 368" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1930.0 604.0 L1918.0 598.0 L1930.0 592.0 M1917.4000005722046 604.0 L1917.4000005722046 592.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g stroke-linecap="butt">
+<path stroke="rgb(0,0,0)" fill="none" stroke-opacity="1.0" stroke-width="1" d="M1930 578 L1490 578 L1490 129 L1019 129"/>
+<polygon stroke="rgb(0,0,0)" stroke-dasharray="none" points="1930 578 1924 581 1924 575" fill="rgb(0,0,0)" stroke-width="1" stroke-opacity="1.0"/>
+<path stroke-dasharray="none" d="M1019.0 123.0 L1031.0 129.0 L1019.0 135.0 M1031.5999994277954 123.0 L1031.5999994277954 135.0" fill="white" stroke-width="1" stroke-opacity="1.0" stroke="rgb(0,0,0)"/>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath2_0_)" transform="translate(360,310)">
+<rect x="0" y="0" width="178" height="129"/>
+<text id="E44EB912-97C976AAC326" x="42" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+centro_distribucion
+</text>
+<line x1="0" y1="18" x2="177" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_centro
+</text>
+<text x="90" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="90" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (60)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion
+</text>
+<text x="90" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (120)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="90" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="90" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="94" x2="177" y2="94" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="101" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="108" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+centro_pk (id_centro)
+</text>
+<use xlink:href="#uk_sym" x="4" y="115" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="122" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+centro_nombre_uk (nombre)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath19_0_)" transform="translate(1930,540)">
+<rect x="0" y="0" width="189" height="135"/>
+<text id="4980CA76-A143A194C443" x="83" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+zona
+</text>
+<line x1="0" y1="18" x2="188" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_zona
+</text>
+<text x="101" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_centro
+</text>
+<text x="101" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="101" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (60)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+localidades
+</text>
+<text x="101" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (200)
+</text>
+<line x1="0" y1="80" x2="188" y2="80" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="87" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="94" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+zona_pk (id_zona)
+</text>
+<use xlink:href="#uk_sym" x="4" y="101" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="108" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+zona_nombre_uk (nombre)
+</text>
+<line x1="0" y1="114" x2="188" y2="114" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="121" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#E44EB912-97C976AAC326">
+<text x="15" y="128" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+zona_centro_fk (id_centro)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath3_0_)" transform="translate(1622,981)">
+<rect x="0" y="0" width="218" height="171"/>
+<text id="CCF23EED-989656A609E5" x="92" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+cliente
+</text>
+<line x1="0" y1="18" x2="217" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_cliente
+</text>
+<text x="130" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nit
+</text>
+<text x="130" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+razon_social
+</text>
+<text x="130" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (120)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_cliente
+</text>
+<text x="130" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="130" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+<text x="130" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (100)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_vinculacion
+</text>
+<text x="130" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="130" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="136" x2="217" y2="136" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="143" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="150" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+cliente_pk (id_cliente)
+</text>
+<use xlink:href="#uk_sym" x="4" y="157" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="164" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+cliente_nit_uk (nit)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath15_0_)" transform="translate(1921,953)">
+<rect x="0" y="0" width="180" height="177"/>
+<text id="C4DB3A73-2A397195D63A" x="60" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+sede_cliente
+</text>
+<line x1="0" y1="18" x2="179" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_sede
+</text>
+<text x="92" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_cliente
+</text>
+<text x="92" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_zona
+</text>
+<text x="92" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="92" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (60)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion
+</text>
+<text x="92" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (120)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+contacto
+</text>
+<text x="92" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (80)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="92" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<line x1="0" y1="122" x2="179" y2="122" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+sede_pk (id_sede)
+</text>
+<line x1="0" y1="142" x2="179" y2="142" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="149" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#CCF23EED-989656A609E5">
+<text x="15" y="156" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+sede_cliente_fk (id_cliente)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="163" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#4980CA76-A143A194C443">
+<text x="15" y="170" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+sede_zona_fk (id_zona)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath11_0_)" transform="translate(1245,337)">
+<rect x="0" y="0" width="217" height="101"/>
+<text id="93E6805A-62AC12BB3DB9" x="83" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+modalidad
+</text>
+<line x1="0" y1="18" x2="216" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_modalidad
+</text>
+<text x="135" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="135" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (30)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+plazo_dias_habiles
+</text>
+<text x="135" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (1)
+</text>
+<line x1="0" y1="66" x2="216" y2="66" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="73" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="80" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+modalidad_pk (id_modalidad)
+</text>
+<use xlink:href="#uk_sym" x="4" y="87" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="94" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+modalidad_nombre_uk (nombre)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath17_0_)" transform="translate(376,645)">
+<rect x="0" y="0" width="204" height="101"/>
+<text id="722F904B-4BCF74008DD4" x="69" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_vehiculo
+</text>
+<line x1="0" y1="18" x2="203" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_tipo_vehiculo
+</text>
+<text x="122" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="122" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (30)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+capacidad_max_kg
+</text>
+<text x="122" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (6,1)
+</text>
+<line x1="0" y1="66" x2="203" y2="66" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="73" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="80" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_vehiculo_pk (id_tipo_vehiculo)
+</text>
+<use xlink:href="#uk_sym" x="4" y="87" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="94" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_vehiculo_nombre_uk (nombre)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath18_0_)" transform="translate(661,527)">
+<rect x="0" y="0" width="204" height="219"/>
+<text id="6910B02F-AB66C8734B79" x="81" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo
+</text>
+<line x1="0" y1="18" x2="203" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_vehiculo
+</text>
+<text x="122" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_centro
+</text>
+<text x="122" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_tipo_vehiculo
+</text>
+<text x="122" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="2" y="74" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+placa
+</text>
+<text x="122" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+marca
+</text>
+<text x="122" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (40)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+modelo
+</text>
+<text x="122" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (40)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+capacidad_kg
+</text>
+<text x="122" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (6,1)
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+electrico
+</text>
+<text x="122" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+CHAR (1)
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="122" y="144" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<line x1="0" y1="150" x2="203" y2="150" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="157" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="164" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo_pk (id_vehiculo)
+</text>
+<use xlink:href="#uk_sym" x="4" y="171" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="178" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo_placa_uk (placa)
+</text>
+<line x1="0" y1="184" x2="203" y2="184" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="191" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#E44EB912-97C976AAC326">
+<text x="15" y="198" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo_centro_fk (id_centro)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="205" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#722F904B-4BCF74008DD4">
+<text x="15" y="212" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+vehiculo_tipo_fk (id_tipo_vehiculo)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath6_0_)" transform="translate(0,270)">
+<rect x="0" y="0" width="218" height="247"/>
+<text id="F451562E-3F78ED31D0C5" x="85" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+empleado
+</text>
+<line x1="0" y1="18" x2="217" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_empleado
+</text>
+<text x="112" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_centro
+</text>
+<text x="112" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+documento
+</text>
+<text x="112" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombres
+</text>
+<text x="112" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (60)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+apellidos
+</text>
+<text x="112" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (60)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+cargo
+</text>
+<text x="112" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (40)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="112" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+<text x="112" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (100)
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_ingreso
+</text>
+<text x="112" y="144" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="158" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="158" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_retiro
+</text>
+<text x="112" y="158" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="172" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="172" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+motivo_retiro
+</text>
+<text x="112" y="172" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (200)
+</text>
+<text x="15" y="186" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="186" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="112" y="186" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="192" x2="217" y2="192" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="199" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="206" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+empleado_pk (id_empleado)
+</text>
+<use xlink:href="#uk_sym" x="4" y="213" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="220" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+empleado_documento_uk (documento)
+</text>
+<line x1="0" y1="226" x2="217" y2="226" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="233" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#E44EB912-97C976AAC326">
+<text x="15" y="240" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+empleado_centro_fk (id_centro)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath10_0_)" transform="translate(0,620)">
+<rect x="0" y="0" width="226" height="135"/>
+<text id="91F71FA5-6CE94F0C0917" x="87" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero
+</text>
+<line x1="0" y1="18" x2="225" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+PF
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_empleado
+</text>
+<text x="122" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_zona
+</text>
+<text x="122" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_tipo_vehiculo
+</text>
+<text x="122" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<line x1="0" y1="66" x2="225" y2="66" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="73" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="80" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero_pk (id_empleado)
+</text>
+<line x1="0" y1="86" x2="225" y2="86" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="93" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#F451562E-3F78ED31D0C5">
+<text x="15" y="100" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero_empleado_fk (id_empleado)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="107" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#4980CA76-A143A194C443">
+<text x="15" y="114" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero_zona_fk (id_zona)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="121" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#722F904B-4BCF74008DD4">
+<text x="15" y="128" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+mensajero_tipo_veh_fk (id_tipo_vehiculo)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath5_0_)" transform="translate(1245,459)">
+<rect x="0" y="0" width="353" height="143"/>
+<text id="8505D6A6-724FFE274F1D" x="147" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+destinatario
+</text>
+<line x1="0" y1="18" x2="352" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_destinatario
+</text>
+<text x="141" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_documento
+</text>
+<text x="141" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (3)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_documento
+</text>
+<text x="141" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="141" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (100)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+telefono
+</text>
+<text x="141" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+correo
+</text>
+<text x="141" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (100)
+</text>
+<line x1="0" y1="108" x2="352" y2="108" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="115" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="122" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+destinatario_pk (id_destinatario)
+</text>
+<use xlink:href="#uk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+destinatario_documento_uk (tipo_documento, numero_documento)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath4_0_)" transform="translate(0,830)">
+<rect x="0" y="0" width="220" height="219"/>
+<text id="DB611FFB-88E6A70D2ACF" x="87" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+despacho
+</text>
+<line x1="0" y1="18" x2="219" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_despacho
+</text>
+<text x="110" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_centro
+</text>
+<text x="110" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_vehiculo
+</text>
+<text x="110" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_mensajero
+</text>
+<text x="110" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha
+</text>
+<text x="110" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo
+</text>
+<text x="110" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (12)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora_salida
+</text>
+<text x="110" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora_cierre
+</text>
+<text x="110" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="110" y="144" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="150" x2="219" y2="150" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="157" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="164" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+despacho_pk (id_despacho)
+</text>
+<line x1="0" y1="170" x2="219" y2="170" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="177" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#E44EB912-97C976AAC326">
+<text x="15" y="184" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+despacho_centro_fk (id_centro)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="191" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#6910B02F-AB66C8734B79">
+<text x="15" y="198" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+despacho_vehiculo_fk (id_vehiculo)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="205" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#91F71FA5-6CE94F0C0917">
+<text x="15" y="212" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+despacho_mensajero_fk (id_mensajero)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath16_0_)" transform="translate(1921,715)">
+<rect x="0" y="0" width="217" height="177"/>
+<text id="909686A4-F602BEE6889B" x="58" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+solicitud_recoleccion
+</text>
+<line x1="0" y1="18" x2="216" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_solicitud
+</text>
+<text x="135" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_sede
+</text>
+<text x="135" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_despacho
+</text>
+<text x="135" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_solicitud
+</text>
+<text x="135" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_programada
+</text>
+<text x="135" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+franja_horaria
+</text>
+<text x="135" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="135" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (12)
+</text>
+<line x1="0" y1="122" x2="216" y2="122" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+solicitud_pk (id_solicitud)
+</text>
+<line x1="0" y1="142" x2="216" y2="142" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="149" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#C4DB3A73-2A397195D63A">
+<text x="15" y="156" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+solicitud_sede_fk (id_sede)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="163" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#DB611FFB-88E6A70D2ACF">
+<text x="15" y="170" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+solicitud_despacho_fk (id_despacho)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath7_0_)" transform="translate(800,0)">
+<rect x="0" y="0" width="218" height="317"/>
+<text id="C8EC2DDC-A6870828CDA9" x="95" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+envio
+</text>
+<line x1="0" y1="18" x2="217" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_guia
+</text>
+<text x="130" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_solicitud
+</text>
+<text x="130" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_destinatario
+</text>
+<text x="130" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_zona
+</text>
+<text x="130" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (5)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_modalidad
+</text>
+<text x="130" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_registro
+</text>
+<text x="130" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+direccion_destino
+</text>
+<text x="130" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (150)
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+peso_declarado
+</text>
+<text x="130" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (6,2)
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+peso_real
+</text>
+<text x="130" y="144" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (6,2)
+</text>
+<text x="15" y="158" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="158" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+contenido
+</text>
+<text x="130" y="158" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (150)
+</text>
+<text x="15" y="172" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="172" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+valor_declarado
+</text>
+<text x="130" y="172" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12,2)
+</text>
+<text x="15" y="186" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="186" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fragil
+</text>
+<text x="130" y="186" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+CHAR (1)
+</text>
+<text x="15" y="200" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="200" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+alto_valor
+</text>
+<text x="130" y="200" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+CHAR (1)
+</text>
+<text x="15" y="214" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="214" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+valor_flete
+</text>
+<text x="130" y="214" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12,2)
+</text>
+<text x="15" y="228" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="228" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_compromiso
+</text>
+<text x="130" y="228" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+DATE
+</text>
+<line x1="0" y1="234" x2="217" y2="234" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="241" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="248" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+envio_pk (numero_guia)
+</text>
+<line x1="0" y1="254" x2="217" y2="254" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="261" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#909686A4-F602BEE6889B">
+<text x="15" y="268" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+envio_solicitud_fk (id_solicitud)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="275" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#8505D6A6-724FFE274F1D">
+<text x="15" y="282" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+envio_destinatario_fk (id_destinatario)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="289" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#4980CA76-A143A194C443">
+<text x="15" y="296" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+envio_zona_fk (id_zona)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="303" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#93E6805A-62AC12BB3DB9">
+<text x="15" y="310" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+envio_modalidad_fk (id_modalidad)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath1_0_)" transform="translate(930,700)">
+<rect x="0" y="0" width="294" height="205"/>
+<text id="490D6A3F-3DFA06F43FAB" x="95" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_despacho
+</text>
+<line x1="0" y1="18" x2="293" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_asignacion
+</text>
+<text x="122" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+UF
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_guia
+</text>
+<text x="122" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+UF
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_despacho
+</text>
+<text x="122" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="74" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_intento
+</text>
+<text x="122" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (1)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+orden_visita
+</text>
+<text x="122" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (3)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+hora_visita
+</text>
+<text x="122" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+resultado
+</text>
+<text x="122" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (12)
+</text>
+<line x1="0" y1="122" x2="293" y2="122" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_pk (id_asignacion)
+</text>
+<use xlink:href="#uk_sym" x="4" y="143" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="150" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_envio_desp_uk (numero_guia, id_despacho)
+</text>
+<use xlink:href="#uk_sym" x="4" y="157" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="164" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_intento_uk (numero_guia, numero_intento)
+</text>
+<line x1="0" y1="170" x2="293" y2="170" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="177" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#C8EC2DDC-A6870828CDA9">
+<text x="15" y="184" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_envio_fk (numero_guia)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="191" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#DB611FFB-88E6A70D2ACF">
+<text x="15" y="198" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+asignacion_despacho_fk (id_despacho)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath8_0_)" transform="translate(280,110)">
+<rect x="0" y="0" width="199" height="101"/>
+<text id="3CE44073-E660DE6FBE2D" x="67" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+estado_envio
+</text>
+<line x1="0" y1="18" x2="198" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_estado
+</text>
+<text x="92" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+U
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre
+</text>
+<text x="92" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (20)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+es_final
+</text>
+<text x="92" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+CHAR (1)
+</text>
+<line x1="0" y1="66" x2="198" y2="66" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="73" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="80" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado_envio_pk (id_estado)
+</text>
+<use xlink:href="#uk_sym" x="4" y="87" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="94" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado_envio_nombre_uk (nombre)
+</text>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath9_0_)" transform="translate(0,0)">
+<rect x="0" y="0" width="201" height="177"/>
+<text id="A380434C-BA454B6232A7" x="67" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+evento_envio
+</text>
+<line x1="0" y1="18" x2="200" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_evento
+</text>
+<text x="108" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_guia
+</text>
+<text x="108" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_estado
+</text>
+<text x="108" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (2)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_empleado
+</text>
+<text x="108" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_hora
+</text>
+<text x="108" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+observacion
+</text>
+<text x="108" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (200)
+</text>
+<line x1="0" y1="108" x2="200" y2="108" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="115" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="122" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+evento_pk (id_evento)
+</text>
+<line x1="0" y1="128" x2="200" y2="128" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="135" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#C8EC2DDC-A6870828CDA9">
+<text x="15" y="142" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+evento_envio_fk (numero_guia)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="149" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#3CE44073-E660DE6FBE2D">
+<text x="15" y="156" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+evento_estado_fk (id_estado)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="163" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#F451562E-3F78ED31D0C5">
+<text x="15" y="170" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+evento_empleado_fk (id_empleado)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath13_0_)" transform="translate(500,990)">
+<rect x="0" y="0" width="233" height="177"/>
+<text id="695A4296-4C06F4AC5608" x="78" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+prueba_entrega
+</text>
+<line x1="0" y1="18" x2="232" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_prueba
+</text>
+<text x="145" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+UF
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_asignacion
+</text>
+<text x="145" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_hora
+</text>
+<text x="145" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+nombre_receptor
+</text>
+<text x="145" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (100)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+documento_receptor
+</text>
+<text x="145" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_prueba
+</text>
+<text x="145" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+archivo_soporte
+</text>
+<text x="145" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (200)
+</text>
+<line x1="0" y1="122" x2="232" y2="122" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+prueba_pk (id_prueba)
+</text>
+<use xlink:href="#uk_sym" x="4" y="143" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="150" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+prueba_asignacion_uk (id_asignacion)
+</text>
+<line x1="0" y1="156" x2="232" y2="156" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="163" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#490D6A3F-3DFA06F43FAB">
+<text x="15" y="170" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+prueba_asignacion_fk (id_asignacion)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath12_0_)" transform="translate(1321,715)">
+<rect x="0" y="0" width="220" height="177"/>
+<text id="EE200C08-B169C9CD50C7" x="89" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+novedad
+</text>
+<line x1="0" y1="18" x2="219" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_novedad
+</text>
+<text x="111" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+UF
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_asignacion
+</text>
+<text x="111" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (12)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo_novedad
+</text>
+<text x="111" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (25)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+descripcion
+</text>
+<text x="111" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (300)
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+accion
+</text>
+<text x="111" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (12)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+solucion
+</text>
+<text x="111" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (300)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="111" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="122" x2="219" y2="122" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="129" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="136" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+novedad_pk (id_novedad)
+</text>
+<use xlink:href="#uk_sym" x="4" y="143" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="150" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+novedad_asignacion_uk (id_asignacion)
+</text>
+<line x1="0" y1="156" x2="219" y2="156" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="163" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#490D6A3F-3DFA06F43FAB">
+<text x="15" y="170" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+novedad_asignacion_fk (id_asignacion)
+</text></a>
+</g>
+<g fill="rgb(255,255,180)" stroke="rgb(0,0,255)" fill-opacity="1.0" stroke-opacity="1.0" clip-path="url(#clipPath14_0_)" transform="translate(1622,715)">
+<rect x="0" y="0" width="214" height="205"/>
+<text id="0921DBD3-D1C2B6AA8C43" x="77" y="14" fill="rgb(0,0,255)" font-weight="bold" fill-opacity="1.0" font-size="10" stroke="none">
+reclamacion
+</text>
+<line x1="0" y1="18" x2="213" y2="18" fill="none" stroke="rgb(0,0,255)"/>
+<text x="15" y="32" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="32" fill="rgb(0,0,255)" fill-opacity="1.0" font-size="10" stroke="none">
+P
+</text>
+<text x="26" y="32" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_reclamacion
+</text>
+<text x="126" y="32" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="46" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="2" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="46" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+id_cliente
+</text>
+<text x="126" y="46" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+NUMBER (10)
+</text>
+<text x="15" y="60" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="2" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+F
+</text>
+<text x="26" y="60" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+numero_guia
+</text>
+<text x="126" y="60" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="74" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="74" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_radicacion
+</text>
+<text x="126" y="74" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="88" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="88" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+tipo
+</text>
+<text x="126" y="88" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (15)
+</text>
+<text x="15" y="102" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="102" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+descripcion
+</text>
+<text x="126" y="102" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (500)
+</text>
+<text x="15" y="116" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="116" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+respuesta
+</text>
+<text x="126" y="116" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (500)
+</text>
+<text x="15" y="130" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+
+</text>
+<text x="26" y="130" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+fecha_respuesta
+</text>
+<text x="126" y="130" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+TIMESTAMP
+</text>
+<text x="15" y="144" fill="rgb(255,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+*
+</text>
+<text x="26" y="144" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+estado
+</text>
+<text x="126" y="144" fill="rgb(0,128,0)" fill-opacity="1.0" font-size="10" stroke="none">
+VARCHAR2 (10)
+</text>
+<line x1="0" y1="150" x2="213" y2="150" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#pk_sym" x="4" y="157" width="8" height="8" fill-opacity="1.0"/>
+<text x="15" y="164" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+reclamacion_pk (id_reclamacion)
+</text>
+<line x1="0" y1="170" x2="213" y2="170" fill="none" stroke="rgb(0,0,255)"/>
+<use xlink:href="#fk_sym" x="4" y="177" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#CCF23EED-989656A609E5">
+<text x="15" y="184" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+reclamacion_cliente_fk (id_cliente)
+</text></a>
+<use xlink:href="#fk_sym" x="4" y="191" width="8" height="8" fill-opacity="1.0"/><a xlink:href="#C8EC2DDC-A6870828CDA9">
+<text x="15" y="198" fill="rgb(0,0,0)" fill-opacity="1.0" font-size="10" stroke="none">
+reclamacion_envio_fk (numero_guia)
+</text></a>
+</g>
+</svg>

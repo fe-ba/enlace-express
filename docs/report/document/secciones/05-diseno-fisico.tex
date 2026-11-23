@@ -1,0 +1,457 @@
+%======================================================================
+%  Capitulo 5 - Diseno fisico de bases de datos (generado por gen/cap5.py)
+%======================================================================
+
+\section{Diseño físico de bases de datos}
+
+El diseño físico decide cómo se implementa el modelo relacional del
+capítulo 4 en un sistema gestor de bases de datos concreto: tipos de
+datos, generación de claves, índices, disparadores, usuarios y
+permisos, dónde se guardan los datos y con qué recursos funciona la base
+de datos. Como el resto del diseño detallado, se hace para el módulo
+priorizado de operación de envíos (sección~\ref{sec:modulo}).
+
+%-----------------------------------------------------------------------
+\subsection{Conversión del Diseño Lógico al Diseño Físico}
+
+\subsubsection{Modelo Relacional al Modelo Computacional (DBMS)}
+
+\textbf{Sistema gestor de bases de datos.} Se usa Oracle Database,
+uno de los gestores que indica el programa del curso (Oracle 23c o
+superior), por tres razones: el modelo se construyó en Oracle SQL
+Developer Data Modeler, que genera el esquema para Oracle; Oracle aplica todas las
+restricciones del modelo lógico (claves, unicidad, CHECK y valores por
+defecto) y permite programar en la base de datos las reglas que
+dependen de otras filas; y tiene una edición gratuita, Oracle AI
+Database Free, suficiente para la primera fase. Esa edición limita el
+uso a dos núcleos de procesador, 2 GB de memoria y 12 GB de datos de
+usuario\footnote{Oracle, \textit{Oracle AI Database Free Installation
+Guide}, capítulo ``Licensing Restrictions'', 2026.}. La estimación de
+la sección~\ref{sec:almacenamiento} muestra que el módulo ocupa cerca de
+2,7 GB a los tres años, de modo que cabe holgadamente; cuando la
+empresa supere esos límites se pasa a la edición Standard Edition 2,
+que usa el mismo motor y no exige cambiar el diseño.
+
+\textbf{Tipos de datos.} Los tipos del diccionario de datos
+(tabla~\ref{tab:diccionario}) ya son tipos de Oracle; la
+tabla~\ref{tab:tipos} resume el criterio con que se eligieron. La base de
+datos usa el juego de caracteres AL32UTF8, y las longitudes de texto se
+cuentan en caracteres y no en bytes, para que un nombre con tildes o
+con eñe quepa en el tamaño definido.
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{3.0cm} L{7.8cm}}
+\caption{Correspondencia entre los datos del modelo y los tipos de Oracle.}
+\label{tab:tipos}\\
+\toprule
+\textbf{Dato} & \textbf{Tipo en Oracle} & \textbf{Criterio} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Dato} & \textbf{Tipo en Oracle} & \textbf{Criterio} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Identificadores sustitutos & NUMBER(2) a NUMBER(12) & Tamaño según el volumen esperado: 2 dígitos para catálogos, 5 para centros, zonas y vehículos, 10 a 12 para las tablas que crecen a diario. \\
+Número de guía & VARCHAR2(15) & Código alfanumérico impreso en la etiqueta: prefijo de la empresa y un consecutivo. \\
+Nombres, direcciones y descripciones & VARCHAR2(n) & Longitud variable; solo ocupa el espacio del texto escrito. \\
+Estados, tipos y listas de valores & VARCHAR2(10 a 25) & Valores legibles controlados con CHECK. \\
+Indicadores sí/no & CHAR(1) & Valores S o N controlados con CHECK. \\
+Pesos, capacidades y dinero & NUMBER(p,s) & Precisión fija: pesos con dos decimales en kg y valores con dos decimales en pesos colombianos. \\
+Fechas de calendario & DATE & Fecha de registro, de compromiso, de vinculación. \\
+Instantes de la operación & TIMESTAMP & Eventos, visitas y pruebas de entrega, donde importan la hora y el orden. \\
+Soportes de la prueba de entrega & VARCHAR2(200) & Ruta del archivo (firma o fotografía); la imagen se guarda en el almacenamiento de archivos, no dentro de la base de datos. \\
+\end{longtable}
+\par}
+
+\textbf{Generación de claves.} Las claves sustitutas se generan como
+columnas de identidad, que Oracle implementa con una secuencia propia de
+cada tabla; así ninguna aplicación tiene que calcular el siguiente
+número. Las excepciones son tres. El número de guía lo asigna el
+procedimiento de registro del envío, con el prefijo EE y un consecutivo
+de 13 dígitos. La clave de MENSAJERO es la misma del empleado, porque es
+un subtipo. Y los catálogos pequeños (ESTADO\_ENVIO, MODALIDAD y
+TIPO\_VEHICULO) se cargan con valores fijos al instalar la base de
+datos, porque las reglas y las vistas se refieren a ellos.
+
+\textbf{Índices.} Oracle crea automáticamente un índice para cada clave
+primaria y cada restricción de unicidad (32 índices), pero no para
+las claves foráneas. Sin índice, cada consulta que une dos tablas por una
+clave foránea, y cada verificación de que una fila no está referenciada,
+recorre la tabla completa. Por eso se crea un índice para cada clave
+foránea que no queda cubierta por un índice existente (22 índices)
+y 5 índices adicionales para las consultas más frecuentes
+(tabla~\ref{tab:indices}). En total el módulo tiene 59 índices.
+Con el índice único sobre número de guía y fecha del evento, el estado
+actual del envío se obtiene leyendo una sola entrada del índice, así que
+no hace falta guardarlo como dato derivado en ENVIO (decisión 2 de la
+optimización del diseño lógico).
+
+{\singlespacing\small
+\begin{longtable}{L{3.3cm} L{4.6cm} L{2.8cm} L{3.7cm}}
+\caption{Índices que se agregan a los de las claves primarias y únicas.}
+\label{tab:indices}\\
+\toprule
+\textbf{Tabla} & \textbf{Claves foráneas indexadas} & \textbf{Índice adicional} & \textbf{Motivo del índice adicional} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tabla} & \textbf{Claves foráneas indexadas} & \textbf{Índice adicional} & \textbf{Motivo del índice adicional} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+zona & id\_centro & -- &  \\
+sede\_cliente & id\_cliente; id\_zona & -- &  \\
+vehiculo & id\_centro; id\_tipo\_vehiculo & -- &  \\
+empleado & id\_centro & -- &  \\
+mensajero & id\_zona; id\_tipo\_vehiculo & -- &  \\
+despacho & id\_centro; id\_vehiculo; id\_mensajero & fecha & Planilla del día y despachos abiertos. \\
+solicitud\_recoleccion & id\_sede; id\_despacho & -- &  \\
+envio & id\_solicitud; id\_destinatario; id\_zona; id\_modalidad & fecha\_registro & Indicadores y consultas por periodo. \\
+asignacion\_despacho & id\_despacho & -- &  \\
+evento\_envio & id\_estado; id\_empleado & numero\_guia, fecha\_hora (único) & Ubica el último evento de cada envío (estado actual y seguimiento) y evita dos eventos del mismo envío en el mismo instante; cubre también la clave foránea hacia ENVIO. \\
+novedad & -- & estado & Novedades abiertas (vista de la mesa de servicio). \\
+reclamacion & id\_cliente; numero\_guia & estado & Reclamaciones pendientes. \\
+\end{longtable}
+\par}
+
+\textbf{Ciclo de vida del envío.} La regla RN12 exige que los estados de
+un envío sigan un orden. La tabla~\ref{tab:transiciones} define las
+transiciones permitidas; el disparador de EVENTO\_ENVIO rechaza
+cualquier otra. ENTREGADO, DEVUELTO y ANULADO son estados finales: un
+envío en uno de ellos no recibe más eventos.
+
+{\singlespacing\small
+\begin{longtable}{L{3.4cm} L{5.2cm} L{5.8cm}}
+\caption{Transiciones permitidas entre estados del envío.}
+\label{tab:transiciones}\\
+\toprule
+\textbf{Estado actual} & \textbf{Estados siguientes} & \textbf{Situación} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Estado actual} & \textbf{Estados siguientes} & \textbf{Situación} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+(sin eventos) & REGISTRADO & Toda guía nace registrada (RN12). \\
+REGISTRADO & RECOLECTADO, ANULADO & Se recoge en la sede o se anula antes de recogerlo. \\
+RECOLECTADO & EN\_CENTRO, ANULADO & Llega al centro de distribución. \\
+EN\_CENTRO & CLASIFICADO, ANULADO & Se pesa, se verifica y se clasifica por zona. \\
+CLASIFICADO & EN\_RUTA, ANULADO & Sale en un despacho de entrega. \\
+EN\_RUTA & ENTREGADO, CON\_NOVEDAD, DEVUELTO & Resultado del intento; DEVUELTO solo en el tercer intento (RN07). \\
+CON\_NOVEDAD & EN\_RUTA & Reintento en un nuevo despacho. \\
+ENTREGADO, DEVUELTO, ANULADO & -- & Estados finales. \\
+\end{longtable}
+\par}
+
+\textbf{Disparadores y procedimientos.} Las reglas de negocio que
+dependen de otras filas o tablas (tabla~\ref{tab:reglasnegocio}) se
+programan en la base de datos, de modo que se cumplen sin importar qué
+aplicación registre los datos. La tabla~\ref{tab:disparadores} muestra
+qué hace cada uno; todos rechazan la operación con un mensaje que
+explica la regla incumplida.
+
+{\singlespacing\small
+\begin{longtable}{L{4.0cm} L{3.4cm} L{5.4cm} L{1.4cm}}
+\caption{Disparadores y procedimiento del módulo.}
+\label{tab:disparadores}\\
+\toprule
+\textbf{Objeto} & \textbf{Tabla y momento} & \textbf{Qué verifica o hace} & \textbf{Reglas} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Objeto} & \textbf{Tabla y momento} & \textbf{Qué verifica o hace} & \textbf{Reglas} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Procedimiento de registro del envío & ENVIO y EVENTO\_ENVIO & Genera el número de guía, inserta el envío y su evento REGISTRADO en una sola transacción, y crea el destinatario si no existe. & RN02, RN12 \\
+Disparador de solicitud & SOLICITUD\_RECOLECCION, antes de insertar & El cliente dueño de la sede está ACTIVO. & RN15 \\
+Disparador de despacho & DESPACHO, antes de insertar o cambiar vehículo o mensajero & El vehículo está DISPONIBLE, el mensajero está ACTIVO y el vehículo es del tipo que conduce el mensajero. & RN10, RN11 \\
+Disparador de asignación & ASIGNACION\_DESPACHO, antes de insertar & El despacho es de entrega y no está cerrado; el intento \textit{n} solo se crea si los anteriores terminaron en NOVEDAD; el tercero es la devolución. & RN07 \\
+Disparador de resultado & ASIGNACION\_DESPACHO, antes de actualizar el resultado & ENTREGADO o DEVUELTO exigen una prueba de entrega del intento; NOVEDAD exige la novedad registrada; el tercer intento solo puede terminar en DEVUELTO. & RN05, RN07, RN08 \\
+Disparador de prueba & PRUEBA\_ENTREGA, antes de insertar & Si el envío es frágil o de alto valor, el documento de quien recibe es el del destinatario. & RN06 \\
+Disparador de evento & EVENTO\_ENVIO, antes de insertar & La transición está permitida (tabla~\ref{tab:transiciones}) y ENTREGADO o DEVUELTO corresponden a un intento con ese resultado. & RN05, RN12 \\
+\end{longtable}
+\par}
+
+\textbf{Usuarios, roles y permisos.} Cada grupo de usuarios del módulo
+tiene un rol con los permisos de la tabla~\ref{tab:permisos} traducidos a
+privilegios: crear es insertar, actualizar es modificar y leer es
+consultar. Ningún rol tiene permiso de borrar (RN16). Las tablas
+pertenecen a un esquema propietario, BD\_ENLACE\_EXPRESS, con el que no
+trabaja ningún usuario. El administrador de la base de datos crea los objetos,
+carga los catálogos y, mientras se integran los módulos M2 a M4,
+registra y actualiza los datos de referencia (clientes, sedes,
+vehículos y empleados) a solicitud de las áreas dueñas
+(tabla~\ref{tab:interfaces}). Los usuarios no tienen una cuenta propia
+en la base de datos. El servidor de aplicaciones se conecta con una
+cuenta de servicio por rol (cinco cuentas, como svc\_mesa y svc\_centro,
+cada una con solo su rol) y elige la cuenta según el rol del usuario que
+inició sesión en la aplicación; las consultas públicas del portal, que se
+hacen antes de iniciar sesión, usan la cuenta de menor privilegio, la del
+rol cliente. En cada conexión, el servidor fija además el identificador
+de cliente de la sesión de Oracle con el usuario real, de modo que la
+base de datos sabe quién hizo cada operación y puede auditarla. Así no
+hay que crear ni administrar en la base de datos una cuenta por cada
+empleado y cliente: el control por usuario lo hace la aplicación (por
+ejemplo, el mensajero solo ve sus despachos y el cliente solo sus
+envíos), y Oracle sigue limitando, mediante la cuenta de servicio, lo que
+cada rol puede hacer.
+
+{\singlespacing\small
+\begin{longtable}{L{2.3cm} L{0.9cm} L{3.6cm} L{3.6cm} L{3.5cm}}
+\caption{Roles de la base de datos y sus privilegios.}
+\label{tab:roles}\\
+\toprule
+\textbf{Rol} & \textbf{Usu.} & \textbf{Inserta} & \textbf{Modifica} & \textbf{Consulta} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Rol} & \textbf{Usu.} & \textbf{Inserta} & \textbf{Modifica} & \textbf{Consulta} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+rol\_gerencia & U1 & -- & -- & Tablas que alimentan los indicadores y vistas del módulo \\
+rol\_centro & U2 & centro\_distribucion, zona, despacho, asignacion\_despacho, evento\_envio & centro\_distribucion, zona, despacho, asignacion\_despacho, solicitud\_recoleccion, envio, empleado, mensajero & Catálogos, sedes, vehículos, empleados; vistas de planilla y envíos por despachar \\
+rol\_mesa & U3 & solicitud\_recoleccion, envio, destinatario, evento\_envio, reclamacion & envio, destinatario, novedad, reclamacion & Clientes, sedes, zonas, catálogos; vistas de seguimiento, novedades y reclamaciones \\
+rol\_mensajero & U4 & evento\_envio, prueba\_entrega, novedad & solicitud\_recoleccion, asignacion\_despacho, envio & Sedes de recolección, su despacho y la vista de planilla \\
+rol\_cliente & U9 & -- & -- & Vista de seguimiento, filtrada por el portal \\
+\end{longtable}
+\par}
+
+\textbf{Espacios de tablas.} Las tablas y los índices se guardan en
+espacios de tablas separados (tabla~\ref{tab:tablespaces}), lo que
+permite vigilar el crecimiento de cada uno y, si se cambia de servidor,
+ubicarlos en discos distintos. Su tamaño inicial cubre el primer año de
+la estimación y crecen automáticamente hasta un máximo que respeta el
+límite de 12 GB de la edición gratuita.
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{3.8cm} L{1.6cm} L{2.2cm} L{1.6cm}}
+\caption{Espacios de tablas del módulo.}
+\label{tab:tablespaces}\\
+\toprule
+\textbf{Espacio de tablas} & \textbf{Contenido} & \textbf{Inicial} & \textbf{Aumento} & \textbf{Máximo} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Espacio de tablas} & \textbf{Contenido} & \textbf{Inicial} & \textbf{Aumento} & \textbf{Máximo} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+TS\_ENLACE\_DATOS & Las 19 tablas & 500 MB & 100 MB & 7 GB \\
+TS\_ENLACE\_INDICES & Los 59 índices & 300 MB & 100 MB & 4 GB \\
+\end{longtable}
+\par}
+
+%-----------------------------------------------------------------------
+\subsubsection{Organización física de los datos}
+
+\paragraph{Almacenamiento (Centralizado o Distribuido)}
+\label{sec:almacenamiento}
+
+El almacenamiento es \textbf{centralizado}: una sola base de datos
+guarda la información de todos los centros. Se descarta el
+almacenamiento distribuido porque la empresa opera en una sola ciudad;
+un envío pasa por varios centros y zonas y su historial debe estar
+completo en un solo lugar; la política de sistema único desde el inicio
+(capítulo 1) busca precisamente no repartir los datos; y el volumen
+esperado lo maneja sin dificultad un solo servidor. Distribuir los datos
+obligaría a replicarlos y a mantener la consistencia entre sitios sin
+ningún beneficio para este tamaño de operación.
+
+Para dimensionar el almacenamiento se partió de los datos del
+capítulo 1 con los siguientes supuestos: 900 envíos por día hábil
+(25 mensajeros con unas 36 visitas cada uno), 300 días hábiles al año
+(lunes a sábado) y un crecimiento del 25\,\% anual. Por cada envío se
+registran en promedio 6,2 eventos, 1,12 asignaciones a despacho, una
+prueba de entrega y 0,12 novedades; el 60\,\% de los envíos va a un
+destinatario nuevo, una solicitud de recolección agrupa unos seis envíos
+y cada mensajero sale en dos despachos al día. El tamaño de cada fila se
+calculó con los tipos del diccionario de datos, suponiendo los textos
+llenos a la mitad, y el de los bloques con un 10\,\% de espacio libre
+para actualizaciones. La tabla~\ref{tab:volumen} muestra el resultado
+para las tablas que crecen con la operación; las demás son tablas
+maestras y de catálogo de pocos cientos de filas.
+
+{\singlespacing\small
+\begin{longtable}{L{3.4cm} >{\raggedleft\arraybackslash}p{1.4cm} >{\raggedleft\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{2.0cm} >{\raggedleft\arraybackslash}p{2.0cm}}
+\caption{Estimación del volumen de las tablas que crecen con la operación.}
+\label{tab:volumen}\\
+\toprule
+\textbf{Tabla} & \textbf{Bytes por fila} & \textbf{Filas año 1} & \textbf{Filas a 3 años} & \textbf{Datos a 3 años (MB)} & \textbf{Índices a 3 años (MB)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Tabla} & \textbf{Bytes por fila} & \textbf{Filas año 1} & \textbf{Filas a 3 años} & \textbf{Datos a 3 años (MB)} & \textbf{Índices a 3 años (MB)} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+evento\_envio & 144 & 1.674.000 & 6.382.125 & 987,2 & 685,6 \\
+envio & 234 & 270.000 & 1.029.375 & 258,7 & 137,4 \\
+prueba\_entrega & 198 & 270.000 & 1.029.375 & 218,9 & 49,0 \\
+destinatario & 136 & 162.000 & 617.625 & 90,2 & 32,2 \\
+asignacion\_despacho & 54 & 302.400 & 1.152.900 & 66,9 & 129,2 \\
+novedad & 348 & 32.400 & 123.525 & 46,2 & 8,5 \\
+solicitud\_recoleccion & 55 & 45.000 & 171.562 & 10,1 & 11,8 \\
+reclamacion & 567 & 2.700 & 10.294 & 6,3 & 0,9 \\
+despacho & 74 & 15.000 & 57.188 & 4,5 & 6,3 \\
+\midrule
+\textbf{Total (19 tablas)} & & & & \textbf{1689,3} & \textbf{1061,0} \\
+\end{longtable}
+\par}
+
+La base de datos del módulo ocupa unos 0,7 GB al final del primer
+año y 2,7 GB a los tres años, incluidos los índices. EVENTO\_ENVIO es
+la tabla más grande, porque cada envío deja varios eventos. Las
+fotografías y firmas de las pruebas de entrega (unos 200 KB cada una,
+cerca de 51 GB al año) se guardan en un almacenamiento de archivos
+aparte, y la base de datos solo conserva su ruta.
+
+\textbf{Copias de seguridad.} La base de datos trabaja en modo
+ARCHIVELOG, que conserva el registro de todos los cambios. Se hace una
+copia completa semanal y una incremental diaria con RMAN, la
+herramienta de copias de Oracle, y se copian los registros de cambios
+cada hora; las copias se guardan fuera del servidor durante 30 días.
+Con ello se puede recuperar la base de datos hasta la última hora de
+operación. Además, cada mes se exporta el esquema con Data Pump como
+respaldo lógico.
+
+\paragraph{Procesamiento (Centralizado o Distribuido)}
+
+El procesamiento también es \textbf{centralizado}, en una arquitectura
+cliente-servidor de tres niveles físicos. Los usuarios trabajan en
+aplicaciones cliente (web para el centro, la mesa de servicio y la
+gerencia; móvil para los mensajeros; portal para los clientes); estas
+se comunican con un servidor de aplicaciones que expone servicios web,
+y solo ese servidor se conecta a la base de datos. Dentro del servidor
+de aplicaciones, el software se organiza en capas lógicas (casos de
+uso, dominio y acceso a datos), como se justifica en la
+sección~\ref{sec:arquitectura}. Las reglas de negocio se verifican en
+la capa de dominio y, como garantía final, en la base de datos
+(restricciones, disparadores y procedimientos), así que se cumplen
+igual sin importar qué aplicación registre la operación.
+
+La carga es baja para un solo servidor. Con los supuestos anteriores,
+la operación genera unas 9.000 filas nuevas por día, la mayoría
+eventos; si el 20\,\% se concentra en la hora de mayor actividad, son
+menos de una inserción por segundo, con unos 35 usuarios internos
+conectados al tiempo más las consultas del portal. Como los mensajeros
+pueden quedarse sin señal en la ruta, la aplicación móvil guarda los
+registros en el teléfono y los envía al recuperar la conexión, con la
+hora real del evento.
+
+%-----------------------------------------------------------------------
+\subsubsection{Recursos Hardware, Software, Aplicaciones y BD, Comunicaciones, Ingeniería Web}
+
+\textbf{Hardware.} La tabla~\ref{tab:hardware} resume los equipos. Los
+servidores se contratan como máquinas virtuales en la nube, lo que evita
+comprar equipos para una empresa que apenas inicia y permite ampliarlos
+cuando crezca la operación.
+
+{\singlespacing\small
+\begin{longtable}{L{3.4cm} L{1.4cm} L{9.6cm}}
+\caption{Recursos de hardware.}
+\label{tab:hardware}\\
+\toprule
+\textbf{Recurso} & \textbf{Cant.} & \textbf{Características y uso} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Recurso} & \textbf{Cant.} & \textbf{Características y uso} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Servidor de base de datos & 1 & Máquina virtual con 2 núcleos, 8 GB de memoria y 100 GB de disco de estado sólido (base de datos, registros de cambios y copias locales). \\
+Servidor de aplicaciones & 1 & Máquina virtual con 2 núcleos y 4 GB de memoria; atiende las aplicaciones web, la móvil y el portal. \\
+Almacenamiento de archivos & 1 & Almacenamiento en la nube para fotografías y firmas de las pruebas de entrega y para las copias de seguridad (unos 51 GB al año más las copias). \\
+Computadores de escritorio & 10 & Puestos del personal del centro, la mesa de servicio y la gerencia. \\
+Teléfonos inteligentes & 25 & Uno por mensajero, con cámara, GPS y plan de datos, para la aplicación móvil. \\
+Lectores de código de barras & 3 & Lectura de la guía al recibir, clasificar y despachar los paquetes en el centro. \\
+Impresoras de etiquetas & 2 & Impresión de la etiqueta con el número de guía. \\
+Equipos de red & 1 & Enrutador con cortafuegos en el centro de distribución. \\
+\end{longtable}
+\par}
+
+\textbf{Software.} La tabla~\ref{tab:software} lista el software de la
+base de datos y del servidor.
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{4.6cm} L{6.2cm}}
+\caption{Recursos de software.}
+\label{tab:software}\\
+\toprule
+\textbf{Función} & \textbf{Software} & \textbf{Uso} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Función} & \textbf{Software} & \textbf{Uso} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Gestor de bases de datos & Oracle AI Database Free (después, Standard Edition 2) & Motor de la base de datos del módulo. \\
+Sistema operativo & Oracle Linux & Sistema de los dos servidores. \\
+Modelado & Oracle SQL Developer Data Modeler & Modelos conceptual, lógico y físico; diccionario de datos. \\
+Administración y consultas & Oracle SQL Developer & Creación de objetos, consultas, informes y administración. \\
+Servidor de aplicaciones & Aplicación propia con acceso a datos por JDBC & Implementa las capas de casos de uso, dominio y datos, y expone los servicios web que usan las aplicaciones (sección~\ref{sec:arquitectura}). \\
+Copias de seguridad & RMAN y Data Pump & Copias físicas y exportaciones lógicas; vienen con la base de datos. \\
+\end{longtable}
+\par}
+
+\textbf{Aplicaciones y base de datos.} Cada aplicación atiende a un grupo
+de usuarios y se conecta con el rol de ese grupo
+(tabla~\ref{tab:aplicaciones}). Las aplicaciones completas no forman parte del alcance del proyecto
+(sección~\ref{sec:modulo}); el prototipo funcional
+(sección~\ref{sec:prototipo}) demuestra sus funciones principales sobre
+la base de datos del módulo en una sola aplicación web, con una sección
+para cada grupo de usuarios y el portal público de rastreo.
+
+{\singlespacing\small
+\begin{longtable}{L{3.6cm} L{1.0cm} L{2.6cm} L{7.2cm}}
+\caption{Aplicaciones que usan la base de datos.}
+\label{tab:aplicaciones}\\
+\toprule
+\textbf{Aplicación} & \textbf{Usu.} & \textbf{Rol} & \textbf{Funciones principales} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Aplicación} & \textbf{Usu.} & \textbf{Rol} & \textbf{Funciones principales} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Aplicación de operación (web) & U2 & rol\_centro & Centros y zonas, recepción y clasificación, armado y cierre de despachos. \\
+Aplicación de mesa de servicio (web) & U3 & rol\_mesa & Solicitudes, registro de envíos, novedades, consultas y reclamaciones. \\
+Aplicación del mensajero (móvil) & U4 & rol\_mensajero & Planilla del día, recolecciones, eventos, pruebas de entrega con foto o firma y novedades; funciona sin conexión. \\
+Tablero de indicadores (web) & U1 & rol\_gerencia & Indicadores de cumplimiento, novedades y reclamaciones. \\
+Portal de seguimiento (web) & U9 & rol\_cliente & Consulta del estado y el recorrido de los envíos del cliente. \\
+\end{longtable}
+\par}
+
+\textbf{Comunicaciones.} El centro de distribución tiene una conexión a
+internet de fibra óptica y una conexión móvil de respaldo; los
+mensajeros usan los datos móviles del teléfono. Todo el tráfico entre
+las aplicaciones y el servidor de aplicaciones viaja cifrado (HTTPS). La
+base de datos no se expone a internet: está en una red privada a la que
+solo llegan el servidor de aplicaciones y, para administración, los
+equipos autorizados mediante una red privada virtual (VPN).
+
+\textbf{Ingeniería web.} Las aplicaciones web y el portal son
+adaptables a la pantalla (computador o teléfono) y consumen los
+servicios web del servidor de aplicaciones en formato JSON. Cada usuario
+inicia sesión con su cuenta, y la aplicación solo le muestra las
+opciones de su rol. El portal de clientes es la única parte pública:
+permite consultar un envío con su número de guía y, con inicio de
+sesión, todos los envíos del cliente. Los servicios registran quién
+hizo cada operación, lo que complementa el responsable que ya guarda
+cada evento del envío.
